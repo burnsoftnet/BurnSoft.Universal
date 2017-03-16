@@ -1,4 +1,4 @@
-# BSUniversal
+# BurnSoft.Universal
 The BurnSoft Universal is a library with a variety of subs and Functions to help simplify application and reduce the need to copy and paste code.  It’s more our Swiss Army Knife Library.
 <br/
 <br/>
