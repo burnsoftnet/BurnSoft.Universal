@@ -209,6 +209,33 @@ Public Class FileIO
         sAns = sFileVersionInfo.CompanyName
         Return sAns
     End Function
+    ''' <summary>
+    ''' Get the Createion date and time of the file that is passed
+    ''' </summary>
+    ''' <param name="sFile"></param>
+    ''' <returns>Date and Time</returns>
+    Public Function GetCreationDateTime(sFile As String) As String
+        Dim sAns As String = File.GetCreationTime(sFile).ToString
+        Return sAns
+    End Function
+    ''' <summary>
+    ''' Get the Last Access date and time fo the file that is being passed
+    ''' </summary>
+    ''' <param name="sFile"></param>
+    ''' <returns>Date and Time</returns>
+    Public Function GetLastAccessDateTime(sFile As String) As String
+        Dim sAns As String = File.GetLastAccessTime(sFile).ToString
+        Return sAns
+    End Function
+    ''' <summary>
+    ''' Get the last time the file was written to from the file that was being passed
+    ''' </summary>
+    ''' <param name="sFile"></param>
+    ''' <returns>Date and Time</returns>
+    Public Function GetLastWriteDateTime(sFile As String) As String
+        Dim sAns As String = File.GetLastWriteTime(sFile).ToString
+        Return sAns
+    End Function
 End Class
 Public Class FSInfo
     Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
