@@ -238,8 +238,10 @@ Public Class FileIO
     End Function
 End Class
 Public Class FSInfo
-    Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
-    Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
+    Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As StringBuilder, ByVal intBufferSize As Integer) As Integer
+    Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As StringBuilder, ByVal intBufferSize As Integer) As Integer
+    ' Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
+    'Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
 
     Public Enum DirectoryPathlength
         WindowsXP = 256
@@ -275,7 +277,7 @@ Public Class FSInfo
     ''' <param name="lpFreeBytesAvailableToCaller"></param>
     ''' <param name="lpTotalNumberOfBytes"></param>
     ''' <param name="lpTotalNumberOfFreeBytes"></param>
-    ''' <returns>Bytes as long</returns>
+    ''' <returns></returns>
     Private Declare Function GetDiskFreeSpaceEx _
            Lib "kernel32" _
            Alias "GetDiskFreeSpaceExA" _

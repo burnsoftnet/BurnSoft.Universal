@@ -235,11 +235,11 @@ Public Class BSProcessInfo
 
     ''' <summary>
     ''' Check to see if a process exists by name, Optionally get the PID and Process Count for the result(s)
-    ''' </summary>\
-    ''' <param name="sProcessName"></param>
+    ''' </summary>
+    ''' <param name="ProcessName"></param>
     ''' <param name="PID"></param>
     ''' <param name="ProcessCount"></param>
-    ''' <returns>true/false</returns>
+    ''' <returns></returns>
     Public Function ProcessExists(ProcessName As String, Optional ByRef PID As String = "", Optional ByRef ProcessCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name like '" &
@@ -256,11 +256,11 @@ Public Class BSProcessInfo
     ''' <summary>
     ''' Check to see if a process exists by name and what might be in the commandline parameters, Optionally get the PID and Process Count for the result(s)
     ''' </summary>
-    ''' <param name="sProcessName"></param>
+    ''' <param name="ProcessName"></param>
     ''' <param name="CommandLineContains"></param>
     ''' <param name="PID"></param>
     ''' <param name="ProcessCount"></param>
-    ''' <returns>true/false</returns>
+    ''' <returns></returns>
     Public Function ProcessExists(ProcessName As String, CommandLineContains As String, Optional ByRef PID As String = "", Optional ByRef ProcessCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name like '" &
@@ -304,6 +304,14 @@ Public Class BSProcessInfo
         o.Close()
         Return sAns
     End Function
+    ''' <summary>
+    ''' Get the Process CPU Time via the Performance Counter
+    ''' </summary>
+    ''' <param name="ProcessName"></param>
+    ''' <param name="TIMER_INTERVAL"></param>
+    ''' <param name="OldValue"></param>
+    ''' <param name="NewValue"></param>
+    ''' <returns></returns>
     Public Function GetProcessCPUTime(ProcessName As String, TIMER_INTERVAL As Long, OldValue As Double, ByRef NewValue As Double) As String
         Dim sAns As String = ""
         Dim o As New System.Diagnostics.PerformanceCounter("Process", "% Processor Time", ProcessName)
@@ -312,14 +320,19 @@ Public Class BSProcessInfo
             NewValue = o.RawValue
         Else
             NewValue = o.RawValue
-            'Dim cpu As Double = (NewValue - OldValue) / Environment.ProcessorCount
             Dim cpu As Double = (((NewValue - OldValue) / TIMER_INTERVAL) / Environment.ProcessorCount) / 100
             sAns = FormatNumber(cpu, 2)
         End If
         o.Close()
-        'sAns &= sAns & " %"
         Return sAns
     End Function
+    ''' <summary>
+    ''' Get the Process Starting, first getProcessCPUtime is to initialize, the second is the time that is returned
+    ''' </summary>
+    ''' <param name="ProcessName"></param>
+    ''' <param name="TIMER_INTERVAL"></param>
+    ''' <param name="NewValue"></param>
+    ''' <returns></returns>
     Public Function GetCPUProcessStarting(ProcessName As String, TIMER_INTERVAL As Long, ByRef NewValue As Double) As String
         Dim sAns As String = ""
         Call GetProcessCPUTime(ProcessName, TIMER_INTERVAL, 0, NewValue)

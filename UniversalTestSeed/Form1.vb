@@ -2,11 +2,6 @@
 Public Class Form1
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'Dim Obj As New BSSystemInfo
-        'Dim sValue As String = Obj.GetPhysicalMemory
-        'Dim cValue As String = Obj.GetCPUName
-        'Dim dValue As String = Obj.GetCPUDescription
-
         txtDevice.Text = "localhost"
         txtport.Text = "80"
         cmbProto.Text = "TCP"
