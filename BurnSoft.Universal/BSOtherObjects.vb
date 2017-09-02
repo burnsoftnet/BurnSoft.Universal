@@ -299,7 +299,7 @@ Public Class BSOtherObjects
     ''' <param name="Switch"></param>
     ''' <returns></returns>
     Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False, Optional ByRef Switch As String = "/") As Boolean
-        Dim bAns As Long = bDefault
+        Dim bAns As Boolean = bDefault
         DidExist = False
         Dim cmdLine() As String = System.Environment.GetCommandLineArgs
         Dim i As Integer = 0
