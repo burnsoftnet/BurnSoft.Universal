@@ -1,4 +1,8 @@
-﻿Imports System.Text.RegularExpressions
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.Text.RegularExpressions
 Imports System.Net.Mail
 Imports System.Threading
 Imports System.Xml

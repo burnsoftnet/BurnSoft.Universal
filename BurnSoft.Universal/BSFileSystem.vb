@@ -1,4 +1,8 @@
-﻿Imports System.IO
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.IO
 Imports System.Text
 Public Class FileIO
     ''' <summary>

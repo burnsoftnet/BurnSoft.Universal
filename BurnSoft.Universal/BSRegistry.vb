@@ -1,7 +1,7 @@
-﻿Imports System
-Imports System.IO
-Imports System.Text
-Imports System.Windows.Forms
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
 Imports Microsoft.Win32
 Public Class BSRegistry
     Private _RegPath As String

@@ -1,4 +1,8 @@
-﻿Imports System
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System
 Imports System.Windows.Forms
 Imports System.DirectoryServices
 Imports System.DirectoryServices.AccountManagement

@@ -1,4 +1,8 @@
-﻿Imports System.Text
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.Text
 Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions

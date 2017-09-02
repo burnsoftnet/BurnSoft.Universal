@@ -1,4 +1,8 @@
-﻿Public Class BSDateTime
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Public Class BSDateTime
     '''<summary>
     ''' Checks to see if the data that is passed is greater than or less then the current time
     ''' if not current then it is true

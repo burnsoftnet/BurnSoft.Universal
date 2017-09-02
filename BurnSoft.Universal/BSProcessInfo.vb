@@ -1,4 +1,8 @@
-﻿Imports System.Management
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.Management
 Public Class BSProcessInfo
     ''' <summary>
     ''' Simple WMI Call just pass the Object then the desciption of the object to look for

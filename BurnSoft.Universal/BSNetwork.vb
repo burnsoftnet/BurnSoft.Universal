@@ -1,4 +1,8 @@
-﻿Imports System.Net
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.Net
 Imports System.Net.NetworkInformation
 Public Class BSNetwork
     Public Sub New()

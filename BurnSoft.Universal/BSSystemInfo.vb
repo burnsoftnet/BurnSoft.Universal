@@ -1,4 +1,8 @@
-﻿Imports System.Management
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Imports System.Management
 Imports System.Windows.Forms
 Public Class BSSystemInfo
     ''' <summary>

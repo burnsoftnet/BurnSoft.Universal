@@ -1,4 +1,8 @@
-﻿Public Class BSMath
+﻿'-------------------------------------------
+' Created By BurnSoft
+' www.burnsoft.net
+'-------------------------------------------
+Public Class BSMath
     ''' <summary>
     ''' Function Used for Out of 100 Calculations
     ''' its more of a reverse round, where 0.270 would be 1 and 99.678 would be 99
