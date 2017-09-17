@@ -219,6 +219,27 @@ Public Class BSOtherObjects
         Return sAns
     End Function
     ''' <summary>
+    ''' Loop Through one of the Values passed in the command arguments and count the first non alphabetical 
+    ''' characters as the switch parameter that needs to be filtered out.
+    ''' </summary>
+    ''' <param name="sValue">Command Parameter</param>
+    ''' <returns>String of non Alphabetical Characters</returns>
+    Private Function detectSwitch(sValue As String) As String
+        Dim sAns As String = ""
+        For Each c As Char In sValue
+            If Not Char.IsLetter(c) Then
+                If sAns.Equals("") Then
+                    sAns = c.ToString
+                Else
+                    sAns &= c.ToString
+                End If
+            Else
+                Exit For
+            End If
+        Next
+        Return sAns
+    End Function
+    ''' <summary>
     ''' The Get Command will looks for Command Line Arguments, this on will return as string
     ''' the switch will be something like /mystring="this is fun"
     ''' if it is just /mystring then it will return what is set in the sDefault string.
@@ -226,18 +247,19 @@ Public Class BSOtherObjects
     ''' <param name="strLookFor"></param>
     ''' <param name="sDefault"></param>
     ''' <param name="DidExist"></param>
-    ''' <param name="Switch"></param>
     ''' <returns></returns>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef DidExist As Boolean = False, Optional ByRef Switch As String = "/") As String
+    Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef DidExist As Boolean = False) As String
         Dim sAns As String = ""
         DidExist = False
         Dim cmdLine() As String = System.Environment.GetCommandLineArgs
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
+        Dim Switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
+                Switch = detectSwitch(strValue)
                 strValue = Replace(strValue, Switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
@@ -263,18 +285,19 @@ Public Class BSOtherObjects
     ''' <param name="strLookFor"></param>
     ''' <param name="lDefault"></param>
     ''' <param name="DidExist"></param>
-    ''' <param name="Switch"></param>
     ''' <returns></returns>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef DidExist As Boolean = False, Optional ByRef Switch As String = "/") As Long
+    Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef DidExist As Boolean = False) As Long
         Dim lAns As Long = 0
         DidExist = False
         Dim cmdLine() As String = System.Environment.GetCommandLineArgs
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
+        Dim Switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
+                Switch = detectSwitch(strValue)
                 strValue = Replace(strValue, Switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
@@ -300,18 +323,19 @@ Public Class BSOtherObjects
     ''' <param name="strLookFor"></param>
     ''' <param name="bDefault"></param>
     ''' <param name="DidExist"></param>
-    ''' <param name="Switch"></param>
     ''' <returns></returns>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False, Optional ByRef Switch As String = "/") As Boolean
+    Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False) As Boolean
         Dim bAns As Boolean = bDefault
         DidExist = False
         Dim cmdLine() As String = System.Environment.GetCommandLineArgs
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
+        Dim Switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
+                Switch = detectSwitch(strValue)
                 strValue = Replace(strValue, Switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
