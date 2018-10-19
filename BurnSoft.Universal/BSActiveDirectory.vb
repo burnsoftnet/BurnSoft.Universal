@@ -80,7 +80,7 @@ Public Class BSActiveDirectory
         LOGIN_USER_DOESNT_EXIST
         LOGIN_USER_ACCOUNT_INACTIVE
     End Enum
-
+    ''' <summary>Enumerator for Security Group Type</summary>
     Public Enum GroupSecurityType
         UNI_GROUP = 0
         LOCAL_GROUP = 1
