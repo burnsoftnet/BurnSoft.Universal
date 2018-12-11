@@ -26,7 +26,7 @@ Public Class BSProcessInfo
     ''' <param name="sObject">The s object.</param>
     ''' <returns>System.String.</returns>
     Private Function GetProcessInfoByPID(pid As String, sObject As String, Optional ByRef errMsg As String = "") As String
-        Dim sAns As String = ""
+        Dim sAns As String = "N/A"
         Try
             Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE ProcessId=" & pid)
 
@@ -86,24 +86,24 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>datetime as string</returns>
-    Public Function GetProcessCreationDate(pid As String) As String
-        Return GetProcessInfoByPID(pid, "CreationDate")
+    Public Function GetProcessCreationDate(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "CreationDate", errMsg)
     End Function
     ''' <summary>
     ''' Get the Description for a particular Process by PID
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Description of an object.</returns>
-    Public Function GetProcessDescription(pid As String) As String
-        Return GetProcessInfoByPID(pid, "Description")
+    Public Function GetProcessDescription(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "Description", errMsg)
     End Function
     ''' <summary>
     ''' Get the ExecutablePath for a particular Process by PID
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Path to the executable file of the process.</return>
-    Public Function GetProcessExecutablePath(pid As String) As String
-        Return GetProcessInfoByPID(pid, "ExecutablePath")
+    Public Function GetProcessExecutablePath(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "ExecutablePath", errMsg)
     End Function
     ''' <summary>
     ''' Get the ExecutionState for a particular Process by PID
@@ -120,8 +120,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Current operating condition of the process</return>
-    Public Function GetProcessExecutionState(pid As String) As String
-        Return GetProcessInfoByPID(pid, "ExecutionState")
+    Public Function GetProcessExecutionState(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "ExecutionState", errMsg)
     End Function
     ''' <summary>
     ''' Get the PageFaults for a particular Process by PID
