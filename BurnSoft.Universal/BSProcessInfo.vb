@@ -318,20 +318,21 @@ Public Class BSProcessInfo
     ''' <summary>
     ''' Get the Process CPU Time via the Performance Counter
     ''' </summary>
-    ''' <param name="ProcessName"></param>
-    ''' <param name="TIMER_INTERVAL"></param>
-    ''' <param name="OldValue"></param>
-    ''' <param name="NewValue"></param>
+    ''' <param name="processName"></param>
+    ''' <param name="timerInterval"></param>
+    ''' <param name="oldValue"></param>
+    ''' <param name="newValue"></param>
     ''' <returns></returns>
-    Public Function GetProcessCpuTime(ProcessName As String, TIMER_INTERVAL As Long, OldValue As Double, ByRef NewValue As Double) As String
+    Public Function GetProcessCpuTime(processName As String, timerInterval As Long, oldValue As Double, ByRef newValue As Double) As String
         Dim sAns As String = ""
         Dim o As New System.Diagnostics.PerformanceCounter("Process", "% Processor Time", ProcessName)
-        If OldValue = 0 Then
+' ReSharper disable once CompareOfFloatsByEqualityOperator
+        If (OldValue = 0) Then
             sAns = "0"
             NewValue = o.RawValue
         Else
             NewValue = o.RawValue
-            Dim cpu As Double = (((NewValue - OldValue) / TIMER_INTERVAL) / Environment.ProcessorCount) / 100
+            Dim cpu As Double = (((NewValue - OldValue) / timerInterval) / Environment.ProcessorCount) / 100
             sAns = FormatNumber(cpu, 2)
         End If
         o.Close()
@@ -340,14 +341,14 @@ Public Class BSProcessInfo
     ''' <summary>
     ''' Get the Process Starting, first getProcessCPUtime is to initialize, the second is the time that is returned
     ''' </summary>
-    ''' <param name="ProcessName"></param>
-    ''' <param name="TIMER_INTERVAL"></param>
-    ''' <param name="NewValue"></param>
+    ''' <param name="processName"></param>
+    ''' <param name="timerInterval"></param>
+    ''' <param name="newValue"></param>
     ''' <returns></returns>
-    Public Function GetCPUProcessStarting(ProcessName As String, TIMER_INTERVAL As Long, ByRef NewValue As Double) As String
+    Public Function GetCpuProcessStarting(processName As String, timerInterval As Long, ByRef newValue As Double) As String
         Dim sAns As String = ""
-        Call GetProcessCPUTime(ProcessName, TIMER_INTERVAL, 0, NewValue)
-        sAns = GetProcessCPUTime(ProcessName, TIMER_INTERVAL, NewValue, NewValue)
+        Call GetProcessCPUTime(ProcessName, timerInterval, 0, NewValue)
+        sAns = GetProcessCPUTime(ProcessName, timerInterval, NewValue, NewValue)
         Return sAns
     End Function
 End Class
