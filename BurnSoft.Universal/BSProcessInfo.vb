@@ -25,13 +25,17 @@ Public Class BSProcessInfo
     ''' <param name="pid">The pid.</param>
     ''' <param name="sObject">The s object.</param>
     ''' <returns>System.String.</returns>
-    Private Function GetProcessInfoByPID(pid As String, sObject As String) As String
+    Private Function GetProcessInfoByPID(pid As String, sObject As String, Optional ByRef errMsg As String = "") As String
         Dim sAns As String = ""
-        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE ProcessId=" & pid)
+        Try
+            Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE ProcessId=" & pid)
 
-        For Each process As ManagementObject In searcher.Get()
-            sAns = process(sObject)
-        Next
+            For Each process As ManagementObject In searcher.Get()
+                sAns = process(sObject)
+            Next
+        Catch ex As Exception
+            errMsg = ex.Message
+        End Try
         Return sAns
     End Function
     ''' <summary>
@@ -39,24 +43,24 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Count</returns>
-    Public Function GetProccessHandleCount(pid As String) As String
-        Return GetProcessInfoByPID(pid, "HandleCount")
+    Public Function GetProccessHandleCount(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "HandleCount", errMsg)
     End Function
     ''' <summary>
     ''' Get the ThreadCount for a particular Process by PID
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Count</returns>
-    Public Function GetProcessThreadCount(pid As String) As String
-        Return GetProcessInfoByPID(pid, "ThreadCount")
+    Public Function GetProcessThreadCount(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "ThreadCount", errMsg)
     End Function
     ''' <summary>
     ''' Get the TerminationDate for a particular Process by PID
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Termination Date</returns>
-    Public Function GetProcessTerminationDate(pid As String) As String
-        Return GetProcessInfoByPID(pid, "TerminationDate")
+    Public Function GetProcessTerminationDate(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "TerminationDate", errMsg)
     End Function
     ''' <summary>
     ''' Get the Caption for a particular Process by PID
@@ -64,8 +68,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>string</returns>
-    Public Function GetProcessCaption(pid As String) As String
-        Return GetProcessInfoByPID(pid, "Caption")
+    Public Function GetProcessCaption(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "Caption", errMsg)
     End Function
     ''' <summary>
     ''' Get the CommandLine for a particular Process by PID
@@ -73,8 +77,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>string</returns>
-    Public Function GetProcessCommandLine(pid As String) As String
-        Return GetProcessInfoByPID(pid, "CommandLine")
+    Public Function GetProcessCommandLine(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "CommandLine", errMsg)
     End Function
     ''' <summary>
     ''' Get the CreationDate for a particular Process by PID
