@@ -5,6 +5,7 @@
 Imports System.Management
 ' ReSharper disable once InconsistentNaming
 Public Class BSProcessInfo
+    ' ReSharper disable UnusedMember.Local
     ''' <summary>
     ''' Simple WMI Call just pass the Object then the desciption of the object to look for
     ''' </summary>
@@ -12,10 +13,10 @@ Public Class BSProcessInfo
     ''' <param name="sValue"></param>
     ''' <returns>value</returns>
     Private Function GetManagementObject(sObject As String, sValue As String) As String
-        Dim Obj As ManagementObject = New ManagementObject(sObject)
-        Dim sAns As String = CStr(Obj(sValue))
-        Obj.Dispose()
-        Obj = Nothing
+
+        Dim obj As ManagementObject = New ManagementObject(sObject)
+        Dim sAns As String = CStr(obj(sValue))
+        obj.Dispose()
         Return sAns
     End Function
     ''' <summary>
@@ -31,7 +32,6 @@ Public Class BSProcessInfo
         For Each process As ManagementObject In searcher.Get()
             sAns = process(sObject)
         Next
-        searcher = Nothing
         Return sAns
     End Function
     ''' <summary>
@@ -261,7 +261,7 @@ Public Class BSProcessInfo
             ProcessCount += 1
             pid &= process("ProcessId")
         Next
-        searcher = Nothing
+
         Return bAns
     End Function
     ''' <summary>
@@ -283,7 +283,6 @@ Public Class BSProcessInfo
             processCount += 1
             pid &= process("ProcessId")
         Next
-        searcher = Nothing
         Return bAns
     End Function
     ''' <summary>
@@ -299,7 +298,6 @@ Public Class BSProcessInfo
         If p.Count > 0 Then
             bAns = True
         End If
-        p = Nothing
         Return bAns
     End Function
     ''' <summary>
@@ -309,8 +307,8 @@ Public Class BSProcessInfo
     ''' <param name="processName"></param>
     ''' <returns>memory in bytes</returns>
     Public Function GetProcessMemoryUseage(processName As String) As String
-        Dim sAns As String = ""
-        Dim o As New System.Diagnostics.PerformanceCounter("Process", "Working Set - Private", processName)
+        Dim sAns As String
+        Dim o As New PerformanceCounter("Process", "Working Set - Private", processName)
         sAns = o.RawValue
         o.Close()
         Return sAns
@@ -324,8 +322,8 @@ Public Class BSProcessInfo
     ''' <param name="newValue"></param>
     ''' <returns></returns>
     Public Function GetProcessCpuTime(processName As String, timerInterval As Long, oldValue As Double, ByRef newValue As Double) As String
-        Dim sAns As String = ""
-        Dim o As New System.Diagnostics.PerformanceCounter("Process", "% Processor Time", ProcessName)
+        Dim sAns As String
+        Dim o As New PerformanceCounter("Process", "% Processor Time", ProcessName)
 ' ReSharper disable once CompareOfFloatsByEqualityOperator
         If (OldValue = 0) Then
             sAns = "0"
@@ -346,7 +344,7 @@ Public Class BSProcessInfo
     ''' <param name="newValue"></param>
     ''' <returns></returns>
     Public Function GetCpuProcessStarting(processName As String, timerInterval As Long, ByRef newValue As Double) As String
-        Dim sAns As String = ""
+        Dim sAns As String
         Call GetProcessCPUTime(ProcessName, timerInterval, 0, NewValue)
         sAns = GetProcessCPUTime(ProcessName, timerInterval, NewValue, NewValue)
         Return sAns
