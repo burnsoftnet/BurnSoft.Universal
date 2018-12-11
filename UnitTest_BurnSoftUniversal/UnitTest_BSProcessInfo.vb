@@ -63,6 +63,15 @@ Imports BurnSoft.Universal
         Dim value as String = obj.GetProcessExecutablePath(pid, errOut)
         General.HasValue(value, errOut)
     End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessExecutionState()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessExecutionState(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+
     '<TestMethod()> Public Sub TestMethod_()
     'Dim obj As BSProcessInfo = New BSProcessInfo()
     'End Sub
