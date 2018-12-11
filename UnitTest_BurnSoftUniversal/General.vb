@@ -2,6 +2,10 @@
 <TestClass()> Public Class General
     Public Shared Sub HasValue(sValue As String,Optional errMsg As String = "")
         Dim didPass As Boolean = false
+        If not IsDBNull(errMsg) then 
+            errMsg = ""
+        End If
+        
         If (errMsg.Length > 0)
             Debug.Print("ERROR!!")
             Debug.Print(errMsg)
