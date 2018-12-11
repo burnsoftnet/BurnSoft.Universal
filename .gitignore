@@ -27,3 +27,6 @@ UniversalTestSeed/obj/x86/Release/TempPE/*.*
 BurnSoft.Universal/obj/Debug/TempPE/*.*
 BurnSoft.Universal/obj/Release/TempPE/*.*
 BurnSoft.Universal/bin/Debug/*.*
+UnitTest_BurnSoftUniversal/bin/
+UnitTest_BurnSoftUniversal/obj/
+.vs/BurnSoft.Universal/v15/Server/

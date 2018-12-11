@@ -4,7 +4,9 @@
 '-------------------------------------------
 Imports System.Management
 Imports System.Windows.Forms
+' ReSharper disable InconsistentNaming
 Public Class BSSystemInfo
+' ReSharper restore InconsistentNaming
     ''' <summary>
     ''' Returns the Physical memory of the machine broken down to kb, mb, gb, or tb
     ''' </summary>
@@ -16,27 +18,27 @@ Public Class BSSystemInfo
     ''' Gets the Current Clock Speed in MegaHertz, By Default it is looking as CPU 0 by Can be changed if
     ''' if needed by adding a value to the CPUID
     ''' </summary>
-    ''' <param name="CPUID"></param>
+    ''' <param name="cpuid"></param>
     ''' <returns>Speed in Megahertz</returns>
-    Public Function GetCPUSpeed(Optional ByVal CPUID As Integer = 0) As Long
+    Public Function GetCpuSpeed(Optional ByVal cpuid As Integer = 0) As Long
         Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "CurrentClockSpeed")
     End Function
     ''' <summary>
     ''' Gets the CPU Description, 
     ''' EXAMPLE: Intel64 Family 6 Model 58 Stepping 9
     ''' </summary>
-    ''' <param name="CPUID"></param>
+    ''' <param name="cpuid"></param>
     ''' <returns>descriptoion</returns>
-    Public Function GetCPUDescription(Optional ByVal CPUID As Integer = 0) As String
+    Public Function GetCpuDescription(Optional ByVal cpuid As Integer = 0) As String
         Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "Description")
     End Function
     ''' <summary>
     ''' Gets the Full CPU Name with Processor speed, 
     ''' Example: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
     ''' </summary>
-    ''' <param name="CPUID"></param>
+    ''' <param name="cpuid"></param>
     ''' <returns>name</returns>
-    Public Function GetCPUName(Optional ByVal CPUID As Integer = 0) As String
+    Public Function GetCpuName(Optional ByVal cpuid As Integer = 0) As String
         Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "Name")
     End Function
     ''' <summary>
@@ -44,13 +46,15 @@ Public Class BSSystemInfo
     ''' </summary>
     ''' <returns></returns>
     Public Function GetUserName() As String
-        Dim sAns As String = ""
+        Dim sAns As String = "NO USER FOUND"
         Dim sSplit() = Split(My.User.Name, "\")
         Dim iBound As Integer = UBound(sSplit)
         If iBound >= 1 Then
             sAns = sSplit(iBound)
         Else
-            sAns = My.User.Name
+            If My.User.Name.Length > 0 Then
+                sAns = My.User.Name
+            End If
         End If
         Return sAns
     End Function
@@ -89,19 +93,30 @@ Public Class BSSystemInfo
     ''' <param name="sValue"></param>
     ''' <returns>value</returns>
     Private Function GetManagementObject(sObject As String, sValue As String) As String
-        Dim Obj As ManagementObject = New ManagementObject(sObject)
-        Dim sAns As String = CStr(Obj(sValue))
-        Obj.Dispose()
-        Obj = Nothing
+        Dim obj As ManagementObject = New ManagementObject(sObject)
+        Dim sAns As String = CStr(obj(sValue))
+        obj.Dispose()
+        obj = Nothing
         Return sAns
     End Function
-    Public Function ProcessExists(sProcessName As String, CommandLineContains As String, Optional ByRef PID As String = "", Optional ByRef ProcessCount As Integer = 0) As Boolean
+    ''' <summary>
+    ''' Processes the exists.
+    ''' </summary>
+    ''' <param name="sProcessName">Name of the s process.</param>
+    ''' <param name="commandLineContains">The command line contains.</param>
+    ''' <param name="PID">The pid.</param>
+    ''' <param name="processCount">The process count.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    Public Function ProcessExists(sProcessName As String, commandLineContains As String, Optional ByRef PID As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
-        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='" &
-                                                     sProcessName & "' and CommandLine Like '%" &
-                                                     CommandLineContains & "%'")
-
+        'Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='" &
+         '                                            sProcessName & "' and CommandLine Like '%" & CommandLineContains & "%'")
+        Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='%" & sProcessName & "%'")
+        'TOFIX:  This is not working as designed
+        Dim commandLine as String =""
         For Each process As ManagementObject In searcher.Get()
+            commandLine = process("CommandLine")
+            Debug.Print(commandLine)
             bAns = True
             ProcessCount += 1
             PID &= process("ProcessId")
@@ -114,7 +129,7 @@ Public Class BSSystemInfo
     ''' </summary>
     ''' <param name="sProcessName"></param>
     ''' <returns></returns>
-    Public Function ProcessExists(sProcessName As String, Optional ByRef ProcessCount As Integer = 0) As Boolean
+    Public Function ProcessExists(sProcessName As String, Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim p() As Process
         p = Process.GetProcessesByName(sProcessName)
@@ -132,19 +147,19 @@ Public Class BSSystemInfo
     ''' <returns>KB, MB, GB, or TB</returns>
     Private Function TranslateMemory(lValue As Long) As String
         Dim sAns As String = ""
-        Dim KiloBytes As Double = FormatNumber((lValue / 1024), 2)
-        Dim MegaBytes As Double = FormatNumber((KiloBytes / 1024), 2)
-        Dim GigaBytes As Double = FormatNumber((MegaBytes / 1024), 2)
-        Dim TeraBytes As Double = FormatNumber((GigaBytes / 1024), 2)
+        Dim kiloBytes As Double = FormatNumber((lValue / 1024), 2)
+        Dim megaBytes As Double = FormatNumber((kiloBytes / 1024), 2)
+        Dim gigaBytes As Double = FormatNumber((megaBytes / 1024), 2)
+        Dim teraBytes As Double = FormatNumber((gigaBytes / 1024), 2)
 
-        If CInt(TeraBytes) <> 0 Then
-            sAns = TeraBytes & " TB"
-        ElseIf CInt(GigaBytes) <> 0 Then
-            sAns = GigaBytes & " GB"
-        ElseIf CInt(MegaBytes) <> 0 Then
-            sAns = MegaBytes & " MB"
-        ElseIf CInt(KiloBytes) <> 0 Then
-            sAns = KiloBytes & " KB"
+        If CInt(teraBytes) <> 0 Then
+            sAns = teraBytes & " TB"
+        ElseIf CInt(gigaBytes) <> 0 Then
+            sAns = gigaBytes & " GB"
+        ElseIf CInt(megaBytes) <> 0 Then
+            sAns = megaBytes & " MB"
+        ElseIf CInt(kiloBytes) <> 0 Then
+            sAns = kiloBytes & " KB"
         End If
 
         Return sAns
@@ -154,7 +169,7 @@ Public Class BSSystemInfo
     ''' </summary>
     ''' <param name="lValue"></param>
     ''' <returns>Khz, Mhz, Ghz, Thz</returns>
-    Private Function TranslateCPUSpeed(lValue As Long) As String
+    Private Function TranslateCpuSpeed(lValue As Long) As String
         Dim sAns As String = ""
         Dim kilohertz As Double = FormatNumber((lValue / 1024), 2)
         Dim megaHertz As Double = FormatNumber((kilohertz / 1024), 2)
