@@ -107,6 +107,7 @@ Public Class BSSystemInfo
     ''' <param name="PID">The pid.</param>
     ''' <param name="processCount">The process count.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    <Obsolete("Function Replaced By BSProcessInfo.ProcessExists")>
     Public Function ProcessExists(sProcessName As String, commandLineContains As String, Optional ByRef PID As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         'Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='" &
@@ -129,6 +130,7 @@ Public Class BSSystemInfo
     ''' </summary>
     ''' <param name="sProcessName"></param>
     ''' <returns></returns>
+    <Obsolete("Function Replaced By BSProcessInfo.ProcessExists")>
     Public Function ProcessExists(sProcessName As String, Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim p() As Process
