@@ -398,6 +398,11 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()  <br/>
+    ''' Dim processCount As Integer = 0  <br/>
+    ''' Dim didPass As Boolean = obj.ProcessExists(Settings.ProcessName,pid, processCount)  <br/>
+    ''' Debug.Print("Using PID {0}", pid)  <br/>
+    ''' Debug.Print("Process Count: {0}", processCount)  <br/>
     ''' </example>
     Public Function ProcessExists(processName As String, Optional ByRef pid As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
@@ -423,6 +428,11 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()  <br/>
+    ''' Dim processCount As Integer = 0  <br/>
+    ''' Dim didPass As Boolean = obj.ProcessExists(Settings.ProcessName,Settings.CommandLineSearch,pid, processCount)  <br/>
+    ''' Debug.Print("Using PID {0}", pid)  <br/>
+    ''' Debug.Print("Process Count: {0}", processCount)  <br/>
     ''' </example>
     Public Function ProcessExists(processName As String, commandLineContains As String, Optional ByRef pid As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
@@ -445,6 +455,10 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()
+    ''' Dim processCount As Integer = 0
+    ''' Dim didPass As Boolean = obj.ExactProcessExists(Settings.ProcessName, processCount)
+    ''' Debug.Print("Process Count: {0}", processCount)
     ''' </example>
     Public Function ExactProcessExists(sProcessName As String, Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
@@ -465,6 +479,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()  <br/>
+    ''' Debug.Print("Using Process {0}", Settings.ProcessName)  <br/>
+    ''' Dim value as String = obj.GetProcessMemoryUseage(Settings.ProcessName)  <br/>
     ''' </example>
     Public Function GetProcessMemoryUseage(processName As String) As String
         Dim sAns As String
