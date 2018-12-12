@@ -24,7 +24,6 @@ Imports BurnSoft.Universal
         General.HasValue(didPass, errOut)
     End Sub
     <TestMethod()> Public Sub TestMethod_GetRegSubKeyValue()
-        'TODO Need to finish
         Dim errOut As String = ""
         Dim obj As BSRegistry = New BSRegistry()
         Dim value As string = obj.GetRegSubKeyValue(Settings.RegSubkey, Settings.RegSubkeyName,"")

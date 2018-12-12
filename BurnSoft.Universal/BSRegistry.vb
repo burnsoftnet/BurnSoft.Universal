@@ -17,7 +17,8 @@ Public Class BSRegistry
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' 
+    ''' Dim obj As BSRegistry = New BSRegistry()<br/>
+    ''' Dim value as String = obj.DefaultRegPath<br/>
     ''' </example>
     Public Property DefaultRegPath() As String
         Get
@@ -90,9 +91,9 @@ Public Class BSRegistry
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' Dim errOut As String = ""
-    ''' Dim obj As BSRegistry = New BSRegistry()
-    ''' obj.CreateSubKey(Settings.RegSubkey, errOut)
+    ''' Dim errOut As String = ""<br/>
+    ''' Dim obj As BSRegistry = New BSRegistry()<br/>
+    ''' obj.CreateSubKey(Settings.RegSubkey, errOut)<br/>
     ''' </example>
     Public Sub CreateSubKey(ByVal strValue As String, Optional ByRef errMsg As String = "")
         Try
@@ -109,9 +110,9 @@ Public Class BSRegistry
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' Dim errOut As String = ""
-    ''' Dim obj As BSRegistry = New BSRegistry()
-    ''' Dim didPass As Boolean = obj.RegSubKeyExists(Settings.RegSubkey, errOut)
+    ''' Dim errOut As String = ""<br/>
+    ''' Dim obj As BSRegistry = New BSRegistry()<br/>
+    ''' Dim didPass As Boolean = obj.RegSubKeyExists(Settings.RegSubkey, errOut)<br/>
     ''' </example>
     Public Function RegSubKeyExists(ByVal strValue As String, Optional ByRef errMsg As String = "") As Boolean
         Dim bAns As Boolean = False
@@ -141,7 +142,10 @@ Public Class BSRegistry
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' 
+    ''' Dim errOut As String = ""
+    ''' Dim obj As BSRegistry = New BSRegistry() <br/>
+    ''' Dim didPass As Boolean = obj.SetRegSubKeyValue(Settings.RegSubkey,Settings.RegSubkeyName,Settings.RegSubkeyValue,"", errOut) <br/>
+    ''' Debug.Print("Wrote value {0} to HCLM\{1}\{2}", obj.GetRegSubKeyValue(Settings.RegSubkey, Settings.RegSubkeyName,""), Settings.RegSubkey, Settings.RegSubkeyName) <br/>
     ''' </example>
     Public Function SetRegSubKeyValue(ByVal regPath As String, ByVal sKey As String, ByVal sValue As String, ByVal sDefault As string, Optional ByRef errOut As String = "" ) As Boolean
         Dim bAns as Boolean = False
@@ -167,7 +171,9 @@ Public Class BSRegistry
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' 
+    ''' Dim errOut As String = "" <br/>
+    ''' Dim obj As BSRegistry = New BSRegistry() <br/>
+    ''' Dim value As string = obj.GetRegSubKeyValue(Settings.RegSubkey, Settings.RegSubkeyName,"") <br/>
     ''' </example>
     Public Function GetRegSubKeyValue(ByVal strKey As String, ByVal strValue As String, ByVal strDefault As String) As String
         Dim sAns As String = ""
