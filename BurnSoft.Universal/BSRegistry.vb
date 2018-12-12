@@ -4,6 +4,9 @@
 '-------------------------------------------
 Imports Microsoft.Win32
 ' ReSharper disable once InconsistentNaming
+''' <summary>
+''' Class BSRegistry.  Class Containing functions used to read write or manage the windows registry.  Mostly for Current User
+''' </summary>
 Public Class BSRegistry
 ' ReSharper disable once InconsistentNaming
     Private _RegPath As String
@@ -11,6 +14,11 @@ Public Class BSRegistry
     ''' Set the Default registry path
     ''' </summary>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Property DefaultRegPath() As String
         Get
             If Len(_RegPath) = 0 Then _RegPath = "Software\\BurnSoft\\"
@@ -25,6 +33,11 @@ Public Class BSRegistry
     ''' </summary>
     ''' <param name="sKey"></param>
     ''' <returns>collection</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Function Enum_Registry_Entries(sKey As String) As Collection
         Dim colKey As New Collection()
 
@@ -47,6 +60,11 @@ Public Class BSRegistry
     ''' <param name="sKey"></param>
     ''' <param name="sValue"></param>
     ''' <returns>collection</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Function Enum_Registry_Entries_WithValue(sKey As String, sValue As String) As Collection
         Dim colKey As New Collection()
 
@@ -69,6 +87,13 @@ Public Class BSRegistry
     ''' Creates the sub key in CurrentUser.
     ''' </summary>
     ''' <param name="strValue">The string value.</param>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' Dim errOut As String = ""
+    ''' Dim obj As BSRegistry = New BSRegistry()
+    ''' obj.CreateSubKey(Settings.RegSubkey, errOut)
+    ''' </example>
     Public Sub CreateSubKey(ByVal strValue As String, Optional ByRef errMsg As String = "")
         Try
             Registry.CurrentUser.CreateSubKey(strValue)
@@ -81,6 +106,13 @@ Public Class BSRegistry
     ''' </summary>
     ''' <param name="strValue"></param>
     ''' <returns>true/false</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' Dim errOut As String = ""
+    ''' Dim obj As BSRegistry = New BSRegistry()
+    ''' Dim didPass As Boolean = obj.RegSubKeyExists(Settings.RegSubkey, errOut)
+    ''' </example>
     Public Function RegSubKeyExists(ByVal strValue As String, Optional ByRef errMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -97,6 +129,20 @@ Public Class BSRegistry
         End Try
         Return bAns
     End Function
+    ''' <summary>
+    ''' Sets the reg sub key value.
+    ''' </summary>
+    ''' <param name="regPath">The reg path.</param>
+    ''' <param name="sKey">The s key.</param>
+    ''' <param name="sValue">The s value.</param>
+    ''' <param name="sDefault">The s default.</param>
+    ''' <param name="errOut">The error out.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Function SetRegSubKeyValue(ByVal regPath As String, ByVal sKey As String, ByVal sValue As String, ByVal sDefault As string, Optional ByRef errOut As String = "" ) As Boolean
         Dim bAns as Boolean = False
         Try
@@ -118,6 +164,11 @@ Public Class BSRegistry
     ''' <param name="strValue"></param>
     ''' <param name="strDefault"></param>
     ''' <returns>string</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Function GetRegSubKeyValue(ByVal strKey As String, ByVal strValue As String, ByVal strDefault As String) As String
         Dim sAns As String = ""
         Dim strMsg As String = ""
@@ -146,6 +197,11 @@ Public Class BSRegistry
     ''' Check to see if the Setting Registry Key is created in the the current user + defaultpath
     ''' </summary>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Function SettingsExists() As Boolean
         Dim bAns As Boolean = False
         Dim myReg As RegistryKey
@@ -165,6 +221,11 @@ Public Class BSRegistry
     ''' <param name="sKey"></param>
     ''' <param name="sDefault"></param>
     ''' <returns>string</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Function GetViewSettings(ByVal sKey As String, Optional ByVal sDefault As String = "") As String
         Dim sAns As String = ""
         Dim strValue As String = _RegPath & "\Settings"
