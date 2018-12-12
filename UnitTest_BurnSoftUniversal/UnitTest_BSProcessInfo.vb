@@ -165,6 +165,30 @@ Imports BurnSoft.Universal
         Debug.Print("Process Count: {0}", processCount)
         General.HasValue(didPass, errOut)
     End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessMemoryUseage()
+       Dim obj As BSProcessInfo = New BSProcessInfo()
+       Debug.Print("Using Process {0}", Settings.ProcessName)
+       Dim value as String = obj.GetProcessMemoryUseage(Settings.ProcessName)
+       General.HasValue(value, errOut)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_GetProcessCpuTime()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using Process {0}", Settings.ProcessName)
+        Dim newValue as Double = 0
+        Dim value as String = obj.GetProcessCpuTime(Settings.ProcessName, 1, 0, newValue)
+        Debug.Print("New Value: {0}", newValue)
+        General.HasValue(value, errOut)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_GetCpuProcessStarting()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using Process {0}", Settings.ProcessName)
+        Dim newValue as Double = 0
+        Dim value as String = obj.GetCpuProcessStarting(Settings.ProcessName, 1, newValue)
+        Debug.Print("New Value: {0}", newValue)
+        General.HasValue(value, errOut)
+    End Sub
+
     '<TestMethod()> Public Sub TestMethod_()
     '   Dim obj As BSProcessInfo = New BSProcessInfo()
     '   Debug.Print("Using PID {0}", pid)
