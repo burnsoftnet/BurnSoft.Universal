@@ -30,7 +30,7 @@ Public Class BSRegistry
         End Set
     End Property
     ''' <summary>
-    ''' List all the entries in the registry
+    ''' List all the entries in the registry for the LocalMachine.
     ''' </summary>
     ''' <param name="sKey"></param>
     ''' <returns>collection</returns>
@@ -39,20 +39,26 @@ Public Class BSRegistry
     ''' <br/>
     ''' 
     ''' </example>
-    Function Enum_Registry_Entries(sKey As String) As Collection
+    Public Shared Function Enum_Registry_Entries(sKey As String, lookfor As String, Optional ByRef errMsg As string = "") As Collection
         Dim colKey As New Collection()
 
-        Dim key As RegistryKey = Registry.LocalMachine.OpenSubKey(sKey, False)
-        Dim subKeyNames() As String = key.GetSubKeyNames()
-        Dim index As Integer
-        Dim subKey As RegistryKey
-        Dim keyValue As String = ""
-        colKey.Clear()
-        For index = 0 To key.SubKeyCount - 1
-            subKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + subKeyNames(index), False)
-            keyValue = CType(subKey.GetValue("DisplayName", ""), String)
-            colKey.Add(keyValue)
-        Next
+        Try
+            Dim key As RegistryKey = Registry.LocalMachine.OpenSubKey(sKey, False)
+            Dim subKeyNames() As String = key.GetSubKeyNames()
+            Dim index As Integer
+            Dim subKey As RegistryKey
+            Dim keyValue As String = ""
+            colKey.Clear()
+            For index = 0 To key.SubKeyCount - 1
+                subKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + subKeyNames(index), False)
+                keyValue = CType(subKey.GetValue(lookfor, ""), String)
+                If keyValue.Length > 0 Then
+                    colKey.Add(keyValue)    
+                End If
+            Next
+        Catch ex As Exception
+            errMsg = ex.Message
+        End Try
         Return colKey
     End Function
     ''' <summary>
