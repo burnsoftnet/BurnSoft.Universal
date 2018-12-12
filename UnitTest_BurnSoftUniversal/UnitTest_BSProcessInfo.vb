@@ -156,6 +156,15 @@ Imports BurnSoft.Universal
         Debug.Print("Process Count: {0}", processCount)
         General.HasValue(didPass, errOut)
     End Sub
+
+    <TestMethod()> Public Sub TestMethod_ProcessExists2()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Dim processCount As Integer = 0
+        Dim didPass As Boolean = obj.ProcessExists(Settings.ProcessName,Settings.CommandLineSearch,pid, processCount)
+        Debug.Print("Using PID {0}", pid)
+        Debug.Print("Process Count: {0}", processCount)
+        General.HasValue(didPass, errOut)
+    End Sub
     '<TestMethod()> Public Sub TestMethod_()
     '   Dim obj As BSProcessInfo = New BSProcessInfo()
     '   Debug.Print("Using PID {0}", pid)
