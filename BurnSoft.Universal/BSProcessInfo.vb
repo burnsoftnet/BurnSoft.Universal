@@ -92,6 +92,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo()<br/>
+    '''  Debug.Print("Using PID {0}", pid)<br/>
+    '''  Dim value as String = obj.GetProcessCaption(pid, errOut)<br/>
     ''' </example>
     Public Function GetProcessCaption(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "Caption", errMsg)
@@ -105,9 +108,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
-    '''  Dim obj As BSProcessInfo = New BSProcessInfo()
-    '''  Debug.Print("Using PID {0}", pid)
-    '''  Dim value as String = obj.GetProcessCaption(pid, errOut)
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo()<br/>
+    '''  Debug.Print("Using PID {0}", pid)<br/>
+    '''  Dim value as String = obj.GetProcessCommandLine(pid, errOut)<br/>
     ''' </example>
     Public Function GetProcessCommandLine(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "CommandLine", errMsg)
@@ -121,6 +124,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()<br/>
+    ''' Debug.Print("Using PID {0}", pid)<br/>
+    ''' Dim value as String = obj.GetProcessCreationDate(pid, errOut)<br/>
     ''' </example>
     Public Function GetProcessCreationDate(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "CreationDate", errMsg)
@@ -133,6 +139,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()<br/>
+    ''' Debug.Print("Using PID {0}", pid)<br/>
+    ''' Dim value as String = obj.GetProcessDescription(pid, errOut)<br/>
     ''' </example>
     Public Function GetProcessDescription(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "Description", errMsg)
@@ -145,6 +154,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessExecutablePath(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessExecutablePath(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ExecutablePath", errMsg)
@@ -166,7 +178,10 @@ Public Class BSProcessInfo
     ''' <return>Current operating condition of the process</return>
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
-    '''  <br/>
+    ''' <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessExecutionState(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessExecutionState(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ExecutionState", errMsg)
@@ -178,7 +193,10 @@ Public Class BSProcessInfo
     ''' <return>Number of page faults that a process generates.</return>
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
-    '''  <br/>
+    ''' <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPageFaults(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPageFaults(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PageFaults", errMsg)
@@ -193,6 +211,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPageFileUsage(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PageFileUsage", errMsg)
@@ -213,6 +234,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessParentProcessId(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessParentProcessId(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ParentProcessId", errMsg)
@@ -226,6 +250,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPeakPageFileUsage(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPeakPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakPageFileUsage", errMsg)
@@ -243,6 +270,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPeakVirtualSize(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPeakVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakVirtualSize", errMsg)
@@ -256,6 +286,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPeakWorkingSetSize(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPeakWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakWorkingSetSize", errMsg)
@@ -270,6 +303,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessPrivatePageCount(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessPrivatePageCount(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PrivatePageCount", errMsg)
@@ -285,6 +321,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessSessionId(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessSessionId(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "SessionId", errMsg)
@@ -299,6 +338,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessUserModeTime(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessUserModeTime(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "UserModeTime", errMsg)
@@ -317,6 +359,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessVirtualSize(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "VirtualSize", errMsg)
@@ -335,6 +380,9 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value as String = obj.GetProcessWorkingSetSize(pid, errOut) <br/>
     ''' </example>
     Public Function GetProcessWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "WorkingSetSize", errMsg)
