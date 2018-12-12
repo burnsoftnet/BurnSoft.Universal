@@ -43,11 +43,13 @@ Imports BurnSoft.Universal
         Dim regKey As String = "SYSTEM\CurrentControlSet\Services"
         Dim regCollection As Collection = BSRegistry.Enum_Registry_Entries(regKey,"DisplayName", errOut)
 
-        for x = 0 To regCollection.Count - 1
-            Debug.Print(regCollection(x))
+        for x = 1 To regCollection.Count - 1
+            Dim sValue As String = regCollection.Item(x).ToString()
+            Debug.Print(sValue)
         Next
+        Dim didPass as Boolean = (regCollection.Count > 0)
 
-        General.HasValue(True)
+        General.HasValue(didPass)
     End Sub
 
     '<TestMethod()> Public Sub TestMethod_()
