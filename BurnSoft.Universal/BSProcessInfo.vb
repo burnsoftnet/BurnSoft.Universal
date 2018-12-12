@@ -501,6 +501,11 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()
+    ''' Debug.Print("Using Process {0}", Settings.ProcessName)
+    ''' Dim newValue as Double = 0
+    ''' Dim value as String = obj.GetProcessCpuTime(Settings.ProcessName, 1, 0, newValue)
+    ''' Debug.Print("New Value: {0}", newValue)
     ''' </example>
     Public Function GetProcessCpuTime(processName As String, timerInterval As Long, oldValue As Double, ByRef newValue As Double) As String
         Dim sAns As String
@@ -527,6 +532,11 @@ Public Class BSProcessInfo
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
     '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo()
+    ''' Debug.Print("Using Process {0}", Settings.ProcessName)
+    ''' Dim newValue as Double = 0
+    ''' Dim value as String = obj.GetCpuProcessStarting(Settings.ProcessName, 1, newValue)
+    ''' Debug.Print("New Value: {0}", newValue)
     ''' </example>
     Public Function GetCpuProcessStarting(processName As String, timerInterval As Long, ByRef newValue As Double) As String
         Dim sAns As String
