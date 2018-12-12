@@ -68,6 +68,9 @@ Imports BurnSoft.Universal
         Dim obj As BSProcessInfo = New BSProcessInfo()
         Debug.Print("Using PID {0}", pid)
         Dim value as String = obj.GetProcessExecutionState(pid, errOut)
+        If Not IsDBNull(value) Then
+            value = "process still active!"
+        End If
         General.HasValue(value, errOut)
     End Sub
 
