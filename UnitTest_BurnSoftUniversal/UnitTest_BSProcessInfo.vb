@@ -113,7 +113,49 @@ Imports BurnSoft.Universal
         Dim value as String = obj.GetProcessPeakWorkingSetSize(pid, errOut)
         General.HasValue(value, errOut)
     End Sub
+    <TestMethod()> Public Sub TestMethod_GetProcessPrivatePageCount()
+       Dim obj As BSProcessInfo = New BSProcessInfo()
+       Debug.Print("Using PID {0}", pid)
+       Dim value as String = obj.GetProcessPrivatePageCount(pid, errOut)
+       General.HasValue(value, errOut)
+    End Sub
 
+    <TestMethod()> Public Sub TestMethod_GetProcessSessionId()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessSessionId(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessUserModeTime()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessUserModeTime(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessVirtualSize()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessVirtualSize(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessWorkingSetSize()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessWorkingSetSize(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+    
+    <TestMethod()> Public Sub TestMethod_ProcessExists()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Dim processCount As Integer = 0
+        Dim didPass As Boolean = obj.ProcessExists(Settings.ProcessName,pid, processCount)
+        Debug.Print("Using PID {0}", pid)
+        Debug.Print("Process Count: {0}", processCount)
+        General.HasValue(didPass, errOut)
+    End Sub
     '<TestMethod()> Public Sub TestMethod_()
     '   Dim obj As BSProcessInfo = New BSProcessInfo()
     '   Debug.Print("Using PID {0}", pid)
