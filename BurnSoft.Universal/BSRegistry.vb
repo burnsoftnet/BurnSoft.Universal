@@ -26,7 +26,7 @@ Public Class BSRegistry
     ''' <param name="sKey"></param>
     ''' <returns>collection</returns>
     Function Enum_Registry_Entries(sKey As String) As Collection
-        Dim colKey As New Microsoft.VisualBasic.Collection()
+        Dim colKey As New Collection()
 
         Dim key As RegistryKey = Registry.LocalMachine.OpenSubKey(sKey, False)
         Dim subKeyNames() As String = key.GetSubKeyNames()
@@ -48,19 +48,19 @@ Public Class BSRegistry
     ''' <param name="sValue"></param>
     ''' <returns>collection</returns>
     Function Enum_Registry_Entries_WithValue(sKey As String, sValue As String) As Collection
-        Dim colKey As New Microsoft.VisualBasic.Collection()
+        Dim colKey As New Collection()
 
-        Dim Key As RegistryKey = Registry.LocalMachine.OpenSubKey(sKey, False)
-        Dim SubKeyNames() As String = Key.GetSubKeyNames()
-        Dim Index As Integer
-        Dim SubKey As RegistryKey
-        Dim KeyValue As String = ""
+        Dim key As RegistryKey = Registry.LocalMachine.OpenSubKey(sKey, False)
+        Dim subKeyNames() As String = key.GetSubKeyNames()
+        Dim index As Integer
+        Dim subKey As RegistryKey
+        Dim keyValue As String = ""
         colKey.Clear()
-        For Index = 0 To Key.SubKeyCount - 1
-            SubKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + SubKeyNames(Index), False)
-            If Not SubKey.GetValue(sValue, "") Is "" Then
-                KeyValue = CType(SubKey.GetValue("DisplayName", ""), String)
-                colKey.Add(KeyValue)
+        For index = 0 To key.SubKeyCount - 1
+            subKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + subKeyNames(index), False)
+            If Not subKey.GetValue(sValue, "") Is "" Then
+                keyValue = CType(subKey.GetValue("DisplayName", ""), String)
+                colKey.Add(keyValue)
             End If
         Next
         Return colKey
@@ -70,8 +70,8 @@ Public Class BSRegistry
     ''' </summary>
     ''' <param name="strValue">The string value.</param>
     Public Sub CreateSubKey(ByVal strValue As String, Optional ByRef errMsg As String = "")
-        Try 
-            Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+        Try
+            Registry.CurrentUser.CreateSubKey(strValue)
         Catch ex As Exception
             errMsg = ex.Message
         End Try
@@ -85,7 +85,7 @@ Public Class BSRegistry
         Dim bAns As Boolean = False
         Try
             Dim myReg As RegistryKey
-            myReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If myReg Is Nothing Then
                 bAns = False
             Else
@@ -94,6 +94,20 @@ Public Class BSRegistry
         Catch ex As Exception
             bAns = False
             errMsg = ex.Message
+        End Try
+        Return bAns
+    End Function
+    Public Function SetRegSubKeyValue(ByVal regPath As String, ByVal sKey As String, ByVal sValue As String, ByVal sDefault As string, Optional ByRef errOut As String = "" ) As Boolean
+        Dim bAns as Boolean = False
+        Try
+            Dim myReg as RegistryKey
+            myReg = Registry.CurrentUser.OpenSubKey(regPath, True)
+            myReg = Registry.CurrentUser.CreateSubKey(regPath)
+            myReg.SetValue(sKey, sValue)
+            myReg.Close()
+            bAns = True
+        Catch ex As Exception
+            errOut = ex.Message
         End Try
         Return bAns
     End Function
