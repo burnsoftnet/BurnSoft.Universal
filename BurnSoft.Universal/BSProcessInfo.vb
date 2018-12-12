@@ -43,6 +43,13 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Count</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' Dim obj As BSProcessInfo = New BSProcessInfo() <br/>
+    ''' Debug.Print("Using PID {0}", pid) <br/>
+    ''' Dim value As String = obj.GetProccessHandleCount(pid, errOut) <br/>
+    ''' </example>
     Public Function GetProccessHandleCount(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "HandleCount", errMsg)
     End Function
