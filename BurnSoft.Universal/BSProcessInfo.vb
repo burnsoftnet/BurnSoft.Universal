@@ -128,8 +128,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Number of page faults that a process generates.</return>
-    Public Function GetProcessPageFaults(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PageFaults")
+    Public Function GetProcessPageFaults(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PageFaults", errMsg)
     End Function
     ''' <summary>
     ''' Get the PageFileUsage for a particular Process by PID
@@ -138,8 +138,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
-    Public Function GetProcessPageFileUsage(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PageFileUsage")
+    Public Function GetProcessPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PageFileUsage", errMsg)
     End Function
     ''' <summary>
     ''' Get the ParentProcessId for a particular Process by PID
@@ -154,8 +154,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Parent Process Id</return>
-    Public Function GetProcessParentProcessId(pid As String) As String
-        Return GetProcessInfoByPID(pid, "ParentProcessId")
+    Public Function GetProcessParentProcessId(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "ParentProcessId", errMsg)
     End Function
     ''' <summary>
     ''' Get the PeakPageFileUsage for a particular Process by PID
@@ -163,8 +163,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
-    Public Function GetProcessPeakPageFileUsage(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PeakPageFileUsage")
+    Public Function GetProcessPeakPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PeakPageFileUsage", errMsg)
     End Function
     ''' <summary>
     ''' Get the PeakVirtualSize for a particular Process by PID
@@ -176,8 +176,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
-    Public Function GetProcessPeakVirtualSize(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PeakVirtualSize")
+    Public Function GetProcessPeakVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PeakVirtualSize", errMsg)
     End Function
     ''' <summary>
     ''' Get the PeakWorkingSetSize for a particular Process by PID
@@ -185,8 +185,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
-    Public Function GetProcessPeakWorkingSetSize(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PeakWorkingSetSize")
+    Public Function GetProcessPeakWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PeakWorkingSetSize", errMsg)
     End Function
     ''' <summary>
     ''' Get the PrivatePageCount for a particular Process by PID
@@ -195,8 +195,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>count</return>
-    Public Function GetProcessPrivatePageCount(pid As String) As String
-        Return GetProcessInfoByPID(pid, "PrivatePageCount")
+    Public Function GetProcessPrivatePageCount(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "PrivatePageCount", errMsg)
     End Function
     ''' <summary>
     ''' Get the SessionId for a particular Process by PID
@@ -206,8 +206,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>sessionID</return>
-    Public Function GetProcessSessionId(pid As String) As String
-        Return GetProcessInfoByPID(pid, "SessionId")
+    Public Function GetProcessSessionId(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "SessionId", errMsg)
     End Function
     ''' <summary>
     ''' Get the UserModeTime for a particular Process by PID
@@ -216,8 +216,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("100 nanoseconds")</return>
-    Public Function GetProcessUserModeTime(pid As String) As String
-        Return GetProcessInfoByPID(pid, "UserModeTime")
+    Public Function GetProcessUserModeTime(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "UserModeTime", errMsg)
     End Function
     ''' <summary>
     ''' Get the VirtualSize for a particular Process by PID
@@ -230,8 +230,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
-    Public Function GetProcessVirtualSize(pid As String) As String
-        Return GetProcessInfoByPID(pid, "VirtualSize")
+    Public Function GetProcessVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "VirtualSize", errMsg)
     End Function
     ''' <summary>
     ''' Get the WorkingSetSize for a particular Process by PID
@@ -244,8 +244,8 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
-    Public Function GetProcessWorkingSetSize(pid As String) As String
-        Return GetProcessInfoByPID(pid, "WorkingSetSize")
+    Public Function GetProcessWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
+        Return GetProcessInfoByPID(pid, "WorkingSetSize", errMsg)
     End Function
 
     ''' <summary>

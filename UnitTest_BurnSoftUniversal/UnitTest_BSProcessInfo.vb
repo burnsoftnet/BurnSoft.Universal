@@ -74,9 +74,19 @@ Imports BurnSoft.Universal
         General.HasValue(value, errOut)
     End Sub
 
+    <TestMethod()> Public Sub TestMethod_GetProcessPageFileUsage()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessPageFileUsage(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
 
     '<TestMethod()> Public Sub TestMethod_()
-    'Dim obj As BSProcessInfo = New BSProcessInfo()
+    '   Dim obj As BSProcessInfo = New BSProcessInfo()
+    '   Debug.Print("Using PID {0}", pid)
+    '   Dim value as String = obj.(pid, errOut)
+    '   General.HasValue(value, errOut)
     'End Sub
 
 End Class
