@@ -86,6 +86,33 @@ Imports BurnSoft.Universal
         Dim value as String = obj.GetProcessPageFileUsage(pid, errOut)
         General.HasValue(value, errOut)
     End Sub
+    <TestMethod()> Public Sub TestMethod_GetProcessParentProcessId()
+       Dim obj As BSProcessInfo = New BSProcessInfo()
+       Debug.Print("Using PID {0}", pid)
+       Dim value as String = obj.GetProcessParentProcessId(pid, errOut)
+       General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessPeakPageFileUsage()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessPeakPageFileUsage(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessPeakVirtualSize()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessPeakVirtualSize(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetProcessPeakWorkingSetSize()
+        Dim obj As BSProcessInfo = New BSProcessInfo()
+        Debug.Print("Using PID {0}", pid)
+        Dim value as String = obj.GetProcessPeakWorkingSetSize(pid, errOut)
+        General.HasValue(value, errOut)
+    End Sub
 
     '<TestMethod()> Public Sub TestMethod_()
     '   Dim obj As BSProcessInfo = New BSProcessInfo()
