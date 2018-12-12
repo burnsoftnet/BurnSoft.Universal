@@ -3,7 +3,6 @@
 ' www.burnsoft.net
 '-------------------------------------------
 Imports Microsoft.Win32
-' ReSharper disable once InconsistentNaming
 ''' <summary>
 ''' Class BSRegistry.  Class Containing functions used to read write or manage the windows registry.  Mostly for Current User
 ''' </summary>
@@ -30,14 +29,24 @@ Public Class BSRegistry
         End Set
     End Property
     ''' <summary>
-    ''' List all the entries in the registry for the LocalMachine.
+    ''' Enums the registry entries. Initially made to search for values in a tree if it exists. for example
+    ''' in Services, any Windows service that is Displayed in services has a Display Name, so this can look
+    ''' through all the reg keys in Services for ones that have a display name and add it to the collection
     ''' </summary>
-    ''' <param name="sKey"></param>
-    ''' <returns>collection</returns>
+    ''' <param name="sKey">The s key.</param>
+    ''' <param name="lookfor">The lookfor.</param>
+    ''' <param name="errMsg">The error MSG.</param>
+    ''' <returns>Collection.</returns>
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSRegistry <br/>
     ''' <br/>
-    ''' 
+    ''' Dim errOut As String = "" <br/>
+    ''' Dim regKey As String = "SYSTEM\CurrentControlSet\Services" <br/>
+    ''' Dim regCollection As Collection = BSRegistry.Enum_Registry_Entries(regKey,"DisplayName", errOut)     <br/>
+    ''' for x = 1 To regCollection.Count - 1 <br/>
+    ''' Dim sValue As String = regCollection.Item(x).ToString() <br/>
+    '''     Debug.Print(sValue) <br/>
+    ''' Next <br/>
     ''' </example>
     Public Shared Function Enum_Registry_Entries(sKey As String, lookfor As String, Optional ByRef errMsg As string = "") As Collection
         Dim colKey As New Collection()
