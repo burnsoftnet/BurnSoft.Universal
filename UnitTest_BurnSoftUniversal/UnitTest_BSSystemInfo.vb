@@ -57,33 +57,5 @@ Imports BurnSoft.Universal
         Dim value As string = obj.GetComputerName()
         General.HasValue(value)
     End Sub
-    <TestMethod()> Public Sub TestMethod_ProcessExists()
-        Dim obj As BSSystemInfo = New BSSystemInfo()
-        Dim processCount as Integer = 0
-        Dim pid As String = ""
-        Debug.Print("Looking for Process: {0}", Settings.ProcessName)
-        Dim value As Boolean = obj.ProcessExists(Settings.ProcessName, processCount)
-        If value Then
-            Debug.Print("Process {0} was found with {1} instances.", Settings.ProcessName, processCount)
-        Else 
-            Debug.Print("No Process Found in system!")
-        End If
 
-        General.HasValue(value)
-    End Sub
-
-    <TestMethod()> Public Sub TestMethod_ProcessExists2()
-        Dim obj As BSSystemInfo = New BSSystemInfo()
-        Dim processCount as Integer = 0
-        Dim pid As String = ""
-        Debug.Print("Looking for Process: {0}", Settings.ProcessName)
-        Dim value As Boolean = obj.ProcessExists(Settings.ProcessName, Settings.CommandLineSearch, pid, processCount)
-        If value Then
-            Debug.Print("Process {0} was found with {1} instances. and PIDS: {2}", Settings.ProcessName, processCount, pid)
-        Else 
-            Debug.Print("No Process Found in system!")
-        End If
-
-        General.HasValue(value)
-    End Sub
 End Class
