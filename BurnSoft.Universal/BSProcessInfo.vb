@@ -58,6 +58,13 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Count</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo()<br/>
+    '''  Debug.Print("Using PID {0}", pid)<br/>
+    '''  Dim value As String = obj.GetProcessThreadCount(pid, errOut)<br/>
+    ''' </example>
     Public Function GetProcessThreadCount(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ThreadCount", errMsg)
     End Function
@@ -66,6 +73,13 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Termination Date</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo()
+    '''  Debug.Print("Using PID {0}", pid)
+    '''  Dim value As String = obj.GetProcessTerminationDate(pid, errOut)
+    ''' </example>
     Public Function GetProcessTerminationDate(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "TerminationDate", errMsg)
     End Function
@@ -75,6 +89,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>string</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessCaption(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "Caption", errMsg)
     End Function
@@ -84,6 +102,13 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>string</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    '''  Dim obj As BSProcessInfo = New BSProcessInfo()
+    '''  Debug.Print("Using PID {0}", pid)
+    '''  Dim value as String = obj.GetProcessCaption(pid, errOut)
+    ''' </example>
     Public Function GetProcessCommandLine(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "CommandLine", errMsg)
     End Function
@@ -93,6 +118,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>datetime as string</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessCreationDate(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "CreationDate", errMsg)
     End Function
@@ -101,6 +130,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <returns>Description of an object.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessDescription(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "Description", errMsg)
     End Function
@@ -109,6 +142,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Path to the executable file of the process.</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessExecutablePath(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ExecutablePath", errMsg)
     End Function
@@ -127,6 +164,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Current operating condition of the process</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessExecutionState(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ExecutionState", errMsg)
     End Function
@@ -135,6 +176,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Number of page faults that a process generates.</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPageFaults(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PageFaults", errMsg)
     End Function
@@ -145,6 +190,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PageFileUsage", errMsg)
     End Function
@@ -161,6 +210,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Parent Process Id</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessParentProcessId(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "ParentProcessId", errMsg)
     End Function
@@ -170,6 +223,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPeakPageFileUsage(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakPageFileUsage", errMsg)
     End Function
@@ -183,6 +240,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPeakVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakVirtualSize", errMsg)
     End Function
@@ -192,6 +253,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("kilobytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPeakWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PeakWorkingSetSize", errMsg)
     End Function
@@ -202,6 +267,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>count</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessPrivatePageCount(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "PrivatePageCount", errMsg)
     End Function
@@ -213,6 +282,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>sessionID</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessSessionId(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "SessionId", errMsg)
     End Function
@@ -223,6 +296,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("100 nanoseconds")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessUserModeTime(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "UserModeTime", errMsg)
     End Function
@@ -237,6 +314,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessVirtualSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "VirtualSize", errMsg)
     End Function
@@ -251,6 +332,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="pid"></param>
     ''' <return>Units ("bytes")</return>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessWorkingSetSize(pid As String, Optional ByRef errMsg As String = "") As String
         Return GetProcessInfoByPID(pid, "WorkingSetSize", errMsg)
     End Function
@@ -262,6 +347,10 @@ Public Class BSProcessInfo
     ''' <param name="pid"></param>
     ''' <param name="processCount"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function ProcessExists(processName As String, Optional ByRef pid As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name like '" &
@@ -283,6 +372,10 @@ Public Class BSProcessInfo
     ''' <param name="pid"></param>
     ''' <param name="processCount"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function ProcessExists(processName As String, commandLineContains As String, Optional ByRef pid As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name like '" &
@@ -301,6 +394,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="sProcessName"></param>
     ''' <returns>true/false</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function ExactProcessExists(sProcessName As String, Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         Dim p() As Process
@@ -317,6 +414,10 @@ Public Class BSProcessInfo
     ''' </summary>
     ''' <param name="processName"></param>
     ''' <returns>memory in bytes</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessMemoryUseage(processName As String) As String
         Dim sAns As String
         Dim o As New PerformanceCounter("Process", "Working Set - Private", processName)
@@ -332,6 +433,10 @@ Public Class BSProcessInfo
     ''' <param name="oldValue"></param>
     ''' <param name="newValue"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetProcessCpuTime(processName As String, timerInterval As Long, oldValue As Double, ByRef newValue As Double) As String
         Dim sAns As String
         Dim o As New PerformanceCounter("Process", "% Processor Time", ProcessName)
@@ -354,6 +459,10 @@ Public Class BSProcessInfo
     ''' <param name="timerInterval"></param>
     ''' <param name="newValue"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSProcessInfo  <br/>
+    '''  <br/>
+    ''' </example>
     Public Function GetCpuProcessStarting(processName As String, timerInterval As Long, ByRef newValue As Double) As String
         Dim sAns As String
         Call GetProcessCPUTime(ProcessName, timerInterval, 0, NewValue)
