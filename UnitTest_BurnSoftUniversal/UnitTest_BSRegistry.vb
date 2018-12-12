@@ -37,6 +37,19 @@ Imports BurnSoft.Universal
         Debug.Print("Wrote value {0} to HCLM\{1}\{2}", obj.GetRegSubKeyValue(Settings.RegSubkey, Settings.RegSubkeyName,""), Settings.RegSubkey, Settings.RegSubkeyName)
         General.HasValue(didPass, errOut)
     End Sub
+
+    <TestMethod()> Public Sub TestMethod_Enum_Registry_Entries()
+        Dim errOut As String = ""
+        Dim regKey As String = "SYSTEM\CurrentControlSet\Services"
+        Dim regCollection As Collection = BSRegistry.Enum_Registry_Entries(regKey,"DisplayName", errOut)
+
+        for x = 0 To regCollection.Count - 1
+            Debug.Print(regCollection(x))
+        Next
+
+        General.HasValue(True)
+    End Sub
+
     '<TestMethod()> Public Sub TestMethod_()
     'End Sub
 End Class
