@@ -6,6 +6,7 @@ Imports System.Text.RegularExpressions
 Imports System.Net.Mail
 Imports System.Threading
 Imports System.Xml
+' ReSharper disable once InconsistentNaming
 Public Class BSOtherObjects
     ''' <summary>
     ''' A quick compairison of string value1 to string value2 if both are the same, then it will return truw
@@ -27,7 +28,7 @@ Public Class BSOtherObjects
     ''' <param name="sSearchFor"></param>
     ''' <returns></returns>
     Public Function ContentsExistsRegEx(sContent As String, sSearchFor As String) As Boolean
-        Dim bAns As Boolean = False
+        Dim bAns As Boolean
         If (Regex.IsMatch(sContent, sSearchFor, RegexOptions.IgnoreCase)) Then
             bAns = True
         Else
@@ -57,6 +58,7 @@ Public Class BSOtherObjects
         Next
         Return True
     End Function
+    ' ReSharper disable once UnusedMember.Local
     ''' <summary>
     ''' Private Sub used for sleep functions
     ''' </summary>
@@ -81,49 +83,48 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="sTo"></param>
     ''' <param name="sFrom"></param>
-    ''' <param name="sFrom_Name"></param>
+    ''' <param name="sFromName"></param>
     ''' <param name="sSubject"></param>
     ''' <param name="sMessage"></param>
-    ''' <param name="MAIL_SERVER_NAME"></param>
-    ''' <param name="MAIL_SERVER_PORT"></param>
-    ''' <param name="USEHTML"></param>
-    ''' <param name="USEBCC"></param>
-    ''' <param name="sBCC"></param>
+    ''' <param name="mailServerName"></param>
+    ''' <param name="mailServerPort"></param>
+    ''' <param name="usehtml"></param>
+    ''' <param name="usebcc"></param>
+    ''' <param name="sBcc"></param>
     ''' <param name="sErrMsg"></param>
-    Public Sub SendMail(ByVal sTo As String, ByVal sFrom As String, ByVal sFrom_Name As String, ByVal sSubject As String, ByVal sMessage As String, ByVal MAIL_SERVER_NAME As String, Optional ByVal MAIL_SERVER_PORT As Integer = 25, Optional ByVal USEHTML As Boolean = True, Optional ByVal USEBCC As Boolean = False, Optional ByVal sBCC As String = "", Optional ByRef sErrMsg As String = "")
+    Public Sub SendMail(ByVal sTo As String, ByVal sFrom As String, ByVal sFromName As String, ByVal sSubject As String, ByVal sMessage As String, ByVal mailServerName As String, Optional ByVal mailServerPort As Integer = 25, Optional ByVal usehtml As Boolean = True, Optional ByVal usebcc As Boolean = False, Optional ByVal sBcc As String = "", Optional ByRef sErrMsg As String = "")
         'NOTE: This sub will send an email to a person or group of people in HTML Format
-        Dim strSendFrom As MailAddress = New MailAddress(sFrom, sFrom_Name)
-        Dim Message As MailMessage = New MailMessage
-        Dim i As Integer = 0
+        Dim strSendFrom As MailAddress = New MailAddress(sFrom, sFromName)
+        Dim message As MailMessage = New MailMessage
+        Dim i As Integer 
         Dim strSplit As Array = Split(sTo, ",")
         Dim intBound As Integer = UBound(strSplit)
-        Dim Client As New SmtpClient
-        Message.From = strSendFrom
+        Dim client As New SmtpClient
+        message.From = strSendFrom
         If intBound <> 0 Then
             For i = 0 To intBound
-                If Len(strSplit(i)) > 0 Then Message.To.Add(strSplit(i))
+                If Len(strSplit(i)) > 0 Then message.To.Add(strSplit(i))
             Next
         Else
-            Message.To.Add(sTo)
+            message.To.Add(sTo)
         End If
         If USEBCC Then
-            Message.Bcc.Add(sBCC)
+            message.Bcc.Add(sBCC)
         End If
         Try
-            Message.IsBodyHtml = USEHTML
-            Message.Subject = sSubject
-            Message.Body = sMessage
-            Client.Host = MAIL_SERVER_NAME
-            Client.Port = MAIL_SERVER_PORT
+            message.IsBodyHtml = USEHTML
+            message.Subject = sSubject
+            message.Body = sMessage
+            client.Host = mailServerName
+            client.Port = mailServerPort
         Catch ex As Exception
             Dim strFrom As String = "ModGlobal"
             Dim strSubFunc As String = "SendMail"
             Dim sMsg As String = " - ERROR - " & Err.Number & " - " & ex.Message.ToString
             sErrMsg = sMsg & "::" & strFrom & "." & strSubFunc
         Finally
-            Message.Dispose()
-            Message = Nothing
-            Client = Nothing
+            message.Dispose()
+
         End Try
     End Sub
     ''' <summary>
@@ -134,12 +135,12 @@ Public Class BSOtherObjects
     ''' <param name="sDelimiter"></param>
     ''' <returns>string</returns>
     Public Function Parse(ByVal sInput As String, ByVal lField As Integer, ByVal sDelimiter As String) As String
-        Dim lLen As Long = 0
-        Dim lCnt As Long = 0
-        Dim lTmp As Long = 0
-        Dim sTemp As String = ""
-        Dim lPos As Long = 0
-        Dim sAns As String = ""
+        Dim lLen As Long
+        Dim lCnt As Long
+        Dim lTmp As Long
+        Dim sTemp As String
+        Dim lPos As Long
+        Dim sAns As String
 
         If lField < 0 Then
             sAns = vbNullString
@@ -166,26 +167,26 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="instance"></param>
     ''' <returns></returns>
-    Public Function GetXMLNode(ByVal instance As XmlNode) As String
+    Public Function GetXmlNode(ByVal instance As XmlNode) As String
         'NOTE:This will Get the Values that are stored in the XML Note.
-        Dim MyAns As String = ""
+        Dim myAns As String = ""
         On Error Resume Next
-        MyAns = instance.InnerText
-        Return MyAns
+        myAns = instance.InnerText
+        Return myAns
     End Function
     ''' <summary>
     ''' Searchs one string for a key word to see if there is a match
     ''' txt is the string of information you want to search
     ''' strSearch is the word/value that you are looking for
     ''' </summary>
-    ''' <param name="Txt"></param>
+    ''' <param name="txt"></param>
     ''' <param name="strSearch"></param>
     ''' <returns></returns>
-    Function Found(ByVal Txt As String, ByVal strSearch As String) As Boolean
+    Function Found(ByVal txt As String, ByVal strSearch As String) As Boolean
         Dim bAns As Boolean = False
-        Dim POS As Integer = 0
-        POS = InStr(1, Txt, strSearch, vbTextCompare)
-        If POS <> 0 Then
+        Dim pos As Integer = 0
+        pos = InStr(1, Txt, strSearch, vbTextCompare)
+        If pos <> 0 Then
             bAns = True
         Else
             bAns = False
@@ -210,8 +211,7 @@ Public Class BSOtherObjects
         For Each mo In moReturn
             Dim arOwner(2) As String
             mo.InvokeMethod("GetOwner", arOwner)
-            Dim strOut As String
-            strOut = String.Format("{0} Owner {1} Domain {2}", mo("Name"), arOwner(0), arOwner(1))
+            Dim strOut As String = String.Format("{0} Owner {1} Domain {2}", mo("Name"), arOwner(0), arOwner(1))
             If (mo("Name") = "explorer.exe") Then
                 sAns = String.Format("{0}", arOwner(0))
             End If
