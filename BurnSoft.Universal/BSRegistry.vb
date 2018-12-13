@@ -3,10 +3,10 @@
 ' www.burnsoft.net
 '-------------------------------------------
 Imports Microsoft.Win32
+' ReSharper disable once InconsistentNaming
 ''' <summary>
 ''' Class BSRegistry.  Class Containing functions used to read write or manage the windows registry.  Mostly for Current User
 ''' </summary>
-' ReSharper disable once InconsistentNaming
 Public Class BSRegistry
 ' ReSharper disable once InconsistentNaming
     Private _RegPath As String
