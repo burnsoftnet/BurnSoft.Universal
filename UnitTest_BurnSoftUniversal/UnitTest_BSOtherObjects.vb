@@ -60,6 +60,28 @@ Imports BurnSoft.Universal
         End Try
         General.HasValue(didPass)
     End Sub
+    <TestMethod()> Public Sub TestMethod_Found()
+        Dim obj As New BSOtherObjects
+        Dim didPass as Boolean = obj.Found("This is a test, this is only a test","only")
+        If didPass Then 
+            Debug.Print("Keywork Found!")
+        Else 
+            Debug.Print("Didn't find key work in phrse")
+            didPass = true
+        End If
+        General.HasValue(didPass)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_GetLoggedonUser()
+        Dim obj As New BSOtherObjects
+        Dim value As String = obj.GetLoggedonUser()
+        General.HasValue(value)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_GetCommandString()
+        Dim obj As New BSOtherObjects
+        
+    End Sub
+    <TestMethod()> Public Sub TestMethod_()
+    End Sub
     '<TestMethod()> Public Sub TestMethod_()
     'End Sub
 End Class
