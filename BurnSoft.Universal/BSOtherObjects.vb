@@ -13,12 +13,12 @@ Imports System.Xml
 ''' </summary>
 Public Class BSOtherObjects
     ''' <summary>
-    ''' Strings the compair, A quick compairison of string value1 to string value2 if both are the same, then it will return true
+    ''' Strings the compare, A quick compairison of string value1 to string value2 if both are the same, then it will return true
     ''' </summary>
     ''' <param name="sValue1">The s value1.</param>
     ''' <param name="sValue2">The s value2.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-    Public Function StringCompair(sValue1 As String, sValue2 As String) As Boolean
+    Public Function StringCompare(sValue1 As String, sValue2 As String) As Boolean
         Dim bAns As Boolean = False
         If String.Compare(sValue1, sValue2) = 0 Then
             bAns = True
