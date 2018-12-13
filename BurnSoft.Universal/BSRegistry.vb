@@ -6,6 +6,7 @@ Imports Microsoft.Win32
 ''' <summary>
 ''' Class BSRegistry.  Class Containing functions used to read write or manage the windows registry.  Mostly for Current User
 ''' </summary>
+' ReSharper disable once InconsistentNaming
 Public Class BSRegistry
 ' ReSharper disable once InconsistentNaming
     Private _RegPath As String
@@ -56,7 +57,7 @@ Public Class BSRegistry
             Dim subKeyNames() As String = key.GetSubKeyNames()
             Dim index As Integer
             Dim subKey As RegistryKey
-            Dim keyValue As String = ""
+            Dim keyValue As String
             colKey.Clear()
             For index = 0 To key.SubKeyCount - 1
                 subKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + subKeyNames(index), False)
@@ -88,7 +89,7 @@ Public Class BSRegistry
         Dim subKeyNames() As String = key.GetSubKeyNames()
         Dim index As Integer
         Dim subKey As RegistryKey
-        Dim keyValue As String = ""
+        Dim keyValue As String
         colKey.Clear()
         For index = 0 To key.SubKeyCount - 1
             subKey = Registry.LocalMachine.OpenSubKey(sKey + "\" + subKeyNames(index), False)
@@ -130,7 +131,7 @@ Public Class BSRegistry
     ''' Dim didPass As Boolean = obj.RegSubKeyExists(Settings.RegSubkey, errOut)<br/>
     ''' </example>
     Public Function RegSubKeyExists(ByVal strValue As String, Optional ByRef errMsg As String = "") As Boolean
-        Dim bAns As Boolean = False
+        Dim bAns As Boolean
         Try
             Dim myReg As RegistryKey
             myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
@@ -166,7 +167,7 @@ Public Class BSRegistry
         Dim bAns as Boolean = False
         Try
             Dim myReg as RegistryKey
-            myReg = Registry.CurrentUser.OpenSubKey(regPath, True)
+            Registry.CurrentUser.OpenSubKey(regPath, True)
             myReg = Registry.CurrentUser.CreateSubKey(regPath)
             myReg.SetValue(sKey, sValue)
             myReg.Close()
@@ -191,12 +192,12 @@ Public Class BSRegistry
     ''' Dim value As string = obj.GetRegSubKeyValue(Settings.RegSubkey, Settings.RegSubkeyName,"") <br/>
     ''' </example>
     Public Function GetRegSubKeyValue(ByVal strKey As String, ByVal strValue As String, ByVal strDefault As String) As String
-        Dim sAns As String = ""
-        Dim strMsg As String = ""
+        Dim sAns As String
+
         Dim myReg As RegistryKey
         Try
             If RegSubKeyExists(strKey) Then
-                myReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                myReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                 If Len(myReg.GetValue(strValue)) > 0 Then
                     sAns = myReg.GetValue(strValue)
                 Else
@@ -205,7 +206,7 @@ Public Class BSRegistry
                 End If
             Else
                 Call CreateSubKey(strKey)
-                myReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                myReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                 myReg.SetValue(strValue, strDefault)
                 sAns = strDefault
             End If
@@ -224,7 +225,7 @@ Public Class BSRegistry
     ''' 
     ''' </example>
     Public Function SettingsExists() As Boolean
-        Dim bAns As Boolean = False
+        Dim bAns As Boolean
         Dim myReg As RegistryKey
         Dim strValue As String = _RegPath & "\Settings"
         On Error Resume Next
@@ -248,7 +249,7 @@ Public Class BSRegistry
     ''' 
     ''' </example>
     Public Function GetViewSettings(ByVal sKey As String, Optional ByVal sDefault As String = "") As String
-        Dim sAns As String = ""
+        Dim sAns As String
         Dim strValue As String = _RegPath & "\Settings"
         sAns = GetRegSubKeyValue(strValue, sKey, sDefault)
         Return sAns
