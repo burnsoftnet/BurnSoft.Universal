@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="General.vb" />
     <Compile Include="Settings.vb" />
+    <Compile Include="UnitTest_BSOtherObjects.vb" />
     <Compile Include="UnitTest_BSProcessInfo.vb" />
     <Compile Include="UnitTest_BSRegistry.vb" />
     <Compile Include="UnitTest_BSSystemInfo.vb" />
