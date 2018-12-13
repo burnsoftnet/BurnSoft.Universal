@@ -4,6 +4,9 @@
 '-------------------------------------------
 Imports System.Management
 ' ReSharper disable once InconsistentNaming
+''' <summary>
+''' Class BSProcessInfo.  Mostly used to get information about a process either by process name or by PID
+''' </summary>
 Public Class BSProcessInfo
     ' ReSharper disable UnusedMember.Local
     ''' <summary>
