@@ -78,7 +78,8 @@ Imports BurnSoft.Universal
     End Sub
     <TestMethod()> Public Sub TestMethod_GetCommandString()
         Dim obj As New BSOtherObjects
-        
+        Dim value As string = obj.GetCommand("endpoint","")
+        General.HasValue(value)
     End Sub
     <TestMethod()> Public Sub TestMethod_()
     End Sub
