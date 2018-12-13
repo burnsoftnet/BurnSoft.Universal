@@ -18,6 +18,12 @@ Public Class BSOtherObjects
     ''' <param name="sValue1">The s value1.</param>
     ''' <param name="sValue2">The s value2.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' Dim obj As New BSOtherObjects
+    ''' Dim didPass As Boolean = obj.StringCompare("test","test")
+    ''' </example>
     Public Function StringCompare(sValue1 As String, sValue2 As String) As Boolean
         Dim bAns As Boolean = False
         If String.Compare(sValue1, sValue2) = 0 Then
@@ -31,6 +37,12 @@ Public Class BSOtherObjects
     ''' <param name="sContent">Content of the s.</param>
     ''' <param name="sSearchFor">The s search for.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' Dim obj As New BSOtherObjects
+    ''' Dim didPass As Boolean =  obj.ContentsExistsRegEx("This is a test, this is only a test","only")
+    ''' </example>
     Public Function ContentsExistsRegEx(sContent As String, sSearchFor As String) As Boolean
         Dim bAns As Boolean
         If (Regex.IsMatch(sContent, sSearchFor, RegexOptions.IgnoreCase)) Then
@@ -46,6 +58,14 @@ Public Class BSOtherObjects
     ''' <param name="first">The first.</param>
     ''' <param name="second">The second.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    '''  Dim obj As New BSOtherObjects
+    ''' Dim bytes(1000 * 1000 * 3 - 1) As Byte
+    ''' Dim bytes2(1000 * 1000 * 3 - 1) As Byte
+    ''' Dim didPass As Boolean = obj.ArraysEqual(bytes, bytes2)
+    ''' </example>
     Public Function ArraysEqual(first As Byte(), second As Byte()) As Boolean
         If (first Is second) Then
             Return True
@@ -73,6 +93,18 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="iSecs">The i secs.</param>
     ''' <param name="iIncrement">The i increment.</param>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    '''  Dim obj As New BSOtherObjects
+    ''' Dim didPass As Boolean
+    ''' Try
+    '''     obj.Pause(100)
+    '''     didPass = true
+    ''' Catch ex As Exception
+    '''     didPass = false
+    ''' End Try
+    ''' </example>
     Public Sub Pause(ByVal iSecs As Long, Optional ByVal iIncrement As Long = 100)
         Dim stopwatch As Stopwatch = Stopwatch.StartNew
         Thread.Sleep(iSecs * 1000)
@@ -190,6 +222,12 @@ Public Class BSOtherObjects
     ''' <param name="txt">The text.</param>
     ''' <param name="strSearch">The string search.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' Dim obj As New BSOtherObjects
+    ''' Dim didPass as Boolean = obj.Found("This is a test, this is only a test","only")
+    ''' </example>
     Function Found(ByVal txt As String, ByVal strSearch As String) As Boolean
         Dim bAns As Boolean = False
         Dim pos As Integer = 0
@@ -206,6 +244,12 @@ Public Class BSOtherObjects
     ''' This scrolls through all the running processes on the PC to determine who is running the "explorer.exe" process. It then returns the username ready for comparison.
     ''' </summary>
     ''' <returns>System.String.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    '''  Dim obj As New BSOtherObjects
+    ''' Dim value As String = obj.GetLoggedonUser()
+    ''' </example>
     Public Function GetLoggedonUser() As String
         Dim sAns As String = ""
         Dim strCurrentUser As String = ""
@@ -232,6 +276,10 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="sValue">The s value.</param>
     ''' <returns>System.String.</returns>
+    '''  <example>
+    ''' <br/>
+    ''' Dim Switch as string = detectSwitch("/dothis=true")
+    ''' </example>
     Private Function detectSwitch(sValue As String) As String
         Dim sAns As String = ""
         For Each c As Char In sValue
@@ -256,6 +304,11 @@ Public Class BSOtherObjects
     ''' <param name="sDefault">The s default.</param>
     ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
     ''' <returns>System.String.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' 
+    ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef DidExist As Boolean = False) As String
         Dim sAns As String = ""
         DidExist = False
@@ -294,6 +347,10 @@ Public Class BSOtherObjects
     ''' <param name="lDefault">The l default.</param>
     ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
     ''' <returns>System.Int64.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef DidExist As Boolean = False) As Long
         Dim lAns As Long = 0
         DidExist = False
@@ -332,6 +389,10 @@ Public Class BSOtherObjects
     ''' <param name="bDefault">if set to <c>true</c> [b default].</param>
     ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False) As Boolean
         Dim bAns As Boolean = bDefault
         DidExist = False
@@ -369,6 +430,10 @@ Public Class BSOtherObjects
     ''' <param name="sValue">The s value.</param>
     ''' <param name="DefaultValue">The default value.</param>
     ''' <returns>System.String.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function FC(ByVal sValue As String, Optional ByVal DefaultValue As String = "") As String
         Dim sAns As String = ""
         sAns = Replace(sValue, "'", "''")
@@ -380,6 +445,10 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="bValue">if set to <c>true</c> [b value].</param>
     ''' <returns>System.Int32.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function ConvertBoolToInt(bValue As Boolean) As Integer
         Dim iAns As Integer = 0
         If bValue Then iAns = 1
@@ -390,6 +459,10 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="sValue">The s value.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function ConvertYNtoBool(sValue As String) As Boolean
         Dim bAns As Boolean = False
         If LCase(sValue) = "y" Then bAns = True
@@ -400,6 +473,10 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="iValue">The i value.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    '''  <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
+    ''' <br/>
+    ''' </example>
     Public Function ConvertIntToBool(iValue As Integer) As Boolean
         Dim bAns As Boolean = False
         If iValue <> 0 Then bAns = True
