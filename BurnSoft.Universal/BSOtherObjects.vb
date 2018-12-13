@@ -7,6 +7,10 @@ Imports System.Net.Mail
 Imports System.Threading
 Imports System.Xml
 ' ReSharper disable once InconsistentNaming
+''' <summary>
+''' Class BSOtherObjects.  Currently Misc Functions that can be useful for strings, sending email parse through command lines
+''' or Convert misc objects
+''' </summary>
 Public Class BSOtherObjects
     ''' <summary>
     ''' Strings the compair, A quick compairison of string value1 to string value2 if both are the same, then it will return true
