@@ -9,11 +9,11 @@ Imports System.Xml
 ' ReSharper disable once InconsistentNaming
 Public Class BSOtherObjects
     ''' <summary>
-    ''' A quick compairison of string value1 to string value2 if both are the same, then it will return truw
+    ''' Strings the compair, A quick compairison of string value1 to string value2 if both are the same, then it will return true
     ''' </summary>
-    ''' <param name="sValue1"></param>
-    ''' <param name="sValue2"></param>
-    ''' <returns>true</returns>
+    ''' <param name="sValue1">The s value1.</param>
+    ''' <param name="sValue2">The s value2.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function StringCompair(sValue1 As String, sValue2 As String) As Boolean
         Dim bAns As Boolean = False
         If String.Compare(sValue1, sValue2) = 0 Then
@@ -22,11 +22,11 @@ Public Class BSOtherObjects
         Return bAns
     End Function
     ''' <summary>
-    ''' Using regular expression to search the Content String for a word or phrase
+    ''' Contentses the exists reg ex.  Using regular expression to search the Content String for a word or phrase
     ''' </summary>
-    ''' <param name="sContent"></param>
-    ''' <param name="sSearchFor"></param>
-    ''' <returns></returns>
+    ''' <param name="sContent">Content of the s.</param>
+    ''' <param name="sSearchFor">The s search for.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function ContentsExistsRegEx(sContent As String, sSearchFor As String) As Boolean
         Dim bAns As Boolean
         If (Regex.IsMatch(sContent, sSearchFor, RegexOptions.IgnoreCase)) Then
@@ -37,11 +37,11 @@ Public Class BSOtherObjects
         Return bAns
     End Function
     ''' <summary>
-    ''' Checks the first array against the second array to see if they are equal to each other
+    ''' Arrayses the equal. Checks the first array against the second array to see if they are equal to each other
     ''' </summary>
-    ''' <param name="first"></param>
-    ''' <param name="second"></param>
-    ''' <returns>True/False</returns>
+    ''' <param name="first">The first.</param>
+    ''' <param name="second">The second.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function ArraysEqual(first As Byte(), second As Byte()) As Boolean
         If (first Is second) Then
             Return True
@@ -58,40 +58,43 @@ Public Class BSOtherObjects
         Next
         Return True
     End Function
-    ' ReSharper disable once UnusedMember.Local
+    ' ReSharper disable once UnusedMember.Local    
     ''' <summary>
-    ''' Private Sub used for sleep functions
+    ''' Sleeps the specified dw milliseconds. Private Sub used for sleep functions
     ''' </summary>
-    ''' <param name="dwMilliseconds"></param>
+    ''' <param name="dwMilliseconds">The dw milliseconds.</param>
     Private Declare Sub Sleep Lib "kernel32.dll" (ByVal dwMilliseconds As Long)
-    '''<summary>
-    ''' Uses the Stopwatch to pause the application for x amount of seconds
+    ''' <summary>
+    ''' Pauses the specified i secs.  Uses the Stopwatch to pause the application for x amount of seconds
     ''' </summary>
+    ''' <param name="iSecs">The i secs.</param>
+    ''' <param name="iIncrement">The i increment.</param>
     Public Sub Pause(ByVal iSecs As Long, Optional ByVal iIncrement As Long = 100)
         Dim stopwatch As Stopwatch = Stopwatch.StartNew
         Thread.Sleep(iSecs * 1000)
         stopwatch.Stop()
     End Sub
-    '''<summary>
-    ''' More of a place holder for over commands, no code listed in this but has been used for other functions
+    ''' <summary>
+    ''' Events the action. More of a place holder for over commands, no code listed in this but has been used for other functions
     ''' </summary>
+    ''' <param name="sender">The sender.</param>
     Private Sub EventAction(ByVal sender As Object)
 
     End Sub
     ''' <summary>
-    ''' Sends an email
+    ''' Sends the email.
     ''' </summary>
-    ''' <param name="sTo"></param>
-    ''' <param name="sFrom"></param>
-    ''' <param name="sFromName"></param>
-    ''' <param name="sSubject"></param>
-    ''' <param name="sMessage"></param>
-    ''' <param name="mailServerName"></param>
-    ''' <param name="mailServerPort"></param>
-    ''' <param name="usehtml"></param>
-    ''' <param name="usebcc"></param>
-    ''' <param name="sBcc"></param>
-    ''' <param name="sErrMsg"></param>
+    ''' <param name="sTo">The s to.</param>
+    ''' <param name="sFrom">The s from.</param>
+    ''' <param name="sFromName">Name of the s from.</param>
+    ''' <param name="sSubject">The s subject.</param>
+    ''' <param name="sMessage">The s message.</param>
+    ''' <param name="mailServerName">Name of the mail server.</param>
+    ''' <param name="mailServerPort">The mail server port.</param>
+    ''' <param name="usehtml">if set to <c>true</c> [usehtml].</param>
+    ''' <param name="usebcc">if set to <c>true</c> [usebcc].</param>
+    ''' <param name="sBcc">The s BCC.</param>
+    ''' <param name="sErrMsg">The s error MSG.</param>
     Public Sub SendMail(ByVal sTo As String, ByVal sFrom As String, ByVal sFromName As String, ByVal sSubject As String, ByVal sMessage As String, ByVal mailServerName As String, Optional ByVal mailServerPort As Integer = 25, Optional ByVal usehtml As Boolean = True, Optional ByVal usebcc As Boolean = False, Optional ByVal sBcc As String = "", Optional ByRef sErrMsg As String = "")
         'NOTE: This sub will send an email to a person or group of people in HTML Format
         Dim strSendFrom As MailAddress = New MailAddress(sFrom, sFromName)
@@ -128,12 +131,12 @@ Public Class BSOtherObjects
         End Try
     End Sub
     ''' <summary>
-    ''' Parses s tring of information based on the fireld or location that it is at in the string
+    ''' Parses the specified s input. Parses s tring of information based on the field or location that it is at in the string
     ''' </summary>
-    ''' <param name="sInput"></param>
-    ''' <param name="lField"></param>
-    ''' <param name="sDelimiter"></param>
-    ''' <returns>string</returns>
+    ''' <param name="sInput">The s input.</param>
+    ''' <param name="lField">The l field.</param>
+    ''' <param name="sDelimiter">The s delimiter.</param>
+    ''' <returns>System.String.</returns>
     Public Function Parse(ByVal sInput As String, ByVal lField As Integer, ByVal sDelimiter As String) As String
         Dim lLen As Long
         Dim lCnt As Long
@@ -163,10 +166,10 @@ Public Class BSOtherObjects
     End Function
 
     ''' <summary>
-    ''' Gets the instance of the selected XML node and returns as string
+    ''' Gets the XML node.  Gets the instance of the selected XML node and returns as string
     ''' </summary>
-    ''' <param name="instance"></param>
-    ''' <returns></returns>
+    ''' <param name="instance">The instance.</param>
+    ''' <returns>System.String.</returns>
     Public Function GetXmlNode(ByVal instance As XmlNode) As String
         'NOTE:This will Get the Values that are stored in the XML Note.
         Dim myAns As String = ""
@@ -175,13 +178,14 @@ Public Class BSOtherObjects
         Return myAns
     End Function
     ''' <summary>
-    ''' Searchs one string for a key word to see if there is a match
+    ''' Founds the specified text.
+    '''  Searchs one string for a key word to see if there is a match
     ''' txt is the string of information you want to search
     ''' strSearch is the word/value that you are looking for
     ''' </summary>
-    ''' <param name="txt"></param>
-    ''' <param name="strSearch"></param>
-    ''' <returns></returns>
+    ''' <param name="txt">The text.</param>
+    ''' <param name="strSearch">The string search.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Function Found(ByVal txt As String, ByVal strSearch As String) As Boolean
         Dim bAns As Boolean = False
         Dim pos As Integer = 0
@@ -194,10 +198,10 @@ Public Class BSOtherObjects
         Return bAns
     End Function
     ''' <summary>
-    ''' This uses WMI to get the user that is logged on the local machine based on the who is signed on at the time
+    ''' Gets the loggedon user. This uses WMI to get the user that is logged on the local machine based on the who is signed on at the time
     ''' This scrolls through all the running processes on the PC to determine who is running the "explorer.exe" process. It then returns the username ready for comparison.
     ''' </summary>
-    ''' <returns></returns>
+    ''' <returns>System.String.</returns>
     Public Function GetLoggedonUser() As String
         Dim sAns As String = ""
         Dim strCurrentUser As String = ""
@@ -219,11 +223,11 @@ Public Class BSOtherObjects
         Return sAns
     End Function
     ''' <summary>
-    ''' Loop Through one of the Values passed in the command arguments and count the first non alphabetical 
+    ''' Detects the switch.Loop Through one of the Values passed in the command arguments and count the first non alphabetical 
     ''' characters as the switch parameter that needs to be filtered out.
     ''' </summary>
-    ''' <param name="sValue">Command Parameter</param>
-    ''' <returns>String of non Alphabetical Characters</returns>
+    ''' <param name="sValue">The s value.</param>
+    ''' <returns>System.String.</returns>
     Private Function detectSwitch(sValue As String) As String
         Dim sAns As String = ""
         For Each c As Char In sValue
@@ -244,10 +248,10 @@ Public Class BSOtherObjects
     ''' the switch will be something like /mystring="this is fun"
     ''' if it is just /mystring then it will return what is set in the sDefault string.
     ''' </summary>
-    ''' <param name="strLookFor"></param>
-    ''' <param name="sDefault"></param>
-    ''' <param name="DidExist"></param>
-    ''' <returns></returns>
+    ''' <param name="strLookFor">The string look for.</param>
+    ''' <param name="sDefault">The s default.</param>
+    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <returns>System.String.</returns>
     Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef DidExist As Boolean = False) As String
         Dim sAns As String = ""
         DidExist = False
@@ -282,10 +286,10 @@ Public Class BSOtherObjects
     ''' the switch will be something like /mylongvalue=92
     ''' if it is just /mylongvalue it will return the lDefault value
     ''' </summary>
-    ''' <param name="strLookFor"></param>
-    ''' <param name="lDefault"></param>
-    ''' <param name="DidExist"></param>
-    ''' <returns></returns>
+    ''' <param name="strLookFor">The string look for.</param>
+    ''' <param name="lDefault">The l default.</param>
+    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <returns>System.Int64.</returns>
     Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef DidExist As Boolean = False) As Long
         Dim lAns As Long = 0
         DidExist = False
@@ -320,10 +324,10 @@ Public Class BSOtherObjects
     ''' if the command is /swtich it will return as true since it did exist
     ''' you can also use /switch=false
     ''' </summary>
-    ''' <param name="strLookFor"></param>
-    ''' <param name="bDefault"></param>
-    ''' <param name="DidExist"></param>
-    ''' <returns></returns>
+    ''' <param name="strLookFor">The string look for.</param>
+    ''' <param name="bDefault">if set to <c>true</c> [b default].</param>
+    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False) As Boolean
         Dim bAns As Boolean = bDefault
         DidExist = False
@@ -358,9 +362,9 @@ Public Class BSOtherObjects
     ''' taking away the single qoute and putting a single qoute twice to prevent errors
     ''' on SQL commands.
     ''' </summary>
-    ''' <param name="sValue"></param>
-    ''' <param name="DefaultValue"></param>
-    ''' <returns></returns>
+    ''' <param name="sValue">The s value.</param>
+    ''' <param name="DefaultValue">The default value.</param>
+    ''' <returns>System.String.</returns>
     Public Function FC(ByVal sValue As String, Optional ByVal DefaultValue As String = "") As String
         Dim sAns As String = ""
         sAns = Replace(sValue, "'", "''")
@@ -368,10 +372,10 @@ Public Class BSOtherObjects
         Return sAns
     End Function
     ''' <summary>
-    ''' Convert a boolean value to an integer
+    ''' Converts the bool to int.
     ''' </summary>
-    ''' <param name="bValue"></param>
-    ''' <returns>1/0</returns>
+    ''' <param name="bValue">if set to <c>true</c> [b value].</param>
+    ''' <returns>System.Int32.</returns>
     Public Function ConvertBoolToInt(bValue As Boolean) As Integer
         Dim iAns As Integer = 0
         If bValue Then iAns = 1
@@ -380,8 +384,8 @@ Public Class BSOtherObjects
     ''' <summary>
     ''' Converts a y/Y or n/N value to boolean
     ''' </summary>
-    ''' <param name="sValue"></param>
-    ''' <returns>True/False</returns>
+    ''' <param name="sValue">The s value.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function ConvertYNtoBool(sValue As String) As Boolean
         Dim bAns As Boolean = False
         If LCase(sValue) = "y" Then bAns = True
@@ -390,8 +394,8 @@ Public Class BSOtherObjects
     ''' <summary>
     ''' Converts a Integer to to boolean value, if it is not 0 it is true
     ''' </summary>
-    ''' <param name="iValue"></param>
-    ''' <returns>True/False</returns>
+    ''' <param name="iValue">The i value.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Public Function ConvertIntToBool(iValue As Integer) As Boolean
         Dim bAns As Boolean = False
         If iValue <> 0 Then bAns = True
