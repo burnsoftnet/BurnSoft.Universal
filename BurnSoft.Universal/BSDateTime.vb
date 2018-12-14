@@ -2,11 +2,18 @@
 ' Created By BurnSoft
 ' www.burnsoft.net
 '-------------------------------------------
+''' <summary>
+''' Class BSDateTime.  Misc Date and Tim e Functions
+''' </summary>
 Public Class BSDateTime
-    '''<summary>
+    ''' <summary>
+    ''' Determines whether [is date past now] [the specified s date].
     ''' Checks to see if the data that is passed is greater than or less then the current time
     ''' if not current then it is true
     ''' </summary>
+    ''' <param name="sDate">The s date.</param>
+    ''' <param name="sErrMsg">The s error MSG.</param>
+    ''' <returns><c>true</c> if [is date past now] [the specified s date]; otherwise, <c>false</c>.</returns>
     Public Function ISDatePastNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -26,10 +33,14 @@ Public Class BSDateTime
         End Try
         Return bAns
     End Function
-    '''<summary>
+    ''' <summary>
+    ''' Determines whether [is date now] [the specified s date].
     ''' Checks to see if the data that is passed is greater than or less then the current time
     ''' if not current then it is false
     ''' </summary>
+    ''' <param name="sDate">The s date.</param>
+    ''' <param name="sErrMsg">The s error MSG.</param>
+    ''' <returns><c>true</c> if [is date now] [the specified s date]; otherwise, <c>false</c>.</returns>
     Public Function ISDateNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -49,10 +60,14 @@ Public Class BSDateTime
         End Try
         Return bAns
     End Function
-    '''<summary>
-    '''Checks to see if the data that is passed is greater than or less then the current time
+    ''' <summary>
+    ''' Determines whether [is date before now] [the specified s date].
+    ''' Checks to see if the data that is passed is greater than or less then the current time
     ''' if not current then it is true
     ''' </summary>
+    ''' <param name="sDate">The s date.</param>
+    ''' <param name="sErrMsg">The s error MSG.</param>
+    ''' <returns><c>true</c> if [is date before now] [the specified s date]; otherwise, <c>false</c>.</returns>
     Public Function ISDateBeforeNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -72,11 +87,14 @@ Public Class BSDateTime
         End Try
         Return bAns
     End Function
-    '''<summary>
+    ''' <summary>
+    ''' Formats the date.
     ''' Format the date
     ''' IE: 5/5/04 will turn into 05/05/2004
     ''' Extract the elements
     ''' </summary>
+    ''' <param name="sDate">The s date.</param>
+    ''' <returns>System.String.</returns>
     Public Function FormatDate(ByVal sDate As String) As String
         Dim sAns As String = ""
         Dim sArray As Object
@@ -94,9 +112,12 @@ Public Class BSDateTime
         sAns = sAns + ObjM.Parse(sArray(2), 0, " ")
         Return sAns
     End Function
-    '''<summary>
+    ''' <summary>
+    ''' Determines whether [is valid date] [the specified s date].
     ''' Checks to see if the value is a valid date format
     ''' </summary>
+    ''' <param name="sDate">The s date.</param>
+    ''' <returns><c>true</c> if [is valid date] [the specified s date]; otherwise, <c>false</c>.</returns>
     Public Function isValidDate(ByVal sDate As String) As Boolean
         If Len(sDate) < 10 Then
             Return False
@@ -130,9 +151,11 @@ Trouble:
         Return False
 
     End Function
-    '''<summary>
+    ''' <summary>
     ''' convert the number of weeks into days
     ''' </summary>
+    ''' <param name="iWeek">The i week.</param>
+    ''' <returns>System.Int64.</returns>
     Public Function ConvertWeekToDays(ByVal iWeek As Long) As Long
         Dim lAns As Long = 0
         If iWeek = 1 Or iWeek = 0 Then
@@ -142,12 +165,11 @@ Trouble:
         End If
         Return lAns
     End Function
-    '''<summary>
+    ''' <summary>
     ''' convert english to dateinterval
     ''' </summary>
-    ''' <remarks>
-    ''' sValue can be: day, hous, minute, or month
-    ''' </remarks>
+    ''' <param name="sValue">The s value.</param>
+    ''' <returns>DateInterval.</returns>
     Public Function ConvertType(ByVal sValue As String) As DateInterval
         Dim lAns As DateInterval = DateInterval.Hour
         Select Case LCase(sValue)
@@ -162,9 +184,11 @@ Trouble:
         End Select
         Return lAns
     End Function
-    '''<summary>
-    ''' Formats the date into an SQL Friendly date, used for SQL Commands
+    ''' <summary>
+    ''' SQLs the format date. Formats the date into an SQL Friendly date, used for SQL Commands
     ''' </summary>
+    ''' <param name="myDate">My date.</param>
+    ''' <returns>System.String.</returns>
     Public Function SQLFormatDate(ByVal myDate As String) As String
         myDate = FormatDateTime(myDate, DateFormat.ShortDate)
         Dim strSplit As Array = Split(myDate, "/")
