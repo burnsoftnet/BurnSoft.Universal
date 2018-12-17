@@ -88,6 +88,26 @@ Imports BurnSoft.Universal
         Debug.Print(Settings.CommandArgs)
         Debug.Print("Getting switch value for {0}", switch)
         Dim value As string = obj.GetCommand(switch,"",,Settings.CommandArgs)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_GetCommandLong()
+        Dim obj As New BSOtherObjects
+        Dim switch as String = "interval"
+        Debug.Print(Settings.CommandArgs)
+        Debug.Print("Getting switch value for {0}", switch)
+        Dim value As long = obj.GetCommand(switch,0,,Settings.CommandArgs)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
+    End Sub
+
+    <TestMethod()> Public Sub TestMethod_GetCommandBoolean()
+        Dim obj As New BSOtherObjects
+        Dim switch as String = "doRestart"
+        Debug.Print(Settings.CommandArgs)
+        Debug.Print("Getting switch value for {0}", switch)
+        Dim value As Boolean = obj.GetCommand(switch,false,,Settings.CommandArgs)
+        Debug.Print("Returned value is: {0}", value)
         General.HasValue(value)
     End Sub
     <TestMethod()> Public Sub TestMethod_()
