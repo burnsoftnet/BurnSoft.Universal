@@ -7,10 +7,10 @@ Public Class BSMath
     ''' Function Used for Out of 100 Calculations
     ''' its more of a reverse round, where 0.270 would be 1 and 99.678 would be 99
     ''' </summary>
-    ''' <param name="Value"></param>
+    ''' <param name="value"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function RoundValueNotZero(Value As Double) As Double
+    Public Shared Function RoundValueNotZero(value As Double) As Double
         Dim dAns As Double = 0.0
         Dim DecValue As Long = 0
         If Value > 0.0 Then
@@ -34,7 +34,7 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="data"></param>
     ''' <returns></returns>
-    Public Function getStandardDeviation(data As List(Of Double)) As Double
+    Public Shared Function GetStandardDeviation(data As List(Of Double)) As Double
         Dim dAns As Double = 0
         Dim mean As Double = data.Average()
         Dim avgList As New List(Of Double)
@@ -53,7 +53,7 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="data"></param>
     ''' <returns></returns>
-    Public Function getExtremeSpread(data As List(Of Double)) As Double
+    Public Shared Function GetExtremeSpread(data As List(Of Double)) As Double
         Dim dAns As Double = 0
         Dim dHighest As Double = 0
         Dim dLowest As Double = 0
@@ -76,7 +76,7 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="dValue"></param>
     ''' <returns></returns>
-    Public Function ConvertToDollars(ByVal dValue As Double) As Double
+    Public Shared Function ConvertToDollars(ByVal dValue As Double) As Double
         Dim dAns As Double = 0
         dAns = Math.Round(dValue, 2)
         Return dAns
@@ -86,7 +86,7 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="value"></param>
     ''' <returns></returns>
-    Public Function getSIN(value As Double) As Double
+    Public Shared Function GetSin(value As Double) As Double
         Dim angle As Double
         angle = System.Math.Asin(value)
         Return angle
@@ -96,7 +96,7 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="value"></param>
     ''' <returns></returns>
-    Public Function getCOS(value As Double) As Double
+    Public Shared Function GetCos(value As Double) As Double
         Dim angle As Double
         angle = System.Math.Atan(value)
         Return angle
@@ -107,7 +107,7 @@ Public Class BSMath
     ''' <param name="value1"></param>
     ''' <param name="value2"></param>
     ''' <returns></returns>
-    Public Function getTangentOf(value1 As Double, value2 As Double) As Double
+    Public Shared Function GetTangentOf(value1 As Double, value2 As Double) As Double
         Dim angle As Double
         angle = System.Math.Atan2(value1, value2)
         Return angle
