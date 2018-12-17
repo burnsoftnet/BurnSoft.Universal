@@ -84,7 +84,10 @@ Imports BurnSoft.Universal
     End Sub
     <TestMethod()> Public Sub TestMethod_GetCommandString()
         Dim obj As New BSOtherObjects
-        Dim value As string = obj.GetCommand("endpoint","")
+        Dim switch as String = "endpoint"
+        Debug.Print(Settings.CommandArgs)
+        Debug.Print("Getting switch value for {0}", switch)
+        Dim value As string = obj.GetCommand(switch,"",,Settings.CommandArgs)
         General.HasValue(value)
     End Sub
     <TestMethod()> Public Sub TestMethod_()
