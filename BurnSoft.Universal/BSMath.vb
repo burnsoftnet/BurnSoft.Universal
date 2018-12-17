@@ -7,16 +7,25 @@ Public Class BSMath
     ''' Function Used for Out of 100 Calculations
     ''' its more of a reverse round, where 0.270 would be 1 and 99.678 would be 99
     ''' </summary>
-    ''' <param name="value"></param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
+    ''' <param name="value">The value.</param>
+    ''' <returns>System.Double.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim rawValue As Double = 0.270 <br/>
+    ''' Dim expectedValue As Double = 1 <br/>
+    ''' Dim results As Double = BSMath.RoundValueNotZero(rawValue) <br/>
+    ''' Debug.Print("rawValue {0}", rawValue) <br/>
+    ''' Debug.Print("Expected Value {0}",expectedValue) <br/>
+    ''' Debug.Print("Returned Value {0}", results) <br/>
+    ''' </example>
     Public Shared Function RoundValueNotZero(value As Double) As Double
         Dim dAns As Double = 0.0
-        Dim DecValue As Long = 0
+        Dim decValue As Long = 0
         If Value > 0.0 Then
             If CInt(Value) > 0 Then
-                DecValue = Math.Round(CDbl(Split(Value, ".")(1)), 1, MidpointRounding.ToEven)
-                If DecValue < 5 Then
+                decValue = Math.Round(CDbl(Split(Value, ".")(1)), 1, MidpointRounding.ToEven)
+                If decValue < 5 Then
                     dAns = Math.Ceiling(Value)
                 Else
                     dAns = Math.Floor(Value)
@@ -34,6 +43,18 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="data"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim data as List(Of Double) = New List(Of Double)() <br/>
+    ''' data.Add(970) <br/>
+    ''' data.Add(971) <br/>
+    ''' data.Add(975) <br/>
+    ''' data.Add(978) <br/>
+    ''' data.Add(979) <br/>
+    ''' data.Add(960) <br/>
+    ''' Dim results As Double = BSMath.GetStandardDeviation(data) <br/>
+    ''' </example>
     Public Shared Function GetStandardDeviation(data As List(Of Double)) As Double
         Dim dAns As Double = 0
         Dim mean As Double = data.Average()
@@ -53,6 +74,18 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="data"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim data as List(Of Double) = New List(Of Double)() <br/>
+    ''' data.Add(970) <br/>
+    ''' data.Add(971) <br/>
+    ''' data.Add(975) <br/>
+    ''' data.Add(978) <br/>
+    ''' data.Add(979) <br/>
+    ''' data.Add(960) <br/>
+    ''' Dim results As Double = BSMath.GetExtremeSpread(data) <br/>
+    ''' </example>
     Public Shared Function GetExtremeSpread(data As List(Of Double)) As Double
         Dim dAns As Double = 0
         Dim dHighest As Double = 0
@@ -76,6 +109,16 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="dValue"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim rawValue As Double = 1.272344 <br/>
+    ''' Dim expectedValue As Double = 1.27 <br/>
+    ''' Dim results As Double = BSMath.ConvertToDollars(rawValue) <br/>
+    ''' Debug.Print("rawValue {0}", rawValue) <br/>
+    ''' Debug.Print("Expected Value {0}",expectedValue) <br/>
+    ''' Debug.Print("Returned Value {0}", results) <br/>
+    ''' </example>
     Public Shared Function ConvertToDollars(ByVal dValue As Double) As Double
         Dim dAns As Double = 0
         dAns = Math.Round(dValue, 2)
@@ -86,6 +129,14 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="value"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim rawValue As Double = 1 <br/>
+    ''' Dim results = BSMath.GetSin(rawValue) <br/>
+    ''' Debug.Print("rawValue {0}", rawValue) <br/>
+    ''' Debug.Print("Returned Value {0}", results) <br/>
+    ''' </example>
     Public Shared Function GetSin(value As Double) As Double
         Dim angle As Double = 0
         Try
@@ -100,6 +151,14 @@ Public Class BSMath
     ''' </summary>
     ''' <param name="value"></param>
     ''' <returns></returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim rawValue As Double = 1.272344 <br/>
+    ''' Dim results As Double = BSMath.GetCos(rawValue) <br/>
+    ''' Debug.Print("rawValue {0}", rawValue) <br/>
+    ''' Debug.Print("Returned Value {0}", results) <br/>
+    ''' </example>
     Public Shared Function GetCos(value As Double) As Double
         Dim angle As Double = 0
         Try
@@ -116,6 +175,16 @@ Public Class BSMath
     ''' <param name="y">The y.</param>
     ''' <param name="x">The x.</param>
     ''' <returns>System.Double.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSMath <br/>
+    ''' <br/>
+    ''' Dim x As Double = 60 <br/>
+    ''' Dim y As Double = 45 <br/>
+    ''' Dim results As Double = BSMath.GetTangentOf(y,x) <br/>
+    ''' Debug.Print("x Value {0}", x) <br/>
+    ''' Debug.Print("y Value {0}", y) <br/>
+    ''' Debug.Print("Returned Value {0}", results) <br/>
+    ''' </example>
     Public Shared Function GetTangentOf(y As Double, x As Double) As Double
         Dim angle As Double
         angle = System.Math.Atan2(y, x)
