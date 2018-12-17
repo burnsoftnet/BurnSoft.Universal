@@ -110,7 +110,37 @@ Imports BurnSoft.Universal
         Debug.Print("Returned value is: {0}", value)
         General.HasValue(value)
     End Sub
-    <TestMethod()> Public Sub TestMethod_()
+    <TestMethod()> Public Sub TestMethod_FC()
+        Dim testString as String = "This is SQL's first test"
+        Dim obj as New BSOtherObjects
+        Dim value as string = obj.FC(testString)
+        Debug.Print("Before: {0}", testString)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_ConvertBoolToInt()
+        Dim obj as New BSOtherObjects
+        Dim testValue as Boolean = True
+        Dim value As Boolean = obj.ConvertBoolToInt(testValue)
+        Debug.Print("Before: {0}", testValue)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_ConvertYNtoBool()
+        Dim obj as New BSOtherObjects
+        Dim testValue as String = "y"
+        Dim value As Boolean = obj.ConvertYNtoBool(testValue)
+        Debug.Print("Before: {0}", testValue)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
+    End Sub
+    <TestMethod()> Public Sub TestMethod_ConvertIntToBool()
+        Dim obj as New BSOtherObjects
+        Dim testValue as Integer = "1"
+        Dim value As Boolean = obj.ConvertIntToBool(testValue)
+        Debug.Print("Before: {0}", testValue)
+        Debug.Print("Returned value is: {0}", value)
+        General.HasValue(value)
     End Sub
     '<TestMethod()> Public Sub TestMethod_()
     'End Sub
