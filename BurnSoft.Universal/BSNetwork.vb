@@ -4,6 +4,9 @@
 '-------------------------------------------
 Imports System.Net
 Imports System.Net.NetworkInformation
+''' <summary>
+''' Class BSNetwork.  General Class that contains functions to help manage network information on a machine
+''' </summary>
 Public Class BSNetwork
     Public Sub New()
 
@@ -12,6 +15,9 @@ Public Class BSNetwork
     ''' <summary>
     ''' Public network Protocol Types used
     ''' </summary>
+    ''' <example>
+    ''' Dim ProtocolType As IPProtocolType
+    ''' </example>
     Public Enum IPProtocolType
         TCP = 1
         UDP = 2
@@ -23,9 +29,14 @@ Public Class BSNetwork
     ''' </summary>
     ''' <param name="sHost"></param>
     ''' <param name="iPort"></param>
-    ''' <param name="ProtocolType"></param>
+    ''' <param name="protocolType"></param>
     ''' <returns></returns>
-    Private Function PortOpen(sHost As System.Net.IPAddress, iPort As Long, ProtocolType As IPProtocolType) As Boolean
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSNetwork <br/>
+    ''' <br/>
+    ''' Dim value as Boolean = PortOpen("localhost", "80", IPProtocolType.TCP)
+    ''' </example>
+    Private shared Function PortOpen(sHost As System.Net.IPAddress, iPort As Long, protocolType As IPProtocolType) As Boolean
         Dim bAns As Boolean = False
         Dim EPHost As New System.Net.IPEndPoint(sHost, iPort)
         Dim s As System.Net.Sockets.Socket = Nothing
@@ -51,7 +62,8 @@ Public Class BSNetwork
         End Select
         Try
             s.Connect(EPHost)
-        Catch
+        Catch e As Exception
+            Debug.Print(e.Message)
         End Try
         If Not s.Connected Then
             bAns = False
@@ -66,12 +78,20 @@ Public Class BSNetwork
     ''' <summary>
     ''' Quick Public Function to check and see if a port on the host is up and running
     ''' </summary>
-    ''' <param name="sHost"></param>
-    ''' <param name="iPort"></param>
-    ''' <param name="ProtocolType"></param>
-    ''' <param name="ErrMsg"></param>
+    ''' <param name="sHost">The s host.</param>
+    ''' <param name="iPort">The i port.</param>
+    ''' <param name="protocolType">Type of the protocol.</param>
+    ''' <param name="ErrMsg">The error MSG.</param>
     ''' <returns>true/false</returns>
-    Public Function PortIsUP(sHost As String, iPort As Long, Optional ByVal ProtocolType As IPProtocolType = IPProtocolType.TCP, Optional ByRef ErrMsg As String = "") As Boolean
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSNetwork <br />
+    ''' Dim ipAddress As String = "127.0.0.1" <br />
+    ''' Dim port As String = "1488" <br />
+    ''' Dim value As Boolean = BSNetwork.PortIsUP(ipAddress, port, BSNetwork.IPProtocolType.TCP,errOut) <br />
+    ''' Debug.Print("Testing Port {0} on {1}", port, ipAddress ) <br />
+    ''' Debug.Print("Returned Value is {0}", value) <br />
+    ''' </example>
+    Public Shared Function PortIsUP(sHost As String, iPort As Long, Optional ByVal protocolType As IPProtocolType = IPProtocolType.TCP, Optional ByRef ErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
             Dim myHost As System.Net.IPAddress = System.Net.Dns.GetHostEntry(sHost).AddressList(0)
@@ -82,17 +102,46 @@ Public Class BSNetwork
         Return bAns
     End Function
 
-    Public Function DeviceIsUp(Host As String, Optional ByRef IPAddress As String = "", Optional ByRef lBytes As Long = 0, Optional ByRef lRTrip As Long = 0, Optional ByRef lTTL As Long = 0, Optional ByVal Timeout As Long = 1500, Optional ByRef ErrorMessage As String = "") As Boolean
+    ''' <summary>
+    ''' Devices the is up.
+    ''' </summary>
+    ''' <param name="host">The host.</param>
+    ''' <param name="ipAddress">The ip address.</param>
+    ''' <param name="lBytes">The l bytes.</param>
+    ''' <param name="lRTrip">The l r trip.</param>
+    ''' <param name="lTTL">The l TTL.</param>
+    ''' <param name="Timeout">The timeout.</param>
+    ''' <param name="ErrorMessage">The error message.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSNetwork <br/>
+    ''' <br/>
+    '''  Dim ipAddress As String = "127.0.0.1" <br />
+    ''' Dim hostName as String = "" <br />
+    ''' Dim lBytes As Long <br />
+    ''' Dim lTTL As Long <br />
+    ''' Dim lrTrip as Long <br />
+    ''' Dim value As Boolean = BSNetwork.DeviceIsUp(hostName, ipAddress, lBytes, lrTrip, lTTL,,errOut) <br />
+    ''' Debug.Print("Pinging Device {0}",ipAddress) <br />
+    ''' Debug.Print("Bytes={0}",lBytes) <br />
+    ''' Debug.Print("Trip={0}",lrTrip) <br />
+    ''' Debug.Print("TTL={0}", lTTL) <br />
+    ''' Debug.Print("Returned Value is {0}", value) <br />
+    ''' </example>
+    Public Shared Function DeviceIsUp(host As String, Optional ByRef ipAddress As String = "", Optional ByRef lBytes As Long = 0, Optional ByRef lRTrip As Long = 0, Optional ByRef lTTL As Long = 0, Optional ByVal Timeout As Long = 1500, Optional ByRef ErrorMessage As String = "") As Boolean
         Dim bAns As Boolean = False
         Dim instance As New Ping
-        Dim Results As PingReply
+        Dim results As PingReply
+        If (host.Length =0) Then
+            host = ipAddress
+        End If
         Try
-            Results = instance.Send(Host, Timeout)
-            Select Case Results.Status
+            results = instance.Send(Host, Timeout)
+            Select Case results.Status
                 Case IPStatus.Success
-                    lBytes = Results.Buffer.Length
-                    lRTrip = Results.RoundtripTime
-                    lTTL = Results.Options.Ttl
+                    lBytes = results.Buffer.Length
+                    lRTrip = results.RoundtripTime
+                    lTTL = results.Options.Ttl
                     bAns = True
                 Case IPStatus.TtlExpired
                     ErrorMessage = "TTL Expired in Transit."
