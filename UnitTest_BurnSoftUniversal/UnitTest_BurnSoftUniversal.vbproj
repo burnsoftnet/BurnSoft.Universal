@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="General.vb" />
     <Compile Include="Settings.vb" />
+    <Compile Include="UnitTest_FileIO.vb" />
     <Compile Include="UnitTest_BSMath.vb" />
     <Compile Include="UnitTest_BSNetwork.vb" />
     <Compile Include="UnitTest_BSDateTime.vb" />
