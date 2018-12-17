@@ -21,8 +21,8 @@ Public Class BSOtherObjects
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    ''' Dim obj As New BSOtherObjects
-    ''' Dim didPass As Boolean = obj.StringCompare("test","test")
+    ''' Dim obj As New BSOtherObjects <br/>
+    ''' Dim didPass As Boolean = obj.StringCompare("test","test") <br/>
     ''' </example>
     Public Function StringCompare(sValue1 As String, sValue2 As String) As Boolean
         Dim bAns As Boolean = False
@@ -40,8 +40,8 @@ Public Class BSOtherObjects
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    ''' Dim obj As New BSOtherObjects
-    ''' Dim didPass As Boolean =  obj.ContentsExistsRegEx("This is a test, this is only a test","only")
+    ''' Dim obj As New BSOtherObjects <br/>
+    ''' Dim didPass As Boolean =  obj.ContentsExistsRegEx("This is a test, this is only a test","only") <br/>
     ''' </example>
     Public Function ContentsExistsRegEx(sContent As String, sSearchFor As String) As Boolean
         Dim bAns As Boolean
@@ -61,10 +61,10 @@ Public Class BSOtherObjects
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    '''  Dim obj As New BSOtherObjects
-    ''' Dim bytes(1000 * 1000 * 3 - 1) As Byte
-    ''' Dim bytes2(1000 * 1000 * 3 - 1) As Byte
-    ''' Dim didPass As Boolean = obj.ArraysEqual(bytes, bytes2)
+    '''  Dim obj As New BSOtherObjects <br/>
+    ''' Dim bytes(1000 * 1000 * 3 - 1) As Byte <br/>
+    ''' Dim bytes2(1000 * 1000 * 3 - 1) As Byte <br/>
+    ''' Dim didPass As Boolean = obj.ArraysEqual(bytes, bytes2) <br/>
     ''' </example>
     Public Function ArraysEqual(first As Byte(), second As Byte()) As Boolean
         If (first Is second) Then
@@ -96,14 +96,14 @@ Public Class BSOtherObjects
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    '''  Dim obj As New BSOtherObjects
-    ''' Dim didPass As Boolean
-    ''' Try
-    '''     obj.Pause(100)
-    '''     didPass = true
-    ''' Catch ex As Exception
-    '''     didPass = false
-    ''' End Try
+    '''  Dim obj As New BSOtherObjects <br/>
+    ''' Dim didPass As Boolean <br/>
+    ''' Try <br/>
+    '''     obj.Pause(100) <br/>
+    '''     didPass = true <br/>
+    ''' Catch ex As Exception <br/>
+    '''     didPass = false <br/>
+    ''' End Try <br/>
     ''' </example>
     Public Sub Pause(ByVal iSecs As Long, Optional ByVal iIncrement As Long = 100)
         Dim stopwatch As Stopwatch = Stopwatch.StartNew
@@ -225,8 +225,8 @@ Public Class BSOtherObjects
     ''' <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    ''' Dim obj As New BSOtherObjects
-    ''' Dim didPass as Boolean = obj.Found("This is a test, this is only a test","only")
+    ''' Dim obj As New BSOtherObjects <br/>
+    ''' Dim didPass as Boolean = obj.Found("This is a test, this is only a test","only") <br/>
     ''' </example>
     Function Found(ByVal txt As String, ByVal strSearch As String) As Boolean
         Dim bAns As Boolean = False
@@ -247,8 +247,8 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    '''  Dim obj As New BSOtherObjects
-    ''' Dim value As String = obj.GetLoggedonUser()
+    '''  Dim obj As New BSOtherObjects <br/>
+    ''' Dim value As String = obj.GetLoggedonUser() <br/>
     ''' </example>
     Public Function GetLoggedonUser() As String
         Dim sAns As String = ""
@@ -308,7 +308,12 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
-    ''' 
+    ''' Dim obj As New BSOtherObjects<br/>
+    ''' Dim switch as String = "endpoint"<br/>
+    ''' Debug.Print(Settings.CommandArgs)<br/>
+    ''' Debug.Print("Getting switch value for {0}", switch)<br/>
+    ''' Dim value As string = obj.GetCommand(switch,"",,Settings.CommandArgs)<br/>
+    ''' Debug.Print("Returned value is: {0}", value)<br/>
     ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As String
         Dim sAns As String = ""
@@ -359,6 +364,12 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim obj As New BSOtherObjects <br/>
+    ''' Dim switch as String = "interval" <br/>
+    ''' Debug.Print(Settings.CommandArgs) <br/>
+    ''' Debug.Print("Getting switch value for {0}", switch) <br/>
+    ''' Dim value As long = obj.GetCommand(switch,0,,Settings.CommandArgs) <br/>
+    ''' Debug.Print("Returned value is: {0}", value) <br/>
     ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As Long
         Dim lAns As Long = 0
@@ -407,6 +418,12 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim obj As New BSOtherObjects <br/>
+    ''' Dim switch as String = "doRestart" <br/>
+    ''' Debug.Print(Settings.CommandArgs) <br/>
+    ''' Debug.Print("Getting switch value for {0}", switch) <br/>
+    ''' Dim value As Boolean = obj.GetCommand(switch,false,,Settings.CommandArgs) <br/>
+    ''' Debug.Print("Returned value is: {0}", value) <br/>
     ''' </example>
     Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As Boolean
         Dim bAns As Boolean = bDefault
@@ -448,13 +465,16 @@ Public Class BSOtherObjects
     ''' on SQL commands.
     ''' </summary>
     ''' <param name="sValue">The s value.</param>
-    ''' <param name="DefaultValue">The default value.</param>
+    ''' <param name="defaultValue">The default value.</param>
     ''' <returns>System.String.</returns>
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim testString as String = "This is SQL's first test" <br/>
+    ''' Dim obj as New BSOtherObjects <br/>
+    ''' Dim value as string = obj.FC(testString) <br/>
     ''' </example>
-    Public Function FC(ByVal sValue As String, Optional ByVal DefaultValue As String = "") As String
+    Public Function FC(ByVal sValue As String, Optional ByVal defaultValue As String = "") As String
         Dim sAns As String = ""
         sAns = Replace(sValue, "'", "''")
         If DefaultValue.Length > 0 Then If sAns.Length = 0 Then sAns = DefaultValue
@@ -468,6 +488,11 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim obj as New BSOtherObjects <br/>
+    ''' Dim testValue as Boolean = True <br/>
+    ''' Dim value As Boolean = obj.ConvertBoolToInt(testValue) <br/>
+    ''' Debug.Print("Before: {0}", testValue) <br/>
+    ''' Debug.Print("Returned value is: {0}", value) <br/>
     ''' </example>
     Public Function ConvertBoolToInt(bValue As Boolean) As Integer
         Dim iAns As Integer = 0
@@ -482,6 +507,11 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim obj as New BSOtherObjects <br/>
+    ''' Dim testValue as String = "y" <br/>
+    ''' Dim value As Boolean = obj.ConvertYNtoBool(testValue) <br/>
+    ''' Debug.Print("Before: {0}", testValue) <br/>
+    ''' Debug.Print("Returned value is: {0}", value) <br/>
     ''' </example>
     Public Function ConvertYNtoBool(sValue As String) As Boolean
         Dim bAns As Boolean = False
@@ -496,6 +526,11 @@ Public Class BSOtherObjects
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
+    ''' Dim obj as New BSOtherObjects <br/>
+    ''' Dim testValue as Integer = "1" <br/>
+    ''' Dim value As Boolean = obj.ConvertIntToBool(testValue) <br/>
+    ''' Debug.Print("Before: {0}", testValue) <br/>
+    ''' Debug.Print("Returned value is: {0}", value) <br/>
     ''' </example>
     Public Function ConvertIntToBool(iValue As Integer) As Boolean
         Dim bAns As Boolean = False
