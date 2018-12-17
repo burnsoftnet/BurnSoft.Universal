@@ -2,6 +2,7 @@
 ' Created By BurnSoft
 ' www.burnsoft.net
 '-------------------------------------------
+' ReSharper disable once InconsistentNaming
 ''' <summary>
 ''' Class BSDateTime.  Misc Date and Tim e Functions
 ''' </summary>
@@ -14,7 +15,16 @@ Public Class BSDateTime
     ''' <param name="sDate">The s date.</param>
     ''' <param name="sErrMsg">The s error MSG.</param>
     ''' <returns><c>true</c> if [is date past now] [the specified s date]; otherwise, <c>false</c>.</returns>
-    Public Function ISDatePastNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = "12/10/2018" <br/>
+    ''' Dim value As Boolean = obj.IsDatePastNow(testDate, errOut) <br/>
+    ''' Debug.Print("Date being used:{0}", testDate) <br/>
+    ''' Debug.Print("Is Past Due: {0}", value) <br/>
+    ''' </example>
+    Public Function IsDatePastNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
             Dim dd As Long = DateDiff(DateInterval.Day, CDate(sDate), Now)
@@ -41,6 +51,15 @@ Public Class BSDateTime
     ''' <param name="sDate">The s date.</param>
     ''' <param name="sErrMsg">The s error MSG.</param>
     ''' <returns><c>true</c> if [is date now] [the specified s date]; otherwise, <c>false</c>.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    '''  Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = DateTime.Now <br/>
+    ''' Dim value As Boolean = obj.ISDateNow(testDate, errOut) <br/>
+    ''' Debug.Print("Date being used:{0}", testDate) <br/>
+    ''' Debug.Print("Is today the day: {0}", value) <br/>
+    ''' </example>
     Public Function ISDateNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -68,6 +87,15 @@ Public Class BSDateTime
     ''' <param name="sDate">The s date.</param>
     ''' <param name="sErrMsg">The s error MSG.</param>
     ''' <returns><c>true</c> if [is date before now] [the specified s date]; otherwise, <c>false</c>.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = DateAdd(DateInterval.Year, 1,DateTime.Now) <br/>
+    ''' Dim value As Boolean = obj.ISDateBeforeNow(testDate, errOut) <br/>
+    ''' Debug.Print("Date being used: {0}", testDate) <br/>
+    ''' Debug.Print("Is date after today? : {0}", value) <br/>
+    ''' </example>
     Public Function ISDateBeforeNow(ByVal sDate As String, Optional ByRef sErrMsg As String = "") As Boolean
         Dim bAns As Boolean = False
         Try
@@ -95,6 +123,15 @@ Public Class BSDateTime
     ''' </summary>
     ''' <param name="sDate">The s date.</param>
     ''' <returns>System.String.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = "2/1/2018" <br/>
+    ''' Dim value As string = obj.FormatDate(testDate) <br/>
+    ''' Debug.Print("Date being used: {0}", testDate) <br/>
+    ''' Debug.Print("NewDate : {0}", value) <br/>
+    ''' </example>
     Public Function FormatDate(ByVal sDate As String) As String
         Dim sAns As String = ""
         Dim sArray As Object
@@ -118,6 +155,15 @@ Public Class BSDateTime
     ''' </summary>
     ''' <param name="sDate">The s date.</param>
     ''' <returns><c>true</c> if [is valid date] [the specified s date]; otherwise, <c>false</c>.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = "12/10/2018" <br/>
+    ''' Dim value As Boolean = obj.isValidDate(testDate) <br/>
+    ''' Debug.Print("Date being used: {0}", testDate) <br/>
+    ''' Debug.Print("Is Date Valid? : {0}", value) <br/>
+    ''' </example>
     Public Function isValidDate(ByVal sDate As String) As Boolean
         If Len(sDate) < 10 Then
             Return False
@@ -156,6 +202,15 @@ Trouble:
     ''' </summary>
     ''' <param name="iWeek">The i week.</param>
     ''' <returns>System.Int64.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As Long = 10 <br/>
+    ''' Dim value As string = obj.ConvertWeekToDays(testDate) <br/>
+    ''' Debug.Print("Date being used: {0}", testDate) <br/>
+    ''' Debug.Print("New Value : {0}", value) <br/>
+    ''' </example>
     Public Function ConvertWeekToDays(ByVal iWeek As Long) As Long
         Dim lAns As Long = 0
         If iWeek = 1 Or iWeek = 0 Then
@@ -170,6 +225,15 @@ Trouble:
     ''' </summary>
     ''' <param name="sValue">The s value.</param>
     ''' <returns>DateInterval.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = "month" <br/>
+    ''' Debug.Print("Converting month to DateInterval.Month to add a month to current date!") <br/>
+    ''' Dim value As string = DateAdd(obj.ConvertType(testDate), 1, DateTime.Now) <br/>
+    ''' Debug.Print("New Value : {0}", value) <br/>
+    ''' </example>
     Public Function ConvertType(ByVal sValue As String) As DateInterval
         Dim lAns As DateInterval = DateInterval.Hour
         Select Case LCase(sValue)
@@ -189,6 +253,15 @@ Trouble:
     ''' </summary>
     ''' <param name="myDate">My date.</param>
     ''' <returns>System.String.</returns>
+    ''' <example>
+    ''' SEE UNIT TESTS @ UnitTest_BSDateTime <br/>
+    ''' <br/>
+    ''' Dim obj As New BSDateTime <br/>
+    ''' Dim testDate As String = "2/1/2018" <br/>
+    ''' Dim value As string = obj.SQLFormatDate(testDate) <br/>
+    ''' Debug.Print("Date being used: {0}", testDate) <br/>
+    ''' Debug.Print("NewDate : {0}", value) <br/>
+    ''' </example>
     Public Function SQLFormatDate(ByVal myDate As String) As String
         myDate = FormatDateTime(myDate, DateFormat.ShortDate)
         Dim strSplit As Array = Split(myDate, "/")
