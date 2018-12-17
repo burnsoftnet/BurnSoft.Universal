@@ -2,6 +2,12 @@
 ' Created By BurnSoft
 ' www.burnsoft.net
 '-------------------------------------------
+''' <summary>
+''' Class BSMath.  General Math functions to simplify data manipulations 
+''' </summary>
+''' <example>
+''' Import BurnSoft.Universal
+''' </example>
 Public Class BSMath
     ''' <summary>
     ''' Function Used for Out of 100 Calculations
