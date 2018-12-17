@@ -87,8 +87,12 @@ Public Class BSMath
     ''' <param name="value"></param>
     ''' <returns></returns>
     Public Shared Function GetSin(value As Double) As Double
-        Dim angle As Double
-        angle = System.Math.Asin(value)
+        Dim angle As Double = 0
+        Try
+            angle = System.Math.Asin(value)
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
         Return angle
     End Function
     ''' <summary>
@@ -97,19 +101,24 @@ Public Class BSMath
     ''' <param name="value"></param>
     ''' <returns></returns>
     Public Shared Function GetCos(value As Double) As Double
-        Dim angle As Double
-        angle = System.Math.Atan(value)
+        Dim angle As Double = 0
+        Try
+            angle = System.Math.Atan(value)
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
+            
         Return angle
     End Function
     ''' <summary>
     ''' get the Tangent of Two Values
     ''' </summary>
-    ''' <param name="value1"></param>
-    ''' <param name="value2"></param>
-    ''' <returns></returns>
-    Public Shared Function GetTangentOf(value1 As Double, value2 As Double) As Double
+    ''' <param name="y">The y.</param>
+    ''' <param name="x">The x.</param>
+    ''' <returns>System.Double.</returns>
+    Public Shared Function GetTangentOf(y As Double, x As Double) As Double
         Dim angle As Double
-        angle = System.Math.Atan2(value1, value2)
+        angle = System.Math.Atan2(y, x)
         Return angle
     End Function
 End Class
