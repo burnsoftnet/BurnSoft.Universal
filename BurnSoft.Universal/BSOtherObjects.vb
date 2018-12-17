@@ -302,26 +302,34 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="strLookFor">The string look for.</param>
     ''' <param name="sDefault">The s default.</param>
-    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="didExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="args">The arguments.</param>
     ''' <returns>System.String.</returns>
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
     ''' 
     ''' </example>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef DidExist As Boolean = False) As String
+    Public Function GetCommand(ByVal strLookFor As String, ByVal sDefault As String, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As String
         Dim sAns As String = ""
         DidExist = False
-        Dim cmdLine() As String = System.Environment.GetCommandLineArgs
+        Dim cmdLine() As String
+        If (args.Length = 0) Then
+            cmdLine = System.Environment.GetCommandLineArgs
+        Else 
+            cmdLine = Split(args," ")
+        End If
+
+        
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
-        Dim Switch As String = ""
+        Dim switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
-                Switch = detectSwitch(strValue)
-                strValue = Replace(strValue, Switch, "")
+                switch = detectSwitch(strValue)
+                strValue = Replace(strValue, switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
                 Dim intUBound As Integer = UBound(strSplit)
@@ -345,25 +353,31 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="strLookFor">The string look for.</param>
     ''' <param name="lDefault">The l default.</param>
-    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="didExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="args">The arguments.</param>
     ''' <returns>System.Int64.</returns>
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
     ''' </example>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef DidExist As Boolean = False) As Long
+    Public Function GetCommand(ByVal strLookFor As String, ByVal lDefault As Long, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As Long
         Dim lAns As Long = 0
         DidExist = False
-        Dim cmdLine() As String = System.Environment.GetCommandLineArgs
+        Dim cmdLine() As String
+        If (args.Length = 0) Then
+            cmdLine = System.Environment.GetCommandLineArgs
+        Else 
+            cmdLine = Split(args," ")
+        End If
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
-        Dim Switch As String = ""
+        Dim switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
-                Switch = detectSwitch(strValue)
-                strValue = Replace(strValue, Switch, "")
+                switch = detectSwitch(strValue)
+                strValue = Replace(strValue, switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
                 Dim intUBound As Integer = UBound(strSplit)
@@ -387,25 +401,31 @@ Public Class BSOtherObjects
     ''' </summary>
     ''' <param name="strLookFor">The string look for.</param>
     ''' <param name="bDefault">if set to <c>true</c> [b default].</param>
-    ''' <param name="DidExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="didExist">if set to <c>true</c> [did exist].</param>
+    ''' <param name="args">The arguments.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     '''  <example>
     ''' SEE UNIT TESTS @ UnitTest_BSOtherObjects <br/>
     ''' <br/>
     ''' </example>
-    Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef DidExist As Boolean = False) As Boolean
+    Public Function GetCommand(ByVal strLookFor As String, ByVal bDefault As Boolean, Optional ByRef didExist As Boolean = False, Optional ByVal args As string = "") As Boolean
         Dim bAns As Boolean = bDefault
         DidExist = False
-        Dim cmdLine() As String = System.Environment.GetCommandLineArgs
+        Dim cmdLine() As String
+        If (args.Length = 0) Then
+            cmdLine = System.Environment.GetCommandLineArgs
+        Else 
+            cmdLine = Split(args," ")
+        End If
         Dim i As Integer = 0
         Dim intCount As Integer = cmdLine.Length
         Dim strValue As String = ""
-        Dim Switch As String = ""
+        Dim switch As String = ""
         If intCount > 1 Then
             For i = 1 To intCount - 1
                 strValue = cmdLine(i)
-                Switch = detectSwitch(strValue)
-                strValue = Replace(strValue, Switch, "")
+                switch = detectSwitch(strValue)
+                strValue = Replace(strValue, switch, "")
                 Dim strSplit() As String = Split(strValue, "=")
                 Dim intLBound As Integer = LBound(strSplit)
                 Dim intUBound As Integer = UBound(strSplit)
