@@ -12,6 +12,7 @@ Imports BurnSoft.Universal
         appPath = "C:\test" 'System.Windows.Forms.Application.StartupPath
         FileIOPath = appPath & "\" & Settings.FileIoWrites
         obj.CreateDirectory(FileIOPath)
+        obj.CreateDirectory(FileIOPath & "\movetest")
         FileToDelete = FileIOPath & "\deleteme.test"
         FileThatExists = FileIOPath & "\exists.test"
         LogFile = FileIOPath & "\LogFile.test"
@@ -69,6 +70,7 @@ Imports BurnSoft.Universal
         Dim didPass As Boolean = false
         Try
             Dim obj as New FileIO
+            obj.DeleteFile(FileIOPath & "\exists.move")
             obj.MoveFile(FileThatExists, FileIOPath & "\exists.move")
             didPass = true
         Catch ex As Exception
@@ -80,6 +82,7 @@ Imports BurnSoft.Universal
         Dim didPass As Boolean = false
         Try
             Dim obj as New FileIO
+            obj.DeleteFile(FileIOPath & "\exists.copy")
             obj.CopyFile(FileThatExists, FileIOPath & "\exists.copy")
             didPass = true
         Catch ex As Exception
@@ -120,3 +123,4 @@ Imports BurnSoft.Universal
         General.HasValue(didPass)
     End Sub
 End Class
+
