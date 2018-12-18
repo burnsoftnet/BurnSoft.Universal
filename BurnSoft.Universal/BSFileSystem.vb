@@ -77,7 +77,7 @@ Public Class FileIO
     ''' </summary>
     ''' <param name="strPath"></param>
     Public Sub CreateDirectory(ByVal strPath As String)
-        If Directory.Exists(strPath) Then
+        If not Directory.Exists(strPath) Then
             Directory.CreateDirectory(strPath)
         End If
     End Sub
