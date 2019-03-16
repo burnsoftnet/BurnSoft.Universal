@@ -171,19 +171,61 @@ Public Class BSActiveDirectory
     ''' Enum ADAccountOptions
     ''' </summary>
     Public Enum ADAccountOptions
+        ''' <summary>
+        ''' The uf temporary duplicate account
+        ''' </summary>
         UF_TEMP_DUPLICATE_ACCOUNT = 256
+        ''' <summary>
+        ''' The uf normal account
+        ''' </summary>
         UF_NORMAL_ACCOUNT = 512
+        ''' <summary>
+        ''' The uf interdomain trust account
+        ''' </summary>
         UF_INTERDOMAIN_TRUST_ACCOUNT = 2048
+        ''' <summary>
+        ''' The uf workstation trust account
+        ''' </summary>
         UF_WORKSTATION_TRUST_ACCOUNT = 4096
+        ''' <summary>
+        ''' The uf server trust account
+        ''' </summary>
         UF_SERVER_TRUST_ACCOUNT = 8192
+        ''' <summary>
+        ''' The uf dont expire passwd
+        ''' </summary>
         UF_DONT_EXPIRE_PASSWD = 65536
+        ''' <summary>
+        ''' The uf script
+        ''' </summary>
         UF_SCRIPT = 1
+        ''' <summary>
+        ''' The uf accountdisable
+        ''' </summary>
         UF_ACCOUNTDISABLE = 2
+        ''' <summary>
+        ''' The uf homedir required
+        ''' </summary>
         UF_HOMEDIR_REQUIRED = 8
+        ''' <summary>
+        ''' The uf lockout
+        ''' </summary>
         UF_LOCKOUT = 16
+        ''' <summary>
+        ''' The uf passwd notreqd
+        ''' </summary>
         UF_PASSWD_NOTREQD = 32
+        ''' <summary>
+        ''' The uf passwd cant change
+        ''' </summary>
         UF_PASSWD_CANT_CHANGE = 64
+        ''' <summary>
+        ''' The uf account lockout
+        ''' </summary>
         UF_ACCOUNT_LOCKOUT = 16
+        ''' <summary>
+        ''' The uf encrypted text password allowed
+        ''' </summary>
         UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED = 128
     End Enum
     ''' <summary>
