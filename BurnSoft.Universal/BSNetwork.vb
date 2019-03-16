@@ -36,7 +36,7 @@ Public Class BSNetwork
     ''' <br/>
     ''' Dim value as Boolean = PortOpen("localhost", "80", IPProtocolType.TCP)
     ''' </example>
-    Private shared Function PortOpen(sHost As System.Net.IPAddress, iPort As Long, protocolType As IPProtocolType) As Boolean
+    Private Shared Function PortOpen(sHost As System.Net.IPAddress, iPort As Long, protocolType As IPProtocolType) As Boolean
         Dim bAns As Boolean = False
         Dim EPHost As New System.Net.IPEndPoint(sHost, iPort)
         Dim s As System.Net.Sockets.Socket = Nothing
@@ -73,6 +73,58 @@ Public Class BSNetwork
             End If
             bAns = True
         End If
+        Return bAns
+    End Function
+
+    ''' <summary>
+    ''' Ports the open.
+    ''' </summary>
+    ''' <param name="sHost">The s host.</param>
+    ''' <param name="iPort">The i port.</param>
+    ''' <param name="protocolType">Type of the protocol.</param>
+    ''' <param name="errMsg">The error MSG.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    Private Shared Function PortOpen(sHost As System.Net.IPAddress, iPort As Long, protocolType As IPProtocolType, ByRef errMsg As String) As Boolean
+        Dim bAns As Boolean = False
+        Try
+            Dim EPHost As New System.Net.IPEndPoint(sHost, iPort)
+            Dim s As System.Net.Sockets.Socket = Nothing
+            Dim IsUDP As Boolean = False
+            Select Case protocolType
+                Case IPProtocolType.TCP
+                    s = New System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork,
+                                                      System.Net.Sockets.SocketType.Stream,
+                                                      System.Net.Sockets.ProtocolType.Tcp)
+                Case IPProtocolType.UDP
+                    IsUDP = True
+                    s = New System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork,
+                                                      System.Net.Sockets.SocketType.Dgram,
+                                                      System.Net.Sockets.ProtocolType.Udp)
+                Case IPProtocolType.IPX
+                    s = New System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork,
+                                                      System.Net.Sockets.SocketType.Stream,
+                                                      System.Net.Sockets.ProtocolType.Ipx)
+                Case IPProtocolType.SPX
+                    s = New System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork,
+                                                      System.Net.Sockets.SocketType.Stream,
+                                                      System.Net.Sockets.ProtocolType.Spx)
+            End Select
+            Try
+                s.Connect(EPHost)
+            Catch e As Exception
+                Debug.Print(e.Message)
+            End Try
+            If Not s.Connected Then
+                bAns = False
+            Else
+                If Not IsUDP Then
+                    s.Disconnect(False)
+                End If
+                bAns = True
+            End If
+        Catch ex As Exception
+            errMsg = ex.Message.ToString;
+        End Try
         Return bAns
     End Function
     ''' <summary>

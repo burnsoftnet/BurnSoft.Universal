@@ -14,4 +14,7 @@
     <copyright>Copyright 2019</copyright>
     <tags>BurnSoft Universal VB.NET</tags>
   </metadata>
+  <files>
+    <file src="BurnSoft.Universal.dll" target="BurnSoft.Universal.dll" />
+  </files>
 </package>
