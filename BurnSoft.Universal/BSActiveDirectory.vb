@@ -78,27 +78,93 @@ Public Class BSActiveDirectory
     ''' Enum ADSIObject
     ''' </summary>
     Private Enum ADSIObject
+        ''' <summary>
+        ''' The adsi class
+        ''' </summary>
         ADSI_Class = 1
+        ''' <summary>
+        ''' The adsi computer
+        ''' </summary>
         ADSI_Computer = 2
+        ''' <summary>
+        ''' The adsi domain
+        ''' </summary>
         ADSI_Domain = 3
+        ''' <summary>
+        ''' The adsi file service
+        ''' </summary>
         ADSI_FileService = 4
+        ''' <summary>
+        ''' The adsi file share
+        ''' </summary>
         ADSI_FileShare = 5
+        ''' <summary>
+        ''' The adsi FPNW file service
+        ''' </summary>
         ADSI_FPNWFileService = 6
+        ''' <summary>
+        ''' The adsi FPNW file share
+        ''' </summary>
         ADSI_FPNWFileShare = 7
+        ''' <summary>
+        ''' The adsi FPNW resource
+        ''' </summary>
         ADSI_FPNWResource = 8
+        ''' <summary>
+        ''' The adsi FPNW resources collection
+        ''' </summary>
         ADSI_FPNWResourcesCollection = 9
+        ''' <summary>
+        ''' The adsi FPNW session
+        ''' </summary>
         ADSI_FPNWSession = 10
+        ''' <summary>
+        ''' The adsi FPNW sessions collection
+        ''' </summary>
         ADSI_FPNWSessionsCollection = 11
+        ''' <summary>
+        ''' The adsi group
+        ''' </summary>
         ADSI_Group = 12
+        ''' <summary>
+        ''' The adsi group collection
+        ''' </summary>
         ADSI_GroupCollection = 13
+        ''' <summary>
+        ''' The adsi local group
+        ''' </summary>
         ADSI_LocalGroup = 14
+        ''' <summary>
+        ''' The adsi localgroup collection
+        ''' </summary>
         ADSI_LocalgroupCollection = 15
+        ''' <summary>
+        ''' The adsi namespace
+        ''' </summary>
         ADSI_Namespace = 16
+        ''' <summary>
+        ''' The adsi print job
+        ''' </summary>
         ADSI_PrintJob = 17
+        ''' <summary>
+        ''' The adsi service
+        ''' </summary>
         ADSI_Service = 18
+        ''' <summary>
+        ''' The adsi user
+        ''' </summary>
         ADSI_User = 19
+        ''' <summary>
+        ''' The adsi print jobs collection
+        ''' </summary>
         ADSI_PrintJobsCollection = 20
+        ''' <summary>
+        ''' The adsi print queue
+        ''' </summary>
         ADSI_PrintQueue = 21
+        ''' <summary>
+        ''' The adsi property
+        ''' </summary>
         ADSI_Property = 22
     End Enum
     ''' <summary>
