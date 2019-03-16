@@ -232,14 +232,32 @@ Public Class BSActiveDirectory
     ''' Enum LoginResult
     ''' </summary>
     Public Enum LoginResult
+        ''' <summary>
+        ''' The login ok
+        ''' </summary>
         LOGIN_OK = 0
+        ''' <summary>
+        ''' The login user doesnt exist
+        ''' </summary>
         LOGIN_USER_DOESNT_EXIST
+        ''' <summary>
+        ''' The login user account inactive
+        ''' </summary>
         LOGIN_USER_ACCOUNT_INACTIVE
     End Enum
     ''' <summary>Enumerator for Security Group Type</summary>
     Public Enum GroupSecurityType
+        ''' <summary>
+        ''' The uni group
+        ''' </summary>
         UNI_GROUP = 0
+        ''' <summary>
+        ''' The local group
+        ''' </summary>
         LOCAL_GROUP = 1
+        ''' <summary>
+        ''' The global group
+        ''' </summary>
         GLOBAL_GROUP = 2
     End Enum
 
@@ -247,7 +265,13 @@ Public Class BSActiveDirectory
     ''' Public Enumerations for USER OR COMPUTER
     ''' </summary>
     Public Enum AD_AccountType
+        ''' <summary>
+        ''' The user
+        ''' </summary>
         USER
+        ''' <summary>
+        ''' The computer
+        ''' </summary>
         COMPUTER
     End Enum
 #End Region
