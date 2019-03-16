@@ -126,7 +126,7 @@ Public Class BSNetwork
                 bAns = True
             End If
         Catch ex As Exception
-            errMsg = ex.Message.ToString;
+            errMsg = ex.Message.ToString
         End Try
         Return bAns
     End Function
