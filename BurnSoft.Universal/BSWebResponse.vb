@@ -6,11 +6,29 @@ Imports System.Text
 Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
+''' <summary>
+''' Class BSWebResponse, General function wot help with web mased application
+''' </summary>
 Public Class BSWebResponse
+    ''' <summary>
+    ''' The use authentication
+    ''' </summary>
     Private _UseAuth As Boolean
+    ''' <summary>
+    ''' The domain
+    ''' </summary>
     Private _Domain As String
+    ''' <summary>
+    ''' The user name
+    ''' </summary>
     Private _UserName As String
+    ''' <summary>
+    ''' The password
+    ''' </summary>
     Private _Password As String
+    ''' <summary>
+    ''' The NTLM
+    ''' </summary>
     Private _NTLM As Boolean
     ''' <summary>
     ''' True or False to set if you need to use authentiation to the website for NTLM or other
