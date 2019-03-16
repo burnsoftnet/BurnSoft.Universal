@@ -15,6 +15,6 @@
     <tags>BurnSoft Universal VB.NET</tags>
   </metadata>
   <files>
-    <file src="BurnSoft.Universal.dll" target="BurnSoft.Universal.dll" />
+    <file src="bin/release/BurnSoft.Universal.dll" target="lib/net45/" />
   </files>
 </package>
