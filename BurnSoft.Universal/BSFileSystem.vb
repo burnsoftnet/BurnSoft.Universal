@@ -4,6 +4,9 @@
 '-------------------------------------------
 Imports System.IO
 Imports System.Text
+''' <summary>
+''' Class FileIO, General File System Management Class
+''' </summary>
 Public Class FileIO
     ''' <summary>
     ''' The Log File Sub is a quick and easy way to create a log file for your application.
@@ -77,7 +80,7 @@ Public Class FileIO
     ''' </summary>
     ''' <param name="strPath"></param>
     Public Sub CreateDirectory(ByVal strPath As String)
-        If not Directory.Exists(strPath) Then
+        If Not Directory.Exists(strPath) Then
             Directory.CreateDirectory(strPath)
         End If
     End Sub
@@ -241,12 +244,31 @@ Public Class FileIO
         Return sAns
     End Function
 End Class
+''' <summary>
+''' Class FSInfo, General File System Management class to get information from a file
+''' </summary>
 Public Class FSInfo
+    ''' <summary>
+    ''' Gets the short name of the path.
+    ''' </summary>
+    ''' <param name="strLongPath">The string long path.</param>
+    ''' <param name="objStringBuilder">The object string builder.</param>
+    ''' <param name="intBufferSize">Size of the int buffer.</param>
+    ''' <returns>System.Int32.</returns>
     Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As StringBuilder, ByVal intBufferSize As Integer) As Integer
+    ''' <summary>
+    ''' Gets the long name of the path.
+    ''' </summary>
+    ''' <param name="strShortname">The string shortname.</param>
+    ''' <param name="objStringBuilder">The object string builder.</param>
+    ''' <param name="intBufferSize">Size of the int buffer.</param>
+    ''' <returns>System.Int32.</returns>
     Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As StringBuilder, ByVal intBufferSize As Integer) As Integer
     ' Private Declare Auto Function GetShortPathName Lib "kernel32.dll" (ByVal strLongPath As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
-    'Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer
-
+    'Private Declare Auto Function GetLongPathName Lib "Kernel32.dll" (ByVal strShortname As String, ByVal objStringBuilder As System.Text.StringBuilder, ByVal intBufferSize As Integer) As Integer    
+    ''' <summary>
+    ''' Enum DirectoryPathlength
+    ''' </summary>
     Public Enum DirectoryPathlength
         WindowsXP = 256
     End Enum
