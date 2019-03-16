@@ -97,9 +97,189 @@ BurnSoft.Universal
  Enum ADSIObject
  </summary>
 </member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Class">
+ <summary>
+ The adsi class
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Computer">
+ <summary>
+ The adsi computer
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Domain">
+ <summary>
+ The adsi domain
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FileService">
+ <summary>
+ The adsi file service
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FileShare">
+ <summary>
+ The adsi file share
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWFileService">
+ <summary>
+ The adsi FPNW file service
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWFileShare">
+ <summary>
+ The adsi FPNW file share
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWResource">
+ <summary>
+ The adsi FPNW resource
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWResourcesCollection">
+ <summary>
+ The adsi FPNW resources collection
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWSession">
+ <summary>
+ The adsi FPNW session
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_FPNWSessionsCollection">
+ <summary>
+ The adsi FPNW sessions collection
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Group">
+ <summary>
+ The adsi group
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_GroupCollection">
+ <summary>
+ The adsi group collection
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_LocalGroup">
+ <summary>
+ The adsi local group
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_LocalgroupCollection">
+ <summary>
+ The adsi localgroup collection
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Namespace">
+ <summary>
+ The adsi namespace
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_PrintJob">
+ <summary>
+ The adsi print job
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Service">
+ <summary>
+ The adsi service
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_User">
+ <summary>
+ The adsi user
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_PrintJobsCollection">
+ <summary>
+ The adsi print jobs collection
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_PrintQueue">
+ <summary>
+ The adsi print queue
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADSIObject.ADSI_Property">
+ <summary>
+ The adsi property
+ </summary>
+</member>
 <member name="T:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions">
  <summary>
  Enum ADAccountOptions
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_TEMP_DUPLICATE_ACCOUNT">
+ <summary>
+ The uf temporary duplicate account
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_NORMAL_ACCOUNT">
+ <summary>
+ The uf normal account
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_INTERDOMAIN_TRUST_ACCOUNT">
+ <summary>
+ The uf interdomain trust account
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_WORKSTATION_TRUST_ACCOUNT">
+ <summary>
+ The uf workstation trust account
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_SERVER_TRUST_ACCOUNT">
+ <summary>
+ The uf server trust account
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_DONT_EXPIRE_PASSWD">
+ <summary>
+ The uf dont expire passwd
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_SCRIPT">
+ <summary>
+ The uf script
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_ACCOUNTDISABLE">
+ <summary>
+ The uf accountdisable
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_HOMEDIR_REQUIRED">
+ <summary>
+ The uf homedir required
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_LOCKOUT">
+ <summary>
+ The uf lockout
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_PASSWD_NOTREQD">
+ <summary>
+ The uf passwd notreqd
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_PASSWD_CANT_CHANGE">
+ <summary>
+ The uf passwd cant change
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_ACCOUNT_LOCKOUT">
+ <summary>
+ The uf account lockout
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions.UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED">
+ <summary>
+ The uf encrypted text password allowed
  </summary>
 </member>
 <member name="T:BurnSoft.Universal.BSActiveDirectory.LoginResult">
@@ -107,12 +287,52 @@ BurnSoft.Universal
  Enum LoginResult
  </summary>
 </member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.LoginResult.LOGIN_OK">
+ <summary>
+ The login ok
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.LoginResult.LOGIN_USER_DOESNT_EXIST">
+ <summary>
+ The login user doesnt exist
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.LoginResult.LOGIN_USER_ACCOUNT_INACTIVE">
+ <summary>
+ The login user account inactive
+ </summary>
+</member>
 <member name="T:BurnSoft.Universal.BSActiveDirectory.GroupSecurityType">
  <summary>Enumerator for Security Group Type</summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.GroupSecurityType.UNI_GROUP">
+ <summary>
+ The uni group
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.GroupSecurityType.LOCAL_GROUP">
+ <summary>
+ The local group
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.GroupSecurityType.GLOBAL_GROUP">
+ <summary>
+ The global group
+ </summary>
 </member>
 <member name="T:BurnSoft.Universal.BSActiveDirectory.AD_AccountType">
 <summary>
  Public Enumerations for USER OR COMPUTER
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.AD_AccountType.USER">
+ <summary>
+ The user
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.AD_AccountType.COMPUTER">
+ <summary>
+ The computer
  </summary>
 </member>
 <member name="P:BurnSoft.Universal.BSActiveDirectory.SEARCH_FILTER_PAGESIZE">
