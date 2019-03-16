@@ -22,6 +22,91 @@ BurnSoft.Universal
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:BurnSoft.Universal.BSActiveDirectory">
+ <summary>
+ Class BSActiveDirectory, Functions that are useful when working with MS Active Directory
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._ADSIString">
+ <summary>
+ The adsi string
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._DOMAIN_NAME">
+ <summary>
+ The domain name
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._DOMAIN_USER">
+ <summary>
+ The domain user
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._DOMAIN_USER_PASSWORD">
+ <summary>
+ The domain user password
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._LDAP_STRING">
+ <summary>
+ The LDAP string
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._LDAP_DOMAIN_NAME">
+ <summary>
+ The LDAP domain name
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._SEARCH_FILTER_PAGESIZE">
+ <summary>
+ The search filter pagesize
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.UseShareRunDir">
+ <summary>
+ The use share run dir
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADS_NAME_INITTYPE_GC">
+ <summary>
+ Used for AD Table Translation
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADS_NAME_TYPE_1779">
+ <summary>
+ Used for AD Table Translation
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory.ADS_NAME_TYPE_NT4">
+ <summary>
+ Used for AD Table Translation
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSActiveDirectory._APPLICATION_LAUNCH_PATH">
+ <summary>
+ The application launch path
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.#ctor">
+ <summary>
+ Initializes a new instance of the <see cref="T:BurnSoft.Universal.BSActiveDirectory"/> class.
+ </summary>
+</member>
+<member name="T:BurnSoft.Universal.BSActiveDirectory.ADSIObject">
+ <summary>
+ Enum ADSIObject
+ </summary>
+</member>
+<member name="T:BurnSoft.Universal.BSActiveDirectory.ADAccountOptions">
+ <summary>
+ Enum ADAccountOptions
+ </summary>
+</member>
+<member name="T:BurnSoft.Universal.BSActiveDirectory.LoginResult">
+ <summary>
+ Enum LoginResult
+ </summary>
+</member>
 <member name="T:BurnSoft.Universal.BSActiveDirectory.GroupSecurityType">
  <summary>Enumerator for Security Group Type</summary>
 </member>
@@ -29,6 +114,54 @@ BurnSoft.Universal
 <summary>
  Public Enumerations for USER OR COMPUTER
  </summary>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.SEARCH_FILTER_PAGESIZE">
+ <summary>
+ Gets or sets the search filter pagesize.
+ </summary>
+ <value>The search filter pagesize.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.LDAP_STRING">
+ <summary>
+ Gets or sets the LDAP string.
+ </summary>
+ <value>The LDAP string.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.LDAP_DOMAIN_NAME">
+ <summary>
+ Gets or sets the name of the LDAP domain.
+ </summary>
+ <value>The name of the LDAP domain.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.DOMAIN_USER">
+ <summary>
+ Gets or sets the domain user.
+ </summary>
+ <value>The domain user.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.DOMAIN_USER_PASSWORD">
+ <summary>
+ Gets or sets the domain user password.
+ </summary>
+ <value>The domain user password.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.ADSIString">
+ <summary>
+ Gets or sets the adsi string.
+ </summary>
+ <value>The adsi string.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.DOMAIN_NAME">
+ <summary>
+ Gets or sets the name of the domain.
+ </summary>
+ <value>The name of the domain.</value>
+</member>
+<member name="P:BurnSoft.Universal.BSActiveDirectory.APPLICATION_LAUNCH_PATH">
+ <summary>
+ Gets or sets the application launch path.
+ </summary>
+ <value>The application launch path.</value>
 </member>
 <member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerAccountLastLogon(System.String,System.String@)">
 <summary>
@@ -143,6 +276,13 @@ BurnSoft.Universal
 <summary>
  Checks a machine name in a OU to determin is it is a Server
  </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.isDomainController(System.String)">
+ <summary>
+ Determines whether [is domain controller] [the specified server name].
+ </summary>
+ <param name="server_name">Name of the server.</param>
+ <returns><c>true</c> if [is domain controller] [the specified server name]; otherwise, <c>false</c>.</returns>
 </member>
 <member name="M:BurnSoft.Universal.BSActiveDirectory.ListAllADComputers_AC(System.String@)">
 <summary>
@@ -576,6 +716,64 @@ Get all the Computers in Active Directory as a regular Collection Array.
  Debug.Print("NewDate : {0}", value) <br/>
  </example>
 </member>
+<member name="T:BurnSoft.Universal.BSEncryption">
+ <summary>
+ Class BSEncryption.
+ </summary>
+</member>
+<member name="T:BurnSoft.Universal.BSEncryption.SHATYPE">
+ <summary>
+ Enum SHATYPE
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.GetCheckSumIO(System.String)">
+ <summary>
+ Gets the check sum io.
+ </summary>
+ <param name="sValue">The s value.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.GetCheckSum(System.String)">
+ <summary>
+ Gets the check sum.
+ </summary>
+ <param name="file">The file.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.GetCheckSum256(System.String)">
+ <summary>
+ Gets the check sum256.
+ </summary>
+ <param name="file">The file.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.GetCheckSum384(System.String)">
+ <summary>
+ Gets the check sum384.
+ </summary>
+ <param name="file">The file.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.GetCheckSum512(System.String)">
+ <summary>
+ Gets the check sum512.
+ </summary>
+ <param name="file">The file.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSEncryption.ReturnSHACheckSum(System.String,BurnSoft.Universal.BSEncryption.SHATYPE)">
+ <summary>
+ Returns the sha check sum.
+ </summary>
+ <param name="sFile">The s file.</param>
+ <param name="MySHAType">Type of my sha.</param>
+ <returns>System.String.</returns>
+</member>
+<member name="T:BurnSoft.Universal.FileIO">
+ <summary>
+ Class FileIO, General File System Management Class
+ </summary>
+</member>
 <member name="M:BurnSoft.Universal.FileIO.LogFile(System.String,System.String)">
  <summary>
  The Log File Sub is a quick and easy way to create a log file for your application.
@@ -739,6 +937,34 @@ Get all the Computers in Active Directory as a regular Collection Array.
  </summary>
  <param name="sFile"></param>
  <returns>Date and Time</returns>
+</member>
+<member name="T:BurnSoft.Universal.FSInfo">
+ <summary>
+ Class FSInfo, General File System Management class to get information from a file
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetShortPathName(System.String@,System.Text.StringBuilder,System.Int32)">
+ <summary>
+ Gets the short name of the path.
+ </summary>
+ <param name="strLongPath">The string long path.</param>
+ <param name="objStringBuilder">The object string builder.</param>
+ <param name="intBufferSize">Size of the int buffer.</param>
+ <returns>System.Int32.</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetLongPathName(System.String@,System.Text.StringBuilder,System.Int32)">
+ <summary>
+ Gets the long name of the path.
+ </summary>
+ <param name="strShortname">The string shortname.</param>
+ <param name="objStringBuilder">The object string builder.</param>
+ <param name="intBufferSize">Size of the int buffer.</param>
+ <returns>System.Int32.</returns>
+</member>
+<member name="T:BurnSoft.Universal.FSInfo.DirectoryPathlength">
+ <summary>
+ Enum DirectoryPathlength
+ </summary>
 </member>
 <member name="M:BurnSoft.Universal.FSInfo.GetShortPathName(System.String,BurnSoft.Universal.FSInfo.DirectoryPathlength)">
  <summary>
@@ -947,6 +1173,11 @@ Get all the Computers in Active Directory as a regular Collection Array.
  Class BSNetwork.  General Class that contains functions to help manage network information on a machine
  </summary>
 </member>
+<member name="M:BurnSoft.Universal.BSNetwork.#ctor">
+ <summary>
+ Initializes a new instance of the <see cref="T:BurnSoft.Universal.BSNetwork"/> class.
+ </summary>
+</member>
 <member name="T:BurnSoft.Universal.BSNetwork.IPProtocolType">
  <summary>
  Public network Protocol Types used
@@ -968,6 +1199,16 @@ Get all the Computers in Active Directory as a regular Collection Array.
  <br/>
  Dim value as Boolean = PortOpen("localhost", "80", IPProtocolType.TCP)
  </example>
+</member>
+<member name="M:BurnSoft.Universal.BSNetwork.PortOpen(System.Net.IPAddress,System.Int64,BurnSoft.Universal.BSNetwork.IPProtocolType,System.String@)">
+ <summary>
+ Ports the open.
+ </summary>
+ <param name="sHost">The s host.</param>
+ <param name="iPort">The i port.</param>
+ <param name="protocolType">Type of the protocol.</param>
+ <param name="errMsg">The error MSG.</param>
+ <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
 </member>
 <member name="M:BurnSoft.Universal.BSNetwork.PortIsUP(System.String,System.Int64,BurnSoft.Universal.BSNetwork.IPProtocolType,System.String@)">
  <summary>
@@ -1893,6 +2134,11 @@ Get all the Computers in Active Directory as a regular Collection Array.
  
  </example>
 </member>
+<member name="T:BurnSoft.Universal.BSSystemInfo">
+ <summary>
+ Class BSSystemInfo, To Get general information from the System
+ </summary>
+</member>
 <member name="M:BurnSoft.Universal.BSSystemInfo.GetPhysicalMemory">
  <summary>
  Returns the Physical memory of the machine broken down to kb, mb, gb, or tb
@@ -1991,6 +2237,36 @@ Get all the Computers in Active Directory as a regular Collection Array.
  </summary>
  <param name="lValue"></param>
  <returns>Khz, Mhz, Ghz, Thz</returns>
+</member>
+<member name="T:BurnSoft.Universal.BSWebResponse">
+ <summary>
+ Class BSWebResponse, General function wot help with web mased application
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSWebResponse._UseAuth">
+ <summary>
+ The use authentication
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSWebResponse._Domain">
+ <summary>
+ The domain
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSWebResponse._UserName">
+ <summary>
+ The user name
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSWebResponse._Password">
+ <summary>
+ The password
+ </summary>
+</member>
+<member name="F:BurnSoft.Universal.BSWebResponse._NTLM">
+ <summary>
+ The NTLM
+ </summary>
 </member>
 <member name="P:BurnSoft.Universal.BSWebResponse.UseAuthentication">
  <summary>
