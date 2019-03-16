@@ -15,24 +15,68 @@ Imports System.Security
 Imports System.Security.Principal
 Imports System.Text.StringBuilder
 Imports System.Globalization
+''' <summary>
+''' Class BSActiveDirectory, Functions that are useful when working with MS Active Directory
+''' </summary>
 Public Class BSActiveDirectory
+    ''' <summary>
+    ''' The adsi string
+    ''' </summary>
     Private _ADSIString As String
+    ''' <summary>
+    ''' The domain name
+    ''' </summary>
     Private _DOMAIN_NAME As String
+    ''' <summary>
+    ''' The domain user
+    ''' </summary>
     Private _DOMAIN_USER As String
+    ''' <summary>
+    ''' The domain user password
+    ''' </summary>
     Private _DOMAIN_USER_PASSWORD As String
+    ''' <summary>
+    ''' The LDAP string
+    ''' </summary>
     Private _LDAP_STRING As String
+    ''' <summary>
+    ''' The LDAP domain name
+    ''' </summary>
     Private _LDAP_DOMAIN_NAME As String
+    ''' <summary>
+    ''' The search filter pagesize
+    ''' </summary>
     Private _SEARCH_FILTER_PAGESIZE As Long
+    ''' <summary>
+    ''' The use share run dir
+    ''' </summary>
     Public UseShareRunDir As Boolean
+    ''' <summary>
+    ''' Used for AD Table Translation
+    ''' </summary>
     Private Const ADS_NAME_INITTYPE_GC = 3  'Used for AD Table Translation
+    ''' <summary>
+    ''' Used for AD Table Translation
+    ''' </summary>
     Private Const ADS_NAME_TYPE_1779 = 1    'Used for AD Table Translation
-    Private Const ADS_NAME_TYPE_NT4 = 3     'Used for AD Table Translation
+    ''' <summary>
+    ''' Used for AD Table Translation
+    ''' </summary>
+    Private Const ADS_NAME_TYPE_NT4 = 3     'Used for AD Table Translation    
+    ''' <summary>
+    ''' The application launch path
+    ''' </summary>
     Private _APPLICATION_LAUNCH_PATH As String
-
+    ''' <summary>
+    ''' Initializes a new instance of the <see cref="BSActiveDirectory"/> class.
+    ''' </summary>
     Public Sub New()
         UseShareRunDir = False
     End Sub
 #Region "Enumerations"
+    ''' <summary>
+    ''' Enum ADSIObject
+    ''' </summary>
     Private Enum ADSIObject
         ADSI_Class = 1
         ADSI_Computer = 2
@@ -57,7 +101,9 @@ Public Class BSActiveDirectory
         ADSI_PrintQueue = 21
         ADSI_Property = 22
     End Enum
-
+    ''' <summary>
+    ''' Enum ADAccountOptions
+    ''' </summary>
     Public Enum ADAccountOptions
         UF_TEMP_DUPLICATE_ACCOUNT = 256
         UF_NORMAL_ACCOUNT = 512
@@ -74,7 +120,9 @@ Public Class BSActiveDirectory
         UF_ACCOUNT_LOCKOUT = 16
         UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED = 128
     End Enum
-
+    ''' <summary>
+    ''' Enum LoginResult
+    ''' </summary>
     Public Enum LoginResult
         LOGIN_OK = 0
         LOGIN_USER_DOESNT_EXIST
@@ -96,6 +144,10 @@ Public Class BSActiveDirectory
     End Enum
 #End Region
 #Region "Properties"
+    ''' <summary>
+    ''' Gets or sets the search filter pagesize.
+    ''' </summary>
+    ''' <value>The search filter pagesize.</value>
     Public Property SEARCH_FILTER_PAGESIZE As Long
         Get
             If _SEARCH_FILTER_PAGESIZE = 0 Then _SEARCH_FILTER_PAGESIZE = 30000
@@ -105,6 +157,10 @@ Public Class BSActiveDirectory
             _SEARCH_FILTER_PAGESIZE = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the LDAP string.
+    ''' </summary>
+    ''' <value>The LDAP string.</value>
     Public Property LDAP_STRING() As String
         Get
             Return _LDAP_STRING
@@ -113,6 +169,10 @@ Public Class BSActiveDirectory
             _LDAP_STRING = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the name of the LDAP domain.
+    ''' </summary>
+    ''' <value>The name of the LDAP domain.</value>
     Public Property LDAP_DOMAIN_NAME() As String
         Get
             Return _LDAP_DOMAIN_NAME
@@ -121,6 +181,10 @@ Public Class BSActiveDirectory
             _LDAP_DOMAIN_NAME = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the domain user.
+    ''' </summary>
+    ''' <value>The domain user.</value>
     Public Property DOMAIN_USER() As String
         Get
             Return _DOMAIN_USER
@@ -129,6 +193,10 @@ Public Class BSActiveDirectory
             _DOMAIN_USER = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the domain user password.
+    ''' </summary>
+    ''' <value>The domain user password.</value>
     Public Property DOMAIN_USER_PASSWORD() As String
         Get
             Return _DOMAIN_USER_PASSWORD
@@ -137,6 +205,10 @@ Public Class BSActiveDirectory
             _DOMAIN_USER_PASSWORD = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the adsi string.
+    ''' </summary>
+    ''' <value>The adsi string.</value>
     Public Property ADSIString() As String
         Get
             Return _ADSIString
@@ -145,6 +217,10 @@ Public Class BSActiveDirectory
             _ADSIString = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the name of the domain.
+    ''' </summary>
+    ''' <value>The name of the domain.</value>
     Public Property DOMAIN_NAME() As String
         Get
             Return _DOMAIN_NAME
@@ -153,6 +229,10 @@ Public Class BSActiveDirectory
             _DOMAIN_NAME = value
         End Set
     End Property
+    ''' <summary>
+    ''' Gets or sets the application launch path.
+    ''' </summary>
+    ''' <value>The application launch path.</value>
     Public Property APPLICATION_LAUNCH_PATH() As String
         Get
             Return _APPLICATION_LAUNCH_PATH
@@ -510,6 +590,11 @@ Public Class BSActiveDirectory
         End If
         Return bAns
     End Function
+    ''' <summary>
+    ''' Determines whether [is domain controller] [the specified server name].
+    ''' </summary>
+    ''' <param name="server_name">Name of the server.</param>
+    ''' <returns><c>true</c> if [is domain controller] [the specified server name]; otherwise, <c>false</c>.</returns>
     Public Function isDomainController(ByVal server_name As String) As Boolean
         Dim SERVER_OU As String = "Domain Controllers"
         Dim strLocation As String = FindObject(server_name, AD_AccountType.COMPUTER)
@@ -762,7 +847,7 @@ Public Class BSActiveDirectory
     ''' pwdLastSet = the last time there password was set
     ''' lastLogon = the last time they logged into the domain.
     ''' </remarks>
-    Public Sub GetDomainInfoPlus(ByVal UsrID As String, Optional ByRef CITUDOMAIN As String = "", Optional ByRef CITUID As String = "", Optional ByRef CITULNAME As String = "", Optional ByRef CITUFNAME As String = "", Optional ByRef UserMemberOf As String = "", _
+    Public Sub GetDomainInfoPlus(ByVal UsrID As String, Optional ByRef CITUDOMAIN As String = "", Optional ByRef CITUID As String = "", Optional ByRef CITULNAME As String = "", Optional ByRef CITUFNAME As String = "", Optional ByRef UserMemberOf As String = "",
                             Optional ByRef AccStatus As String = "", Optional ByRef eMail As String = "", Optional ByRef ExpOn As String = "", Optional ByRef pwdLastSet As String = "", Optional ByRef lastLogon As String = "")
         'NOTE: This Sub will get the Name, Groups and Status of the Current User that is accessing the Site.
         Dim wmiFailed As Boolean = True
@@ -1360,10 +1445,10 @@ Public Class BSActiveDirectory
     '''<summary>
     ''' Gets groups for a user and returns it as a collection
     ''' </summary>
-    Private Function GetGroups(ByVal _path As String, ByVal username As String, _
+    Private Function GetGroups(ByVal _path As String, ByVal username As String,
                  ByVal password As String) As Collection
         Dim Groups As New Collection
-        Dim dirEntry As New  _
+        Dim dirEntry As New _
             System.DirectoryServices.DirectoryEntry(_path, username, password)
         Dim dirSearcher As New DirectorySearcher(dirEntry)
         dirSearcher.Filter = String.Format("(sAMAccountName={0}))", username)
@@ -1382,15 +1467,15 @@ Public Class BSActiveDirectory
                 If equalsIndex = -1 Then
                     Return Nothing
                 End If
-                If Not Groups.Contains(dn.Substring((equalsIndex + 1), _
+                If Not Groups.Contains(dn.Substring((equalsIndex + 1),
                                       (commaIndex - equalsIndex) - 1)) Then
                     Groups.Add(dn.Substring((equalsIndex + 1), (commaIndex - equalsIndex) - 1))
                 End If
             Next
         Catch ex As Exception
             If ex.GetType Is GetType(System.NullReferenceException) Then
-                MessageBox.Show("Selected user isn't a member of any groups " & _
-                                "at this time.", "No groups listed", _
+                MessageBox.Show("Selected user isn't a member of any groups " &
+                                "at this time.", "No groups listed",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error)
                 'they are still a good user just does not
                 'have a "memberOf" attribute so it errors out.
