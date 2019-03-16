@@ -8,6 +8,9 @@ Imports System.Net.NetworkInformation
 ''' Class BSNetwork.  General Class that contains functions to help manage network information on a machine
 ''' </summary>
 Public Class BSNetwork
+    ''' <summary>
+    ''' Initializes a new instance of the <see cref="BSNetwork"/> class.
+    ''' </summary>
     Public Sub New()
 
     End Sub
@@ -41,7 +44,7 @@ Public Class BSNetwork
         Dim EPHost As New System.Net.IPEndPoint(sHost, iPort)
         Dim s As System.Net.Sockets.Socket = Nothing
         Dim IsUDP As Boolean = False
-        Select Case ProtocolType
+        Select Case protocolType
             Case IPProtocolType.TCP
                 s = New System.Net.Sockets.Socket(System.Net.Sockets.AddressFamily.InterNetwork,
                                                   System.Net.Sockets.SocketType.Stream,
@@ -147,7 +150,7 @@ Public Class BSNetwork
         Dim bAns As Boolean = False
         Try
             Dim myHost As System.Net.IPAddress = System.Net.Dns.GetHostEntry(sHost).AddressList(0)
-            bAns = PortOpen(myHost, iPort, ProtocolType)
+            bAns = PortOpen(myHost, iPort, protocolType)
         Catch ex As Exception
             ErrMsg = ex.Message.ToString
         End Try
@@ -184,11 +187,11 @@ Public Class BSNetwork
         Dim bAns As Boolean = False
         Dim instance As New Ping
         Dim results As PingReply
-        If (host.Length =0) Then
+        If (host.Length = 0) Then
             host = ipAddress
         End If
         Try
-            results = instance.Send(Host, Timeout)
+            results = instance.Send(host, Timeout)
             Select Case results.Status
                 Case IPStatus.Success
                     lBytes = results.Buffer.Length
