@@ -1,6 +1,11 @@
 # BurnSoft.Universal
 The BurnSoft Universal is a library with a variety of subs and Functions to help simplify application and reduce the need to copy and paste code.  It’s more our Swiss Army Knife Library.
-<br/
+
+Additional Documenation in the form of a CHM help file can be found at:
+
+https://github.com/burnsoftnet/Documentation/blob/master/BurnSoft.Universal.chm
+
+<br/>
 <br/>
 <b>Classes:</b>
 
