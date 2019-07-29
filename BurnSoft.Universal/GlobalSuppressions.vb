@@ -1,0 +1,18 @@
+﻿
+' This file is used by Code Analysis to maintain SuppressMessage 
+' attributes that are applied to this project.
+' Project-level suppressions either have no target or are given 
+' a specific target and scoped to a namespace, type, member, etc.
+
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.adUserToGroup(System.String,System.String,System.String,System.String)")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.FindObject(System.String,BurnSoft.Universal.BSActiveDirectory.AD_AccountType,System.String@)~System.String")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetCurrentOULocation(System.String)~System.String")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetCurrentOUPath(System.String)~System.String")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetDirectoryEntry~System.DirectoryServices.DirectoryEntry")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetDomainInfo(System.String@,System.String@)~System.String")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetDomainInfoPlus(System.String,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@)")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetGroups(System.String,System.String,System.String)~Microsoft.VisualBasic.Collection")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.GetOUStreet(System.String,System.String,System.String,System.String,System.String@)~System.String")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.ListAllADComputers~Microsoft.VisualBasic.Collection")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.ListAllADComputers_AC(System.String@)~System.Windows.Forms.AutoCompleteStringCollection")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BurnSoft.Universal.BSActiveDirectory.SetLDAPAttribute(System.String,System.String@,System.String@)")>
