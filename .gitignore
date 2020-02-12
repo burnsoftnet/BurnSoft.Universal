@@ -32,3 +32,6 @@ UnitTest_BurnSoftUniversal/obj/
 .vs/BurnSoft.Universal/v15/Server/
 .vs/BurnSoft.Universal/v15/
 .vs/
+BurnSoft.Universal/obj/
+BurnSoft.Universal/bin/
+BurnSoft.Universal/bin/Release/BurnSoft.Universal.dll

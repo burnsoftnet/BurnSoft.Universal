@@ -7,14 +7,21 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>https://github.com/burnsoftnet/BurnSoft.Universal</projectUrl>
-    <iconUrl>https://avatars0.githubusercontent.com/u/24593581?s=460</iconUrl>
+    <repository type="git" url="https://github.com/burnsoftnet/BurnSoft.Database" />
+    <icon>images\icon.png</icon>
+    <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial Release.</releaseNotes>
-    <copyright>Copyright 2019</copyright>
+    <releaseNotes>Initial Release with multi .net support</releaseNotes>
+    <copyright>Copyright 2019-2020</copyright>
     <tags>BurnSoft Universal VB.NET</tags>
   </metadata>
   <files>
-    <file src="bin/release/BurnSoft.Universal.dll" target="lib/net45/" />
+    <file src="bin/net40/BurnSoft.Universal.dll" target="lib/net40/" />
+    <file src="bin/net40/BurnSoft.Universal.xml" target="lib/net40/" />
+    <file src="bin/net452/BurnSoft.Universal.dll" target="lib/net452/" />
+    <file src="bin/net452/BurnSoft.Universal.xml" target="lib/net452/" />
+    <file src="$id$.chm" target="content/$id$.chm" />
+    <file src="icon.png" target="images\" />
   </files>
 </package>
