@@ -15,6 +15,17 @@
     <releaseNotes>Initial Release with multi .net support</releaseNotes>
     <copyright>Copyright 2019-2020</copyright>
     <tags>BurnSoft Universal VB.NET</tags>
+    <frameworkReferences>
+      <group targetFramework=".NETFramework4.6.1">
+        <frameworkReference name=".NETFramework4.6.1" />
+      </group>
+      <group targetFramework=".NETFramework4.5.2">
+        <frameworkReference name=".NETFramework4.5.2" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <frameworkReference name=".NETFramework4.0" />
+      </group>
+    </frameworkReferences>
   </metadata>
   <files>
     <file src="bin/net40/BurnSoft.Universal.dll" target="lib/net40/" />
