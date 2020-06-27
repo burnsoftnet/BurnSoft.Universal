@@ -5,8 +5,11 @@
 Imports System.Management
 Imports System.Windows.Forms
 ' ReSharper disable InconsistentNaming
+''' <summary>
+''' Class BSSystemInfo, To Get general information from the System
+''' </summary>
 Public Class BSSystemInfo
-' ReSharper restore InconsistentNaming
+    ' ReSharper restore InconsistentNaming
     ''' <summary>
     ''' Returns the Physical memory of the machine broken down to kb, mb, gb, or tb
     ''' </summary>
@@ -21,7 +24,7 @@ Public Class BSSystemInfo
     ''' <param name="cpuid"></param>
     ''' <returns>Speed in Megahertz</returns>
     Public Function GetCpuSpeed(Optional ByVal cpuid As Integer = 0) As Long
-        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "CurrentClockSpeed")
+        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & cpuid & "'", "CurrentClockSpeed")
     End Function
     ''' <summary>
     ''' Gets the CPU Description, 
@@ -30,7 +33,7 @@ Public Class BSSystemInfo
     ''' <param name="cpuid"></param>
     ''' <returns>descriptoion</returns>
     Public Function GetCpuDescription(Optional ByVal cpuid As Integer = 0) As String
-        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "Description")
+        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & cpuid & "'", "Description")
     End Function
     ''' <summary>
     ''' Gets the Full CPU Name with Processor speed, 
@@ -39,7 +42,7 @@ Public Class BSSystemInfo
     ''' <param name="cpuid"></param>
     ''' <returns>name</returns>
     Public Function GetCpuName(Optional ByVal cpuid As Integer = 0) As String
-        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & CPUID & "'", "Name")
+        Return GetManagementObject("Win32_Processor.DeviceID='CPU" & cpuid & "'", "Name")
     End Function
     ''' <summary>
     ''' Uses My.User.Name to get the current user that is running the application
@@ -111,15 +114,15 @@ Public Class BSSystemInfo
     Public Function ProcessExists(sProcessName As String, commandLineContains As String, Optional ByRef PID As String = "", Optional ByRef processCount As Integer = 0) As Boolean
         Dim bAns As Boolean = False
         'Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='" &
-         '                                            sProcessName & "' and CommandLine Like '%" & CommandLineContains & "%'")
+        '                                            sProcessName & "' and CommandLine Like '%" & CommandLineContains & "%'")
         Dim searcher As New ManagementObjectSearcher("SELECT * FROM Win32_Process WHERE Name='%" & sProcessName & "%'")
         'TOFIX:  This is not working as designed
-        Dim commandLine as String =""
+        Dim commandLine As String = ""
         For Each process As ManagementObject In searcher.Get()
             commandLine = process("CommandLine")
             Debug.Print(commandLine)
             bAns = True
-            ProcessCount += 1
+            processCount += 1
             PID &= process("ProcessId")
         Next
         searcher = Nothing
@@ -135,7 +138,7 @@ Public Class BSSystemInfo
         Dim bAns As Boolean = False
         Dim p() As Process
         p = Process.GetProcessesByName(sProcessName)
-        ProcessCount = p.Count
+        processCount = p.Count
         If p.Count > 0 Then
             bAns = True
         End If
