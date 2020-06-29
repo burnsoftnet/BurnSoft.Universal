@@ -8,6 +8,7 @@
     <owners>$author$</owners>
     <projectUrl>https://github.com/burnsoftnet/BurnSoft.Universal</projectUrl>
     <repository type="git" url="https://github.com/burnsoftnet/BurnSoft.Universal" />
+    <iconUrl>https://avatars0.githubusercontent.com/u/24593581?s=460</iconUrl>
     <icon>images\icon.png</icon>
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
