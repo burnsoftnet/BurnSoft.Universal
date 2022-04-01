@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Contains a bunch of classes that we use for our applications.")> 
 <Assembly: AssemblyCompany("BurnSoft")> 
 <Assembly: AssemblyProduct("BurnSoft.Universal")>
-<Assembly: AssemblyCopyright("Copyright © BurnSoft 2013 - 2021")>
+<Assembly: AssemblyCopyright("Copyright © BurnSoft 2013 - 2022")>
 <Assembly: AssemblyTrademark("www.burnsoft.net")> 
 
 <Assembly: ComVisible(False)>
