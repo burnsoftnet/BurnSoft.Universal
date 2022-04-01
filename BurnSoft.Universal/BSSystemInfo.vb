@@ -4,11 +4,13 @@
 '-------------------------------------------
 Imports System.Management
 Imports System.Windows.Forms
+Imports Microsoft.VisualBasic.ApplicationServices
 ' ReSharper disable InconsistentNaming
 ''' <summary>
 ''' Class BSSystemInfo, To Get general information from the System
 ''' </summary>
 Public Class BSSystemInfo
+#If Not NET5_0 Then
     ' ReSharper restore InconsistentNaming
     ''' <summary>
     ''' Returns the Physical memory of the machine broken down to kb, mb, gb, or tb
@@ -17,6 +19,7 @@ Public Class BSSystemInfo
     Public Function GetPhysicalMemory() As String
         Return TranslateMemory(My.Computer.Info.TotalPhysicalMemory)
     End Function
+#End If
     ''' <summary>
     ''' Gets the Current Clock Speed in MegaHertz, By Default it is looking as CPU 0 by Can be changed if
     ''' if needed by adding a value to the CPUID
@@ -44,6 +47,7 @@ Public Class BSSystemInfo
     Public Function GetCpuName(Optional ByVal cpuid As Integer = 0) As String
         Return GetManagementObject("Win32_Processor.DeviceID='CPU" & cpuid & "'", "Name")
     End Function
+#If Not NET5_0 Then
     ''' <summary>
     ''' Uses My.User.Name to get the current user that is running the application
     ''' </summary>
@@ -61,6 +65,7 @@ Public Class BSSystemInfo
         End If
         Return sAns
     End Function
+#end if
     ''' <summary>
     '''  Uses SystemInformation.UserDomainName to get the Domain from the user that is running the applications
     ''' </summary>

@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>BurnSoft.Universal</RootNamespace>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>BurnSoft.Universal</AssemblyName>
+    <AssemblyVersion>4.0.32.3</AssemblyVersion>
+    <FileVersion>4.0.32.3</FileVersion>
+    <Description>Contains a bunch of classes that we use for our applications.</Description>
+    <Copyright>Copyright © BurnSoft 2013 - 2022</Copyright>
+    <Authors>www.burnsoft.net</Authors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Debug\net5\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <DocumentationFile>BurnSoft.Universal.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>BurnSoft.Universal.xml</DocumentationFile>
+    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Release\net5\</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\BurnSoft.Universal\BSActiveDirectory.vb" Link="BSActiveDirectory.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSDateTime.vb" Link="BSDateTime.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSEncryption.vb" Link="BSEncryption.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSFileSystem.vb" Link="BSFileSystem.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSMath.vb" Link="BSMath.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSNetwork.vb" Link="BSNetwork.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSOtherObjects.vb" Link="BSOtherObjects.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSProcessInfo.vb" Link="BSProcessInfo.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSRegistry.vb" Link="BSRegistry.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSSystemInfo.vb" Link="BSSystemInfo.vb" />
+    <Compile Include="..\BurnSoft.Universal\BSWebResponse.vb" Link="BSWebResponse.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
+    <PackageReference Include="System.Management" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
