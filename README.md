@@ -62,3 +62,9 @@ https://github.com/burnsoftnet/Documentation/blob/master/BurnSoft.Universal.chm
 
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JSW8XEMQVH4BE)]
+
+## Release Log
+
+### v.4.0.32.4
+- Updated drivers
+- Added More options for framwork support. .net 5 and .net framework 4.8, and updated projects and included in package the .net 4 and .net 4.5 library version
