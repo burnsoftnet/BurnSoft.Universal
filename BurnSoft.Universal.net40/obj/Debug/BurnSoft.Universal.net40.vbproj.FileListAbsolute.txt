@@ -1,0 +1,8 @@
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.Resources.resources
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.net40.vbproj.GenerateResource.cache
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.net40.vbproj.CoreCompileInputs.cache
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.net40.vbproj.AssemblyReference.cache
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Debug\net40\BurnSoft.Universal.dll
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Debug\net40\BurnSoft.Universal.xml
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.dll
+C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal.net40\obj\Debug\BurnSoft.Universal.xml
