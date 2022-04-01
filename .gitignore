@@ -25,3 +25,4 @@ UnitTest_BurnSoftUniversal/
 BurnSoft.Universal.net40/obj/
 BurnSoft.Universal.net45/obj/
 BurnSoft.Universal.net48/obj/
+*.nupkg

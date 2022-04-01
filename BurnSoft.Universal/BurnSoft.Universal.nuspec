@@ -2,23 +2,23 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>4.0.35.3-alpha</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>burnsoftnet</authors>
+    <owners>burnsoftnet</owners>
     <projectUrl>https://github.com/burnsoftnet/BurnSoft.Universal</projectUrl>
     <repository type="git" url="https://github.com/burnsoftnet/BurnSoft.Universal" />
     <iconUrl>https://avatars0.githubusercontent.com/u/24593581?s=460</iconUrl>
     <icon>images\icon.png</icon>
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Contains a bunch of classes that we use for our applications.</description>
     <releaseNotes>Initial Release with multi .net support</releaseNotes>
-    <copyright>Copyright 2019-2020</copyright>
+    <copyright>$copyright$</copyright>
     <tags>BurnSoft Universal VB.NET</tags>
     <frameworkReferences>
-      <group targetFramework=".NETFramework4.6.1">
-        <frameworkReference name=".NETFramework4.6.1" />
+      <group targetFramework=".NETFramework4.7.2">
+        <frameworkReference name=".NETFramework4.7.2" />
       </group>
       <group targetFramework=".NETFramework4.5.2">
         <frameworkReference name=".NETFramework4.5.2" />
@@ -26,13 +26,18 @@
       <group targetFramework=".NETFramework4.0">
         <frameworkReference name=".NETFramework4.0" />
       </group>
+      <group targetFramework=".NETFramework4.8">
+        <frameworkReference name=".NETFramework4.8" />
+      </group>
     </frameworkReferences>
   </metadata>
   <files>
-    <file src="bin/net40/BurnSoft.Universal.dll" target="lib/net40/" />
-    <file src="bin/net40/BurnSoft.Universal.xml" target="lib/net40/" />
-    <file src="bin/net452/BurnSoft.Universal.dll" target="lib/net452/" />
-    <file src="bin/net452/BurnSoft.Universal.xml" target="lib/net452/" />
+    <file src="bin/$configuration$/net40/$id$.dll" target="lib/net40/" />
+    <file src="bin/$configuration$/net40/$id$.xml" target="lib/net40/" />
+    <file src="bin/$configuration$/net45/$id$.dll" target="lib/net45/" />
+    <file src="bin/$configuration$/net45/$id$.xml" target="lib/net45/" />
+    <file src="bin/$configuration$/net48/$id$.dll" target="lib/net48/" />
+    <file src="bin/$configuration$/net48/$id$.xml" target="lib/net48/" />
     <file src="$id$.chm" target="content/$id$.chm" />
     <file src="icon.png" target="images\" />
   </files>
