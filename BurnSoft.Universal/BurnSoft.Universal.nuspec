@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>4.0.35.3-alpha</version>
+    <version>4.0.34.3-alpha</version>
     <title>$title$</title>
     <authors>burnsoftnet</authors>
     <owners>burnsoftnet</owners>
@@ -29,6 +29,9 @@
       <group targetFramework=".NETFramework4.8">
         <frameworkReference name=".NETFramework4.8" />
       </group>
+      <group targetFramework=".NET5">
+        <frameworkReference name=".NET5" />
+      </group>
     </frameworkReferences>
   </metadata>
   <files>
@@ -38,6 +41,9 @@
     <file src="bin/$configuration$/net45/$id$.xml" target="lib/net45/" />
     <file src="bin/$configuration$/net48/$id$.dll" target="lib/net48/" />
     <file src="bin/$configuration$/net48/$id$.xml" target="lib/net48/" />
+    <file src="bin/$configuration$/net5/net5.0-windows/$id$.dll" target="lib/net5/" />
+    <file src="bin/$configuration$/net5/net5.0-windows/$id$.xml" target="lib/net5/" />
+    <file src="bin/$configuration$/net5/net5.0-windows/$id$.deps.json" target="lib/net5/" />
     <file src="$id$.chm" target="content/$id$.chm" />
     <file src="icon.png" target="images\" />
   </files>
