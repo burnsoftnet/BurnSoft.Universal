@@ -23,9 +23,6 @@
       <group targetFramework=".NETFramework4.5.2">
         <frameworkReference name=".NETFramework4.5.2" />
       </group>
-      <group targetFramework=".NETFramework4.0">
-        <frameworkReference name=".NETFramework4.0" />
-      </group>
       <group targetFramework=".NETFramework4.8">
         <frameworkReference name=".NETFramework4.8" />
       </group>
@@ -35,8 +32,6 @@
     </frameworkReferences>
   </metadata>
   <files>
-    <file src="bin/$configuration$/net40/$id$.dll" target="lib/net40/" />
-    <file src="bin/$configuration$/net40/$id$.xml" target="lib/net40/" />
     <file src="bin/$configuration$/net45/$id$.dll" target="lib/net45/" />
     <file src="bin/$configuration$/net45/$id$.xml" target="lib/net45/" />
     <file src="bin/$configuration$/net48/$id$.dll" target="lib/net48/" />
