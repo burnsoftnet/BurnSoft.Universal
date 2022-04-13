@@ -13,7 +13,7 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains a bunch of classes that we use for our applications.</description>
-    <releaseNotes>Initial Release with multi .net support</releaseNotes>
+    <releaseNotes>Added VbFunctions Class To use functions in vb. that are not in c#, current only have IsNumeric and DateDiff</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>BurnSoft Universal VB.NET</tags>
     <frameworkReferences>
