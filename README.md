@@ -9,6 +9,9 @@ https://github.com/burnsoftnet/Documentation/blob/master/BurnSoft.Universal.chm
 
 ## Release Log
 
+### v.4.0.32.5
+- Added VbFunctions Class To use functions in vb. that are not in c#, current only have IsNumeric and DateDiff
+
 ### v.4.0.32.4
 - Updated drivers
 - Added More options for framework support. .net 5 and .net framework 4.8, and updated projects and included in package the .net 4.72 library version
