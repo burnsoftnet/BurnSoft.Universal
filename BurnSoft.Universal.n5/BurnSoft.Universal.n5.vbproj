@@ -4,8 +4,8 @@
     <RootNamespace>BurnSoft.Universal</RootNamespace>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>BurnSoft.Universal</AssemblyName>
-    <AssemblyVersion>4.0.32.4</AssemblyVersion>
-    <FileVersion>4.0.32.3</FileVersion>
+    <AssemblyVersion>4.0.32.5</AssemblyVersion>
+    <FileVersion>4.0.32.5</FileVersion>
     <Description>Contains a bunch of classes that we use for our applications.</Description>
     <Copyright>Copyright © BurnSoft 2013 - 2022</Copyright>
     <Authors>www.burnsoft.net</Authors>
