@@ -30,4 +30,12 @@ Public Class VbFunctions
     Public Shared Function IsADate(value As Object) As Boolean
             Return IsDate(value)
     End Function
+    ''' <summary>
+    ''' Determines whether [is an array] [the specified value].
+    ''' </summary>
+    ''' <param name="value">The value.</param>
+    ''' <returns><c>true</c> if [is an array] [the specified value]; otherwise, <c>false</c>.</returns>
+    Public Shared Function IsAnArray(value As Object) As Boolean
+        Return IsArray(value)
+    End Function
 End Class
