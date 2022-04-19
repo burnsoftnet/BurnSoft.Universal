@@ -1,4 +1,6 @@
-﻿''' <summary>
+﻿Imports System.Runtime.Remoting.Messaging
+
+''' <summary>
 ''' Functions that are availabel and make life easier in bn/vb.net but are not a part of c#
 ''' </summary>
 Public Class VbFunctions
@@ -19,5 +21,13 @@ Public Class VbFunctions
     ''' <returns>System.Int64.</returns>
     Public Shared Function GetDateDiff(startDate As Date, endDate As Date, interval As DateInterval) As Long
         Return DateDiff(interval, startDate, endDate)
+    End Function
+    ''' <summary>
+    ''' Determines whether [is a date] [the specified value].
+    ''' </summary>
+    ''' <param name="value">The value.</param>
+    ''' <returns><c>true</c> if [is a date] [the specified value]; otherwise, <c>false</c>.</returns>
+    Public Shared Function IsADate(value As Object) As Boolean
+            Return IsDate(value)
     End Function
 End Class
