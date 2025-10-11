@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <RootNamespace>BurnSoft.Universal</RootNamespace>
-    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>BurnSoft.Universal</AssemblyName>
-    <AssemblyVersion>4.0.32.5</AssemblyVersion>
-    <FileVersion>4.0.32.5</FileVersion>
+    <AssemblyVersion>4.1.33.6</AssemblyVersion>
+    <FileVersion>4.1.33.6</FileVersion>
     <Description>Contains a bunch of classes that we use for our applications.</Description>
-    <Copyright>Copyright © BurnSoft 2013 - 2022</Copyright>
+    <Copyright>Copyright © BurnSoft 2013 - 2025</Copyright>
     <Authors>www.burnsoft.net</Authors>
   </PropertyGroup>
 
@@ -19,13 +18,12 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon />
     <StartupObject />
