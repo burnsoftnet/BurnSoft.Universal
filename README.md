@@ -9,8 +9,12 @@ https://github.com/burnsoftnet/Documentation/blob/master/BurnSoft.Universal.chm
 
 ## Release Log
 
-### v.4.0.x.x
+### v.4.1.33.6
 - Added more VbFunctions: IsDate and IsArray
+- Change Support for .net5 to .net8
+- Changed Support for .net framework 4.8 to 4.8.1
+- Updated Unit Tests
+
 
 ### v.4.0.32.5
 - Added VbFunctions Class To use functions in vb. that are not in c#, current only have IsNumeric and DateDiff
