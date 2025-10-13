@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Debug\net5\</OutputPath>
+    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Debug\net8\</OutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <DocumentationFile>BurnSoft.Universal.xml</DocumentationFile>
@@ -23,15 +23,16 @@
   
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon />
     <StartupObject />
+    <Title>$(AssemblyName)</Title>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>BurnSoft.Universal.xml</DocumentationFile>
-    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Release\net5\</OutputPath>
+    <OutputPath>C:\Source\Repos\BurnSoft.Universal\BurnSoft.Universal\bin\Release\net8\</OutputPath>
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
   </PropertyGroup>
@@ -51,9 +52,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
-    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="6.0.0" />
-    <PackageReference Include="System.Management" Version="6.0.0" />
+    <PackageReference Include="System.DirectoryServices" Version="9.0.9" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="9.0.9" />
+    <PackageReference Include="System.Management" Version="9.0.9" />
   </ItemGroup>
 
 </Project>

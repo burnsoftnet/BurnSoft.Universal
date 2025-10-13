@@ -5,6 +5,7 @@
 Imports System.Management
 Imports System.Windows.Forms
 Imports Microsoft.VisualBasic.ApplicationServices
+Imports Microsoft.VisualBasic.Devices
 ' ReSharper disable InconsistentNaming
 ''' <summary>
 ''' Class BSSystemInfo, To Get general information from the System
@@ -17,7 +18,8 @@ Public Class BSSystemInfo
     ''' </summary>
     ''' <returns>total</returns>
     Public Function GetPhysicalMemory() As String
-        Return TranslateMemory(My.Computer.Info.TotalPhysicalMemory)
+        Dim obj As Computer = New Computer()
+        Return TranslateMemory(obj.Info.TotalPhysicalMemory)
     End Function
 #End If
     ''' <summary>
@@ -54,13 +56,14 @@ Public Class BSSystemInfo
     ''' <returns></returns>
     Public Function GetUserName() As String
         Dim sAns As String = "NO USER FOUND"
-        Dim sSplit() = Split(My.User.Name, "\")
+        Dim obj As User = New User()
+        Dim sSplit() = Split(obj.Name, "\")
         Dim iBound As Integer = UBound(sSplit)
         If iBound >= 1 Then
             sAns = sSplit(iBound)
         Else
-            If My.User.Name.Length > 0 Then
-                sAns = My.User.Name
+            If obj.Name.Length > 0 Then
+                sAns = obj.Name
             End If
         End If
         Return sAns
