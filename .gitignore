@@ -20,7 +20,6 @@ BurnSoft.Universal/obj/
 UniversalTestSeed/bin/
 UniversalTestSeed/obj/
 BurnSoft.Universal/bin/
-UnitTest_BurnSoftUniversal/
 .vs/
 BurnSoft.Universal.net40/obj/
 BurnSoft.Universal.net45/obj/
@@ -29,3 +28,5 @@ BurnSoft.Universal.n5/obj/
 *.nupkg
 /packages
 /packages
+/UnitTest_BurnSoftUniversal/bin
+/UnitTest_BurnSoftUniversal/obj
