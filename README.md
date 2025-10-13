@@ -13,6 +13,7 @@ https://github.com/burnsoftnet/Documentation/blob/master/BurnSoft.Universal.chm
 - Added more VbFunctions: IsDate and IsArray
 - Change Support for .net5 to .net8
 - Changed Support for .net framework 4.8 to 4.8.1
+- Updated Unit Tests
 
 
 ### v.4.0.32.5

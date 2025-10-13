@@ -2559,5 +2559,40 @@ Get all the Computers in Active Directory as a regular Collection Array.
  Initialize new instance and reset to private vars
  </summary>
 </member>
+<member name="T:BurnSoft.Universal.VbFunctions">
+ <summary>
+ Functions that are availabel and make life easier in bn/vb.net but are not a part of c#
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.VbFunctions.ValueIsnumeric(System.Object)">
+ <summary>
+ Checks to see if the Value is Numeric or not, uses vb function IsNumeric
+ </summary>
+ <param name="value">The value.</param>
+ <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+</member>
+<member name="M:BurnSoft.Universal.VbFunctions.GetDateDiff(System.DateTime,System.DateTime,Microsoft.VisualBasic.DateInterval)">
+ <summary>
+ Gets the date difference betweek two dates, or uses vb function datediff
+ </summary>
+ <param name="startDate">The start date.</param>
+ <param name="endDate">The end date.</param>
+ <param name="interval">The interval.</param>
+ <returns>System.Int64.</returns>
+</member>
+<member name="M:BurnSoft.Universal.VbFunctions.IsADate(System.Object)">
+ <summary>
+ Determines whether [is a date] [the specified value].
+ </summary>
+ <param name="value">The value.</param>
+ <returns><c>true</c> if [is a date] [the specified value]; otherwise, <c>false</c>.</returns>
+</member>
+<member name="M:BurnSoft.Universal.VbFunctions.IsAnArray(System.Object)">
+ <summary>
+ Determines whether [is an array] [the specified value].
+ </summary>
+ <param name="value">The value.</param>
+ <returns><c>true</c> if [is an array] [the specified value]; otherwise, <c>false</c>.</returns>
+</member>
 </members>
 </doc>
