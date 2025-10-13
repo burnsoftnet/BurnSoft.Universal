@@ -145,13 +145,13 @@
     <Compile Include="General.vb" />
     <Compile Include="Settings.vb" />
     <Compile Include="VbFunctionsTest.vb" />
-    <Compile Include="UnitTest_FileIO.vb" />
+    <Compile Include="FileIOTests.vb" />
     <Compile Include="BSMathTests.vb" />
     <Compile Include="BSNetworkTests.vb" />
     <Compile Include="BSDateTimeTests.vb" />
-    <Compile Include="UnitTest_BSOtherObjects.vb" />
-    <Compile Include="UnitTest_BSProcessInfo.vb" />
-    <Compile Include="UnitTest_BSRegistry.vb" />
+    <Compile Include="BSOtherObjectsTests.vb" />
+    <Compile Include="BSProcessInfoTests.vb" />
+    <Compile Include="BSRegistryRwara.vb" />
     <Compile Include="BSSystemInfoTest.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
