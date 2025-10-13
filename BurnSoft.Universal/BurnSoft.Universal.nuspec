@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>4.1.33.6-alpha</version>
+    <version>4.1.33.6</version>
     <title>$title$</title>
     <authors>burnsoftnet</authors>
     <owners>burnsoftnet</owners>
@@ -29,8 +29,8 @@
     </frameworkReferences>
   </metadata>
   <files>
-    <file src="bin/$configuration$/net48/$id$.dll" target="lib/net481/" />
-    <file src="bin/$configuration$/net48/$id$.xml" target="lib/net481/" />
+    <file src="bin/$configuration$/net481/$id$.dll" target="lib/net481/" />
+    <file src="bin/$configuration$/net481/$id$.xml" target="lib/net481/" />
     <file src="bin/$configuration$/net8/net8.0-windows/$id$.dll" target="lib/net8/" />
     <file src="bin/$configuration$/net8/net8.0-windows/$id$.xml" target="lib/net8/" />
     <file src="bin/$configuration$/net8/net8.0-windows/$id$.deps.json" target="lib/net8/" />

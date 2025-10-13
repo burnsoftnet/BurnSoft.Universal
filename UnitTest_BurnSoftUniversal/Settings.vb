@@ -1,7 +1,7 @@
 ﻿
 <TestClass()> Public Class Settings
-    Public Const ProcessName = "spoolsv"
-    Public Const CommandLineSearch = "start"
+    Public Const ProcessName = "devenv"
+    Public Const CommandLineSearch = ""
     Public Const RegSubkey = "Test"
     Public Const RegSubkeyName = "UnitTest"
     Public Const RegSubkeyValue = "Passed"
