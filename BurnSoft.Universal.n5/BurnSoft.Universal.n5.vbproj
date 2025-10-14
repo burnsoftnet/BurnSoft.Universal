@@ -3,8 +3,8 @@
   <PropertyGroup>
     <RootNamespace>BurnSoft.Universal</RootNamespace>
     <AssemblyName>BurnSoft.Universal</AssemblyName>
-    <AssemblyVersion>4.1.33.6</AssemblyVersion>
-    <FileVersion>4.1.33.6</FileVersion>
+    <AssemblyVersion>4.1.33.8</AssemblyVersion>
+    <FileVersion>4.1.33.8</FileVersion>
     <Description>Contains a bunch of classes that we use for our applications.</Description>
     <Copyright>Copyright © BurnSoft 2013 - 2025</Copyright>
     <Authors>www.burnsoft.net</Authors>
@@ -49,6 +49,7 @@
     <Compile Include="..\BurnSoft.Universal\BSRegistry.vb" Link="BSRegistry.vb" />
     <Compile Include="..\BurnSoft.Universal\BSSystemInfo.vb" Link="BSSystemInfo.vb" />
     <Compile Include="..\BurnSoft.Universal\BSWebResponse.vb" Link="BSWebResponse.vb" />
+    <Compile Include="..\BurnSoft.Universal\VBFunctions.vb" Link="VBFunctions.vb" />
   </ItemGroup>
 
   <ItemGroup>
