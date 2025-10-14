@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Contains a bunch of classes that we use for our applications.")>
 <Assembly: AssemblyCompany("www.burnsoft.net")>
 <Assembly: AssemblyProduct("BurnSoft.Universal")>
-<Assembly: AssemblyCopyright("Copyright © BurnSoft 2013 - 2022")>
+<Assembly: AssemblyCopyright("Copyright © BurnSoft 2013 - 2025")>
 <Assembly: AssemblyTrademark("www.burnsoft.net")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("4.0.32.5")>
-<Assembly: AssemblyFileVersion("4.0.32.5")>
+<Assembly: AssemblyVersion("4.1.33.8")>
+<Assembly: AssemblyFileVersion("4.1.33.8")>

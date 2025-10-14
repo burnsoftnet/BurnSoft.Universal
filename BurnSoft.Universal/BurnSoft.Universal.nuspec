@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>4.0.32.5-alpha</version>
+    <version>4.1.33.10-beta</version>
     <title>$title$</title>
     <authors>burnsoftnet</authors>
     <owners>burnsoftnet</owners>
@@ -20,20 +20,20 @@
       <group targetFramework=".NETFramework4.7.2">
         <frameworkReference name=".NETFramework4.7.2" />
       </group>
-      <group targetFramework=".NETFramework4.8">
-        <frameworkReference name=".NETFramework4.8" />
+      <group targetFramework=".NETFramework4.8.1">
+        <frameworkReference name=".NETFramework4.8.1" />
       </group>
-      <group targetFramework=".NET5">
-        <frameworkReference name=".NET5" />
+      <group targetFramework=".NET8">
+        <frameworkReference name=".NET8" />
       </group>
     </frameworkReferences>
   </metadata>
   <files>
-    <file src="bin/$configuration$/net48/$id$.dll" target="lib/net48/" />
-    <file src="bin/$configuration$/net48/$id$.xml" target="lib/net48/" />
-    <file src="bin/$configuration$/net5/net5.0-windows/$id$.dll" target="lib/net5/" />
-    <file src="bin/$configuration$/net5/net5.0-windows/$id$.xml" target="lib/net5/" />
-    <file src="bin/$configuration$/net5/net5.0-windows/$id$.deps.json" target="lib/net5/" />
+    <file src="bin/$configuration$/net481/$id$.dll" target="lib/net481/" />
+    <file src="bin/$configuration$/net481/$id$.xml" target="lib/net481/" />
+    <file src="bin/$configuration$/net8/net8.0-windows/$id$.dll" target="lib/net8/" />
+    <file src="bin/$configuration$/net8/net8.0-windows/$id$.xml" target="lib/net8/" />
+    <file src="bin/$configuration$/net8/net8.0-windows/$id$.deps.json" target="lib/net8/" />
     <file src="$id$.chm" target="content/$id$.chm" />
     <file src="icon.png" target="images\" />
   </files>
